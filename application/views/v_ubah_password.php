@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Login Page</title>
+        <title><?php echo $title ?> Page</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="ThemeDesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,6 +21,7 @@
 
 
     <body>
+        <?php foreach($da as $row){ $email= $row->email; } ?>
 
         <!-- Loader -->
         <div id="preloader">
@@ -67,25 +68,41 @@ program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa 
                         <div class="card mb-0">
                             <div class="card-body">
                                 <div class="p-2">
-                                    <?php echo $this->session->flashdata('notification')?>
+                                    <?php echo $this->session->flashdata('notification_password')?>
                                 </div>
                                 <div class="p-2">
-                                    <h4 class="text-muted float-right font-18 mt-4">Sign In</h4>
+                                    <h4 class="text-muted float-right font-18 mt-4">Ubah Password Pertamamu</h4>
                                     <div>
                                         <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                                     </div>
                                 </div>
                                 <div class="p-2">
-                                    <form class="form-horizontal m-t-20" action="<?php echo site_url('login/aksi_login'); ?>" method="post">
+                                    <!-- <form class="form-horizontal m-t-20" action="<?php echo site_url('login/aksi_ubah_firstpassword'); ?>" method="post"> -->
+
+                                         <?php
+                                            $atribut = array(
+                                                    'class' => 'form-horizontal m-t-20',
+                                                    'method'=>'post'
+                                            );                                        
+                                                echo form_open('login/aksi_ubah_firstpassword/', $atribut); 
+
+                                                echo form_hidden('email', $email);
+                                        ?>
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input name="email" class="form-control" type="email" required="" placeholder="email">
+                                                <label>Password Baru</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input name="password_baru" class="form-control" type="password" required="" placeholder="Password">
                                             </div>
                                         </div>
         
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input name="password" class="form-control" type="password" required="" placeholder="Password">
+                                                <label>Ulangi Password Baru</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input name="ulangi_password_baru" class="form-control" type="password" required="" placeholder="Ulangi Password">
                                             </div>
                                         </div>
         
@@ -100,19 +117,12 @@ program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa 
         
                                         <div class="form-group text-center row m-t-20">
                                             <div class="col-12">
-                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Log In</button>
+                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Ubah Password</button>
                                             </div>
                                         </div>
-        
-                                        <div class="form-group m-t-10 mb-0 row">
-                                            <div class="col-sm-7 m-t-20">
-                                                <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
-                                            </div>
-                                            <div class="col-sm-5 m-t-20">
-                                                <a href="pages-register.html" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <?php
+                                        echo form_close();
+                                    ?>
                                 </div>
         
                             </div>

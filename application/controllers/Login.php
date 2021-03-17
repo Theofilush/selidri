@@ -15,71 +15,189 @@ class Login extends CI_Controller {
 	}
 
 	public function aksi_login(){
-		$username = $this->input->post('username');
+		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$where = array(
-			'username' => $username
+			'email' => $email
 			//'password' => md5($password),
 			);
-		$cek = $this->m_login->cek_login("login",$username)->num_rows();
+		$cek = $this->m_login->cek_login("t_login",$email)->num_rows();
 		if($cek > 0){
-			$db=$this->m_login->cek_login("login",$username)->row();
-			if(hash_verified($password ,$db->password)) 
-			{
-			   $data_session = array(
-				'nama' => $username,
-				'status' => "login"
-				);
-				$this->session->set_userdata($data_session);
-				redirect(site_url("dashboard"),'refresh');				
+			$db=$this->m_login->cek_login("t_login",$email)->row();
+			if(hash_verified($password ,$db->password)) {
+				if ($db->ubah_password == "belum") { 
+					$data_session = array(
+						'email' => $email,
+						'status' => "login"
+					);
+					$this->session->set_userdata($data_session);
+					redirect(site_url("login/ubah_firstpassword"),'refresh');
+				} elseif ($db->ubah_password == "sudah") {
+					$data_session = array(
+						'email' => $email,
+						'status' => "login"
+					);
+					$this->session->set_userdata($data_session);
+					redirect(site_url("dashboard"),'refresh');
+				}		
 			}
 			else{
-				$this->session->set_flashdata('notification','Maaf Password Salah.');
+				$this->session->set_flashdata('notification','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Maaf Password Salah. 
+                                    </div>');
 				redirect('','refresh');
 			}
 		}else{
-			$this->session->set_flashdata('notification', 'Username atau Password tidak ditemukan');	
+			$this->session->set_flashdata('notification', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Email tidak ditemukan. 
+                                    </div>');	
 			  redirect(site_url());
 		}
 	}
 
-	function signup(){
-		if($this->input->post('btnSignUp') == "Signup"){
-			$_nidn = $this->input->post('nidn', TRUE);
-			$_email = $this->input->post('email', TRUE);
-			$_username = $this->input->post('username', TRUE);
-			$_prodi = $this->input->post('prodi', TRUE);
-			$_password = $this->input->post('password', TRUE);
-			$_cpassword = $this->input->post('cpassword', TRUE);
-			if ($_password == $_cpassword) {
-				$data = array(
-				  'NIDN' => $_nidn,
-				  'email' => $_email,
-				  'username' => $_username,
-				  'prodi'=> $_prodi,
-				  'password'=> get_hash($_password),
-				  'author'=> 'dosen'
-				); 
-				//panggil fungsi simpanUser pada User_model
-				$query= $this->m_login->simpanUser($data);
-				if ($query) {
-					$this->session->set_flashdata('notification', 'Pendaftaran berhasil, silakan login.');	
-				  redirect(site_url('login'));
-				}
-				else{
-					$this->session->set_flashdata('notification', 'Pendaftaran gagal, silakan ulangi.');	
-				  redirect(site_url('#signup'));
-				}
-			}
-			else{
-			  //jikapassword tidak sama degan confirm password
-			  $this->session->set_flashdata('notification', 'Password Baru dan Konfirmasi Password harus sama');	
-			  redirect(site_url('#signup'));
-			}
-		}
+	function randomPassword() {
+	    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $pass = array(); //remember to declare $pass as an array
+	    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+	    for ($i = 0; $i < 15; $i++) {
+	        $n = rand(0, $alphaLength);
+	        $pass[] = $alphabet[$n];
+	    }
+	    return implode($pass); //turn the array into a string
 	}
 
-	function logout(){
+	public function ubah_firstpassword() {
+		$usan = $this->session->userdata('email');
+		$kue = $this->M_login->hak_ak($usan);
+
+		$dataHalaman = array(
+		  'title'=>"Ubah Password",		
+		  'da' => $kue,
+        );
+		$this->load->view('v_ubah_firstpassword', $dataHalaman);
+	}
+
+	public function aksi_ubah_firstpassword(){
+		$_email = $this->input->post('email');
+		$password_baru = $this->input->post('password_baru');
+		$ulangi_password_baru = $this->input->post('ulangi_password_baru');
+		if($password_baru == ""){
+            $this->session->set_flashdata('notification_password', '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin: 0px;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Password Tidak Terisi!
+                                    </div>');
+            redirect('login/ubah_firstpassword','refresh');
+        }
+        else {
+            if ($password_baru == $ulangi_password_baru) {
+              $data = array(
+                'password'=> get_hash($password_baru),
+                'ubah_password' => "sudah",
+              );
+              $query= $this->M_login->simpanUpdatePass($data, $_email);
+            }
+            else { //jika password tidak sama
+			  $this->session->set_flashdata('notification_password', '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin: 0px;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Password konfirmasi tidak cocok!
+                                    </div>');
+                redirect('login/ubah_firstpassword','refresh');
+            }
+        }
+
+        if ($query) {
+            $this->session->set_flashdata('notification_password', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Edit Password Berhasil!
+                                    </div>');
+            redirect('dashboard','refresh');            
+        }
+        else{
+            $this->session->set_flashdata('notification_password', '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin: 0px;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Edit Password Gagal!
+                                    </div>');
+            redirect('login/ubah_firstpassword','refresh');
+        }
+	}
+
+	public function ubah_password() {
+		$usan = $this->session->userdata('email');
+		$kue = $this->M_login->hak_ak($usan);
+
+		$dataHalaman = array(
+		  'title'=>"Ubah Password",		
+		  'da' => $kue,
+        );
+		$this->load->view('v_ubah_password', $dataHalaman);
+	}
+
+	public function aksi_ubah_password(){
+		$_email = $this->input->post('email');
+		$password_baru = $this->input->post('password_baru');
+		$ulangi_password_baru = $this->input->post('ulangi_password_baru');
+		if($password_baru == ""){
+            $this->session->set_flashdata('notification_password', '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin: 0px;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Password Tidak Terisi!
+                                    </div>');
+            redirect('login/ubah_password','refresh');
+        }
+        else {
+            if ($password_baru == $ulangi_password_baru) {
+              $data = array(
+                'password'=> get_hash($password_baru),
+              );
+              $query= $this->M_login->simpanUpdatePass($data, $_email);
+            }
+            else { //jika password tidak sama
+			  $this->session->set_flashdata('notification_password', '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin: 0px;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Password konfirmasi tidak cocok!
+                                    </div>');
+                redirect('login/ubah_password','refresh');
+            }
+        }
+
+        if ($query) {
+            $this->session->set_flashdata('notification_password', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Edit Password Berhasil!
+                                    </div>');
+            redirect('dashboard','refresh');            
+        }
+        else{
+            $this->session->set_flashdata('notification_password', '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin: 0px;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        Edit Password Gagal!
+                                    </div>');
+            redirect('login/ubah_password','refresh');
+        }
+	}
+
+	public function logout(){
 		$this->session->sess_destroy();
 		redirect(site_url('login'));
 	}

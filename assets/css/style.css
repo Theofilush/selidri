@@ -636,7 +636,7 @@ code {
 }
 
 #topnav {
-  position: fixed;
+  position: absolute;
   right: 0;
   left: 0;
   top: 0;
@@ -3016,7 +3016,7 @@ table.focus-on tbody tr.focused td {
   Account Pages
 ===================*/
 .account-pages {
-  margin: 10.5% auto;
+  margin: 2% auto; /*10.5% auto*/
   position: relative;
 }
 
