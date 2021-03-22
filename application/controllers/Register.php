@@ -35,7 +35,6 @@ class Register extends CI_Controller {
 			$_nama_ibu = $this->input->post('nama_ibu', TRUE);
 			$_pekerjaan_ibu = $this->input->post('pekerjaan_ibu', TRUE);
 			$_penghasilan_ibu = $this->input->post('penghasilan_ibu', TRUE);
-			// $_ = $this->input->post('', TRUE);
 
 			$_nama_sekolah = $this->input->post('nama_sekolah', TRUE);
 			$_alamat_sekolah = $this->input->post('alamat_sekolah', TRUE);
@@ -56,42 +55,45 @@ class Register extends CI_Controller {
 			$_filepdf_raport = $this->input->post('filepdf_raport', TRUE);
 			
 			$data_diri = array(
-				'' => $_nik,
-				'' => $_nama_lengkap,
-				'' => $_email,
-				'' => $_tempat_lahir,
-				'' => $_tanggal_lahir,
-				'' => $_nomor_handphone,
-				'' => $_nama_ayah,
-				'' => $_pekerjaan_ayah,
-				'' => $_penghasilan_ayah,
-				'' => $_nama_ibu,
-				'' => $_pekerjaan_ibu,
-				'' => $_penghasilan_ibu,
-				'' => $_filepdf_akta,
-				'' => $_filepdf_raport,
+				'nik' => $_nik,
+				'nama_lengkap' => $_nama_lengkap,
+				'email' => $_email,
+				'tempat_lahir' => $_tempat_lahir,
+				'tanggal_lahir' => $_tanggal_lahir,
+				'no_telp' => $_nomor_handphone,
+				'nama_ayah' => $_nama_ayah,
+				'pekerjaan_ayah' => $_pekerjaan_ayah,
+				'penghasilan_ayah' => $_penghasilan_ayah,
+				'nama_ibu' => $_nama_ibu,
+				'pekerjaan ibu' => $_pekerjaan_ibu,
+				'penghasilan_ibu' => $_penghasilan_ibu,
+				'file_aktalahir' => $_filepdf_akta,
+				'file_nilairaport' => $_filepdf_raport,
 			);
 
 			$data_sekolah = array(
-				'' => $_nama_sekolah,
-				'' => $_alamat_sekolah,
-				'' => $_status_sekolah,
-				'' => $_jenis_sekolah,
-				'' => $_kejuruan,
+				'nama_sekolah' => $_nama_sekolah,
+				'alamat_sekolah' => $_alamat_sekolah,
+				'status_sekolah' => $_status_sekolah,
+				'jenis_sekolah' => $_jenis_sekolah,
+				'kejuruan' => $_kejuruan,
 			);
 
 			$data_akademik = array(
-				'' => $_nilai_agama,
-				'' => $_nilai_pkn,
-				'' => $_nilai_matematika,
-				'' => $_nilai_bhsinggris,
-				'' => $_nilai_bhsindonesia,
-				'' => $_nilai_sejarah,
-				'' => $_nilai_kewirausahaan,
-				'' => $_nilai_kejuruan,
+				'nilai_agama' => $_nilai_agama,
+				'nilai_pkn' => $_nilai_pkn,
+				'nilai_matematika' => $_nilai_matematika,
+				'nilai_bhsinggris' => $_nilai_bhsinggris,
+				'nilai_bhsindonesia' => $_nilai_bhsindonesia,
+				'nilai_sejarah' => $_nilai_sejarah,
+				'nilai_kewirausahaan' => $_nilai_kewirausahaan,
+				'nilai_kejuruan' => $_nilai_kejuruan,
 			);
 
-			$query= $this->M_pengguna->simpanUser($data);
+			$queryDataDiri = $this->M_login->insertDataDiri($data_diri);
+			$queryDataSekolah = $this->M_login->insertDatasekolah($data_sekolah);
+			$queryAkademik = $this->M_login->insertDataAkademik($data_akademik);
+
 			if ($query) {
 				$this->session->set_flashdata('notification', 'Pendaftaran berhasil, silakan login.');	
 			redirect(site_url('users'));

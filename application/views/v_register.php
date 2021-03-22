@@ -18,17 +18,14 @@
 	<!-- CSS Files -->
 	<link href="<?php echo base_url() ?>assets/register/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url() ?>assets/register/css/material-bootstrap-wizard.css" rel="stylesheet" />
+	<link href="<?php echo base_url() ?>assets/register/css/bootstrap-datepicker.min.css" rel="stylesheet" />
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="<?php echo base_url() ?>assets/register/css/demo.css" rel="stylesheet" />
 </head>
 
 <body>
-	<div class=" set-full-height" style="
-    background: #f5f5f5;
-    margin: 0;
-    font-size: 13px;
-    font-family: 'Open Sans, sans-serif;">
+	<div class=" set-full-height" style="background: #f5f5f5; margin: 0; font-size: 13px; font-family: 'Open Sans, sans-serif;">
 	    <!--   Creative Tim Branding   -->
 	    <a href="http://creative-tim.com">
 	         <div class="logo-container">
@@ -128,7 +125,10 @@
 													</span>
 													<div class="form-group label-floating">
 			                                          <label class="control-label">Tanggal Lahir <small></small></label>
-			                                          <input name="tanggal_lahir" type="text" class="form-control">
+			                                          <!-- <input name="tanggal_lahir" type="text" class="form-control">
+			                                          <input type="text" class="form-control datepicker" value="10/10/2016" /> -->
+			                                          <input type="text" class="form-control datepicker" name="tanggal_lahir">
+			                                          <input type="text" class="form-control pull-right" id="datepicker" name="tanggal_lahir">
 			                                        </div>
 												</div>
 		                                	</div>
@@ -470,6 +470,7 @@
 	</div>
 
 </body>
+
 	<!--   Core JS Files   -->
     <script src="<?php echo base_url() ?>assets/register/js/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url() ?>assets/register/js/bootstrap.min.js" type="text/javascript"></script>
@@ -477,8 +478,24 @@
 
 	<!--  Plugin for the Wizard -->
 	<script src="<?php echo base_url() ?>assets/register/js/material-bootstrap-wizard.js"></script>
-
-    <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="<?php echo base_url() ?>assets/register/js/moment.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/register/js/bootstrap-datetimepicker.js"></script>
 	<script src="<?php echo base_url() ?>assets/register/js/jquery.validate.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/register/js/bootstrap-datepicker.min.js"></script>
 
+	<script type="text/javascript">
+	    $(document).ready(function() {
+	        demo.initFormExtendedDatetimepickers();
+	    });
+
+	    $('#datepicker').datepicker({
+	      autoclose: true
+	    })
+
+	    $(".datepicker").datepicker({
+		      format: 'yyyy-mm-dd',
+		      autoclose: true,
+		      todayHighlight: true,
+		});
+	</script>
 </html>

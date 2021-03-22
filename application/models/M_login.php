@@ -21,6 +21,16 @@ class M_login extends CI_Model{
         return $hasil; 
     }
 
+    function insertDataDiri($dataDiri){
+        return $this->db->insert('data_diri', $dataDiri);
+    } 
+    function insertDatasekolah($dataSekolah){
+        return $this->db->insert('data_sekolah', $dataSekolah);
+    } 
+    function insertDataAkademik($dataAkademik){
+        return $this->db->insert('data_akademik', $dataAkademik);
+    } 
+
 }
 
 ?>
