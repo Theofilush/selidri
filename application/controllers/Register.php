@@ -96,11 +96,11 @@ class Register extends CI_Controller {
 
 			if ($query) {
 				$this->session->set_flashdata('notification', 'Pendaftaran berhasil, silakan login.');	
-			redirect(site_url('users'));
+				redirect(site_url('users'));
 			}
 			else{
-					$this->session->set_flashdata('notification', 'Pendaftaran gagal, silakan ulangi.');	
-				  redirect(site_url('users'));
+				$this->session->set_flashdata('notification', 'Pendaftaran gagal, silakan ulangi.');	
+				redirect(site_url('users'));
 			}
 
 		}

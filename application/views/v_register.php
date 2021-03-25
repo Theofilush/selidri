@@ -127,7 +127,6 @@
 			                                          <label class="control-label">Tanggal Lahir <small></small></label>
 			                                          <!-- <input name="tanggal_lahir" type="text" class="form-control">
 			                                          <input type="text" class="form-control datepicker" value="10/10/2016" /> -->
-			                                          <input type="text" class="form-control datepicker" name="tanggal_lahir">
 			                                          <input type="text" class="form-control pull-right" id="datepicker" name="tanggal_lahir">
 			                                        </div>
 												</div>
@@ -488,11 +487,7 @@
 	        demo.initFormExtendedDatetimepickers();
 	    });
 
-	    $('#datepicker').datepicker({
-	      autoclose: true
-	    })
-
-	    $(".datepicker").datepicker({
+	    $("#datepicker").datepicker({
 		      format: 'yyyy-mm-dd',
 		      autoclose: true,
 		      todayHighlight: true,
