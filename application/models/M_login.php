@@ -31,6 +31,36 @@ class M_login extends CI_Model{
         return $this->db->insert('data_akademik', $dataAkademik);
     } 
 
+    function add_account($data){
+        return $this->db->insert('temp_register',$data);
+    }
+    
+    function changeActiveState($key){
+        $data = array(
+            'active' => 1
+        );
+        
+        $this->db->where('md5(no)', $key);
+        $this->db->update('temp_register', $data);
+        
+        return true;
+    }
+
+    function getRegister($no){
+        $this->db->where("no", $no);
+        $hasil = $this->db->get('temp_register');
+        return $hasil->result();
+	}
+
+    function delete_tempRegister($id){
+        $this->db->where('no', $id);
+        $this->db->delete('temp_register');
+    }
+
+    function insert_TLogin($data){
+        return $this->db->insert('t_login', $data);
+    } 
+
 }
 
 ?>

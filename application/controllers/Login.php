@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 	}
 
 	public function index(){
-		$this->load->view('v_login');
+		$this->load->view('login/v_login');
 		if($this->session->userdata('status') == "login"){
 			redirect(site_url("dashboard"));
 		}
@@ -80,7 +80,7 @@ class Login extends CI_Controller {
 		  'title'=>"Ubah Password",		
 		  'da' => $kue,
         );
-		$this->load->view('v_ubah_firstpassword', $dataHalaman);
+		$this->load->view('login/v_ubah_firstpassword', $dataHalaman);
 	}
 
 	public function aksi_ubah_firstpassword(){
@@ -143,7 +143,7 @@ class Login extends CI_Controller {
 		  'title'=>"Ubah Password",		
 		  'da' => $kue,
         );
-		$this->load->view('v_ubah_password', $dataHalaman);
+		$this->load->view('login/v_ubah_password', $dataHalaman);
 	}
 
 	public function aksi_ubah_password(){

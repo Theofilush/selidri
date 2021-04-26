@@ -72,7 +72,7 @@ program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa 
                                 <div class="p-2">
                                     <h4 class="text-muted float-right font-18 mt-4">Sign In</h4>
                                     <div>
-                                        <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
+                                        <a href="#" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                                     </div>
                                 </div>
                                 <div class="p-2">
@@ -109,7 +109,7 @@ program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa 
                                                 <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
                                             </div>
                                             <div class="col-sm-5 m-t-20">
-                                                <a href="pages-register.html" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
+                                                <a href="<?php echo site_url(); ?>Register/buat_akun" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
                                             </div>
                                         </div>
                                     </form>

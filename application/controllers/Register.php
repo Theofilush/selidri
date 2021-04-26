@@ -11,15 +11,173 @@ class Register extends CI_Controller {
 		// } 	
 	}
 
-	public function index()
-	{
-		// $dataHalaman = array(
-		//   'title'=>"Dashboard",		
-		//   'da' => $kue,
-        //  );
-		$this->load->view('v_register');
+	public function index() {
+		if($this->session->userdata('status') != "login"){
+			redirect(site_url("login"));
+		} 	
+		$this->load->view('login/v_register');
 	}
 
+	public function notifikasi_error() {
+		$this->load->view('login/v_notif_email');
+	}
+	
+	function randomPassword() {
+	    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $pass = array(); //remember to declare $pass as an array
+	    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+	    for ($i = 0; $i < 15; $i++) {
+	        $n = rand(0, $alphaLength);
+	        $pass[] = $alphabet[$n];
+	    }
+	    return implode($pass); //turn the array into a string
+	}
+
+	public function buat_akun() {
+		$vals = array(
+			'word' => rand(1,999999),
+			'img_path' => './captcha/',
+			'img_url' => base_url().'captcha/',
+			'font_path' => base_url().'captcha/fonts/Monaco.ttf',
+			'img_width' => 170,
+			'img_height' => 45,
+			'expiration' => 7200,
+			'font_size'     => 32,
+			'word_length' => 6,
+			'colors' => array(
+				'background' => array(255, 255, 255),
+				'border'     => array(255, 255, 255),
+				'text'       => array(0, 0, 0),
+				'grid'       => array(255, 75, 100)
+				)
+			);
+		$_captcha = create_captcha($vals);
+		$this->session->set_userdata('keycode',md5($_captcha['word']));
+
+		$dataHalaman = array(
+			'captcha_img' =>$_captcha['image'],
+		 );
+		$this->load->view('login/v_buat_akun', $dataHalaman);
+	}
+	
+	public function verifikasi($key, $id) {
+		$this->M_login->changeActiveState($key);
+
+		$getRegister = $this->M_login->getRegister($id);
+
+		foreach ($getRegister as $row) {
+			$nama = $row->nama;
+			$email = $row->email;
+			$password = $row->password;
+		}
+
+		$data = array(
+			'nama' => $nama,
+			'email' => $email, 
+			'password' => get_hash($password),
+			'author' => 'camaba', 
+			'ubah_password' => 'belum',
+			'isi_regist' => 'belum',
+        );
+		$this->M_login->insert_TLogin($data);
+
+		$this->M_login->delete_tempRegister($id);
+
+		echo "Selamat kamu telah memverifikasi akun kamu"; 
+		echo "<br><br><a href='".site_url("login")."'>Kembali ke Menu Login</a>";
+
+		$this->load->view('login/v_konfirmasi_aktif');
+	}
+
+	public function aksi_buatakun(){
+		$_email = $this->input->post('email');
+		$_cemail = $this->input->post('cemail');
+		$_captcha = $this->input->post('captcha');
+		$_nama_lengkap = $this->input->post('nama_lengkap');
+		$_tempPassword = $this->randomPassword();
+
+		if ($_email == $_cemail) {
+			$data = array(
+				'email' => $_email,
+				'nama' => $_nama_lengkap,
+				'password' => $_tempPassword,
+				'active' => 0
+			);
+
+			$this->M_login->add_account($data);
+
+			$query = $this->db->query('SELECT * FROM temp_register WHERE email="'.$_email.'" ORDER BY no DESC');
+			$row = $query->row();
+
+			if (isset($row)){
+				$id = $row->no;
+			}
+			$encrypted_id = md5($id);
+			
+			$config = array();
+			$config['charset'] = 'utf-8';
+			$config['useragent'] = 'Codeigniter';
+			$config['protocol']= "smtp";
+			$config['mailtype']= "html";
+			$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+			$config['smtp_port']= "465";
+			$config['smtp_timeout']= "400";
+			$config['smtp_user']= "syakilagha@gmail.com"; // isi dengan email kamu
+			$config['smtp_pass']= "Xesobuj3"; // isi dengan password kamu
+			$config['crlf']="\r\n";
+			$config['newline']="\r\n";
+			$config['wordwrap'] = TRUE;
+
+			// //memanggil library email dan set konfigurasi untuk pengiriman email
+			$this->email->initialize($config);
+
+			//konfigurasi pengiriman
+			$this->email->from($config['smtp_user']);
+			$this->email->to($_email);
+			$this->email->subject("Verifikasi Akun");
+			$this->email->message(
+				"Hai $_nama_lengkap, Terimakasih telah melakukan pendaftaran online.<br><br> Berikut informasi login sementara akun anda:<br>
+				<b>email : </b> $_email  <br>
+				<b>password : </b> $_tempPassword  <br><Br>
+				
+				Silahkan verifikasi akun anda, WAJIB dibuka <br><br>".
+				site_url("register/verifikasi/$encrypted_id/$id")
+			);
+
+			if(md5($_captcha) == $this->session->userdata('keycode')){
+				$data['nama'] = $_nama_lengkap;
+				$data['captcha']= $_captcha;
+				$this->session->unset_userdata('keycode');
+
+				//notifikasi registrasi berhasil
+				if($this->email->send()){
+					$this->session->set_flashdata('notification', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+					                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					                                    <span aria-hidden="true">&times;</span>
+					                                </button>
+					                                Email terkirim, diharapkan untuk verifikasi melalui email
+					                            </div>');
+					redirect('login','refresh'); 
+				}
+				else {
+					$this->session->set_flashdata('notification', '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin: 0px;">
+			                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			                                    <span aria-hidden="true">&times;</span>
+			                                </button>
+			                               Registrasi berhasil, tetapi tidak dapat mengirimkan aktivasi email. Hubungi administrator!
+			                            </div>');
+			        redirect('login','refresh');
+				}
+			}
+			else {
+				redirect('Register/buat_akun/?cap_error=1','refresh');
+			}
+		}
+		else { //jika email tidak sama
+			redirect('Register/notifikasi_error','refresh');
+		}
+
+	}
 
 	function signup(){
 		if($this->input->post('btnSimpan') == "Simpan"){
@@ -105,4 +263,6 @@ class Register extends CI_Controller {
 
 		}
 	}
+
+
 }
