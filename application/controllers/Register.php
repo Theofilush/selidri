@@ -68,12 +68,18 @@ class Register extends CI_Controller {
 		foreach ($getRegister as $row) {
 			$nama = $row->nama;
 			$email = $row->email;
+			$asal_sekolah = $row->asal_sekolah;
+			$no_handphone = $row->no_handphone;
+			$prodi_pilihan = $row->prodi_pilihan;
 			$password = $row->password;
 		}
 
 		$data = array(
 			'nama' => $nama,
 			'email' => $email, 
+			'asal_sekolah' => $asal_sekolah,
+			'no_handphone' => $no_handphone,
+			'prodi_pilihan' => $prodi_pilihan,
 			'password' => get_hash($password),
 			'author' => 'camaba', 
 			'ubah_password' => 'belum',
@@ -83,8 +89,8 @@ class Register extends CI_Controller {
 
 		$this->M_login->delete_tempRegister($id);
 
-		echo "Selamat kamu telah memverifikasi akun kamu"; 
-		echo "<br><br><a href='".site_url("login")."'>Kembali ke Menu Login</a>";
+		// echo "Selamat kamu telah memverifikasi akun kamu"; 
+		// echo "<br><br><a href='".site_url("login")."'>Kembali ke Menu Login</a>";
 
 		$this->load->view('login/v_konfirmasi_aktif');
 	}
@@ -92,6 +98,9 @@ class Register extends CI_Controller {
 	public function aksi_buatakun(){
 		$_email = $this->input->post('email');
 		$_cemail = $this->input->post('cemail');
+		$_asal_sekolah = $this->input->post('asal_sekolah');
+		$_no_handphone = $this->input->post('no_handphone');
+		$_prodi_pilihan = $this->input->post('prodi_pilihan');
 		$_captcha = $this->input->post('captcha');
 		$_nama_lengkap = $this->input->post('nama_lengkap');
 		$_tempPassword = $this->randomPassword();
@@ -99,6 +108,9 @@ class Register extends CI_Controller {
 		if ($_email == $_cemail) {
 			$data = array(
 				'email' => $_email,
+				'asal_sekolah' => $_asal_sekolah,
+				'no_handphone' => $_no_handphone,
+				'prodi_pilihan' => $_prodi_pilihan,
 				'nama' => $_nama_lengkap,
 				'password' => $_tempPassword,
 				'active' => 0
@@ -176,7 +188,6 @@ class Register extends CI_Controller {
 		else { //jika email tidak sama
 			redirect('Register/notifikasi_error','refresh');
 		}
-
 	}
 
 	function signup(){

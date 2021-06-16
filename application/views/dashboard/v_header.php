@@ -42,7 +42,7 @@
                     <div class="container-fluid">
                         <!-- Logo-->
                         <div>
-                            <a href="index.html" class="logo">
+                            <a href="<?php echo site_url() ?>" class="logo">
                                 <img src="<?php echo base_url() ?>assets/images/logo.png" alt="" height="26"> 
                             </a>
                         </div>
@@ -53,21 +53,23 @@
                                 <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                                     aria-haspopup="false" aria-expanded="false">
-                                        Create New <i class="mdi mdi-plus"></i>
+                                        Biodata <i class="mdi mdi-plus"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-animated">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
+                                        <a class="dropdown-item" href="#">Isi Biodata</a>
+                                        <a class="dropdown-item" href="#">Lihat Biodata</a>
                                     </div>
                                 </li>
                                 <li class="list-inline-item notification-list">
                                     <a href="#" class="nav-link waves-effect">
-                                        Activity
+                                        Informasi Prodi
                                     </a>
                                 </li>
+                                <!-- <li class="list-inline-item notification-list">
+                                    <a href="#" class="nav-link waves-effect">
+                                        Biodata
+                                    </a>
+                                </li> -->
     
                             </ul>
 
@@ -117,12 +119,40 @@
 
                             <!-- Navigation Menu-->
                             <ul class="navigation-menu">
-
-                                <li class="has-submenu">
+                            <!--<li class="has-submenu">
                                     <a href="index.html"><i class="dripicons-home"></i> Dashboard</a>
+                                </li> -->
+                                <li class="has-submenu">
+                                    <a href="<?php echo site_url(); ?>Dashboard"><i class="dripicons-home"></i> Dashboard</a>
                                 </li>
 
                                 <li class="has-submenu">
+                                    <a href="#"><i class="dripicons-home"></i> Mengenal Personality Test <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                                    <ul class="submenu">
+                                        <li class="has-submenu">
+                                            <a href="#">Tes Holland</a>
+                                            <ul class="submenu">
+                                                <li><a href="<?php echo site_url(); ?>Dashboard/tes_holland1">Tes Holland 1</a></li>
+                                                <li><a href="<?php echo site_url(); ?>Dashboard/tes_holland2">Tes Holland 2</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="has-submenu">
+                                            <a href="#">Tes Big Five</a>
+                                            <ul class="submenu">
+                                                <li><a href="<?php echo site_url(); ?>Dashboard/tes_big_five1">Tes Big Five 1</a></li>
+                                                <li><a href="<?php echo site_url(); ?>Dashboard/tes_big_five2">Tes Big Five 2</a></li>
+                                                <li><a href="<?php echo site_url(); ?>Dashboard/tes_big_five3">Tes Big Five 3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="index.html"><i class="dripicons-home"></i> Tes Kepribadian</a>
+                                </li>
+
+                                <!-- <li class="has-submenu">
                                     <a href="#"><i class="dripicons-suitcase"></i> User Interface <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                                     <ul class="submenu megamenu">
                                         <li>
@@ -255,7 +285,7 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> -->
 
                             </ul>
                             <!-- End navigation menu -->

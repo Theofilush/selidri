@@ -22,8 +22,8 @@
         <script src="<?php echo base_url() ?>assets/js/jquery.slimscroll.js"></script>
 
         <!--Morris Chart-->
-        <script src="<?php echo base_url() ?>assets/plugins/morris/morris.min.js"></script>
-        <script src="<?php echo base_url() ?>assets/plugins/raphael/raphael.min.js"></script>
+        <!-- <script src="<php echo base_url() ?>assets/plugins/morris/morris.min.js"></script>
+        <script src="<php echo base_url() ?>assets/plugins/raphael/raphael.min.js"></script> -->
 
         <!-- dashboard js -->
         <script src="<?php echo base_url() ?>assets/pages/dashboard.int.js"></script>

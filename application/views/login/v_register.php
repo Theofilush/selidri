@@ -45,7 +45,7 @@
 		            <!--      Wizard container        -->
 		            <div class="wizard-container">
 		                <div class="card wizard-card" data-color="red" id="wizardProfile">
-		                    <form action="" method="">
+		                    <form action="" method="post">
 		                <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
 
 		                    	<div class="wizard-header">

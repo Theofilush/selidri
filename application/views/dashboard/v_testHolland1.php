@@ -1,4 +1,4 @@
-        <div class="wrapper">
+<div class="wrapper">
             <div class="container-fluid">
 
                 <div class="row">
@@ -122,114 +122,54 @@
                 </div>   -->
                 <!-- end row -->
 
+
                 <div class="row">
                     <div class="col-xl-8">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="mt-0 ">Selamat datang, pada aplikasi tes kepribadian untuk menentukan pemilihan program studi di Universitas Pembangunan Jaya</h6>
+                                <h2 class="mt-0 ">Tes Holland: Mengenal Diri dan Menentukan Karier</h2>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                    <p class="font-14">Aplikasi www.seleksiprodi.com merupakan aplikasi perangkat lunak yang dapat melakukan pengujian minat dan bakat peserta terhadap sebuah program studi di tingkat perguruan tinggi. Aplikasi ini bertujuan untuk mengetahui seberapa besar minat serta bakat yang dimiliki oleh peserta terhadap pilihan program studi. Sebelumnya, tentu sudah banyak aplikasi serupa bisa diperoleh secara gratis di internet, tetapi pada umumnya aplikasi yang ada hanya menguji kemampuan peserta secara bakat saja, dan pilihan program studi juga terbatas pada program studi yang sifatnya favorit.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="mt-0 header-title mb-4">Rekomendasi Prodi</h4>
-                                <div class="text-center">
-                                    <div class="social-source-icon lg-icon mb-3">
-                                        <i class="mdi mdi-facebook h2 bg-primary text-white"></i>
-                                    </div>
-                                    <h5 class="font-16"><a href="#" class="text-dark">Facebook - <span class="text-muted">125 sales</span> </a></h5>
-                                    <p class="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis tincidunt.</p>
-                                    <a href="#" class="text-primary font-14">Learn more <i class="mdi mdi-chevron-right"></i></a>
-                                </div>
-                                <div class="row mt-5">
-                                    <div class="col-md-6">
-                                        <div class="social-source text-center mt-3">
-                                            <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-twitter h5 bg-info text-white"></i>
-                                            </div>
-                                            <p class="font-14 text-muted mb-2">Pilihan 1</p>
-                                            <h6>Twitter</h6>
+                                        <div style="text-align:center;margin: 20px;">
+                                            <img src="<?php echo base_url() ?>assets/images/holland1.jpg" alt="holland1" style="height:20vw;">
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="social-source text-center mt-3">
-                                            <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-instagram h5 bg-pink text-white"></i>
-                                            </div>
-                                            <p class="font-14 text-muted mb-2">Pilihan 2</p>
-                                            <h6>Instagram</h6>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="mt-0 header-title mb-4">Document files</h4>
-                                <table class="table table-striped mb-0">
-                                    <tbody>
-                                        <tr>
-                                            <td><i class="far fa-file-pdf text-primary h2"></i></td>
-                                            <td>
-                                                <h6 class="mt-0">2015</h6>
-                                                <p class="text-muted mb-0">dolor sit amet</p></td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-download"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><i class="far fa-file-pdf text-primary h2"></i></td>
-                                            <td>
-                                                <h6 class="mt-0">2016</h6>
-                                                <p class="text-muted mb-0">dolor sit amet</p></td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-download"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><i class="far fa-file-pdf text-primary h2"></i></td>
-                                            <td>
-                                                <h6 class="mt-0">2017</h6>
-                                                <p class="text-muted mb-0">pretium quis</p></td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-download"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><i class="far fa-file-pdf text-primary h2"></i></td>
-                                            <td>
-                                                <h6 class="mt-0">2018</h6>
-                                                <p class="text-muted mb-0">ultricies nec</p></td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-download"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
+                                        
+                                        <p class="font-14">Hai, Perseners! Kenalin aku Nida, Associate Writer Satu Persen.</p>
+                                        <p class="font-14">Tulisan kali ini aku pengen ngebahas salah satu alat tes psikologi yang mungkin akan kamu dapatkan ketika mengikuti mentoring di Satu Persen.</p>
+                                        <p class="font-14">Yap! Jadi, layanan mentoring di Satu Persen ini, kamu bukan cuma mendapatkan waktu untuk konseling sama mentor aja, tapi kamu juga akan mendapatkan worksheet, tes psikologi, hingga interpretasinya, biar kamu gak salah memahami hasil dari alat tes tersebut.</p>
+                                        <p class="font-14">Nah, kali ini aku mau ngajak kalian buat mengenal salah satu alat tes, yaitu Tes RIASEC.  Mulai dari sejarahnya, tokoh pengembangnya, tujuan tes, serta bagaimana alat tes ini bisa membantu kamu mengenal diri dan menentukan karier atau pendidikan perguruan tinggi yang cocok buat diri kamu.</p>
 
-            </div> <!-- end container-fluid -->
-        </div>
-        <!-- end wrapper -->
+                                        <h4>Apa itu Tes RIASEC?</h4>
+                                        <p class="font-14">Tes RIASEC merupakan salah satu jenis tes psikologi yang bertujuan untuk membantu kamu memperkirakan karier yang sesuai dengan diri. Nama lain dari tes ini adalah Holland Test, nama ini sesuai dengan tokoh yang mengembangkan teori dan tes ini yaitu John Holland.
+                                        <p class="font-14">Sedangkan RIASEC itu sendiri adalah kepanjangan dari Realistic, Investigative, Artistic, Social, Enterprising, dan Conventional. Enam hal ini merupakan tipe kepribadian yang dicetuskan oleh John Holland.
+                                        <p class="font-14">Pada tahun 1965, Holland menerbitkan artikel yang berjudul  "A Theory of Vocational Choice". Artikel ini menjadi artikel pertama yang membahas teori kepribadian kejuruan dan lingkungan kerja yang ditemukan oleh Holland.
+                                        <p class="font-14">Menurut Holland, setiap manusia itu memiliki paling gak satu dari enam tipe kepribadian yang dicetuskannya dan tipe kepribadian ini akan memengaruhi pemilihan karier dan lingkungan pekerjaan yang sesuai dengan dirinya.
+                                        <p class="font-14">Kecenderungan seseorang terhadap salah satu tipe kepribadian ini, menurut Holland, berasal dari kehidupan masa lalu, sejarah, dan pengalaman yang dilalui hingga akhirnya membentuk sebuah kepribadian dalam diri seseorang. Di mana kepribadian ini kemudian dimunculkan melalui ekspresi diri dalam pekerjaan.
+                                        <p class="font-14">Jadi, semakin kamu mengenali dirimu melalui Tes Holland ini, akan membantumu untuk menemukan pekerjaan apa yang paling sesuai dengan kepribadianmu.
+                                        <p class="font-14">Punya pekerjaan yang sesuai dengan kepribadian, tentu akan meningkatkan kesejahteraan atau well-being. Pekerjaan bukan jadi beban lagi buat kamu, karena kamu akan menikmati dan merasa nyaman dengan berbagai proses yang ada di pekerjaan ini.
+                                        <p class="font-14">Baca juga: Alasan Kamu Harus Memilih Pekerjaan Sesuai Passion
+
+                                        <h4>Bagaimana cara mengenal diri melalui Tes RIASEC?</h4>
+                                        <p class="font-14">Biasanya Tes RIASEC akan diberikan oleh psikolog pas kamu lagi kebingungan, passion-ku sebenarnya apa, pekerjaan yang cocok itu apa, atau kamu lagi ngerasa gak nyaman sama pekerjaan yang sekarang.
+                                        <p class="font-14">Dengan bantuan dari alat tes ini, kamu bukan cuma mendapat jawaban dari pertanyaan atau kebingungan-kebingunganmu aja, tapi kamu juga akan mengenal diri dengan lebih dalam. Kamu jadi tau, kepribadianmu ini seperti apa sih.
+                                        <p class="font-14">Tes RIASEC terdiri dari beberapa pernyataan, dengan pilihan jawaban suka atau gak suka. Tus kamu adalah memilih mana yang kamu suka dan gak suka dari suatu pernyataan. Pernyataan-pernyataan yang ada akan menggambarkan bagaimana kepribadianmu.
+                                        <p class="font-14">Untuk itu saat mengerjakannya, kamu harus memilih jawaban yang paling sesuai sama diri kamu.
+                                        <p class="font-14">Hasil dari tes ini menunjukan kecenderungan kepribadianmu dari enam tipe kepribadian Holland. Kamu akan mendapatkan dua atau tiga tipe kepribadian, namun akan ada satu kepribadian yang paling dominan, dan kepribadian lainnya akan memberikan gambaran tentang lingkungan kerja yang sesuai dengan dirimu.
+
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6tW0kLy6-X4?feature=oembed"></iframe>
+                                            </div> 
+                                            <div class="m-b-30" style="text-align:center;">Tes Holland atau Tes RIASEC</div>
+
+                                            <p class="font-14">Kalau sampai saat ini kamu termasuk orang yang bingung banget sama passion dan pekerjaan apa yang cocok, kamu bisa menggunakan layanan dari Satu Persen, yaitu konseling atau tes gratis.</p>
+                                            <p class="font-14">Dengan mengikuti konseling, kamu bisa lebih mendapat gambaran terkait bakat terpendam dengan bantuan psikolog profesional tentunya.</p>
+                                            <p class="font-14">Selain itu, untuk hasil yang lebih akurat, kamu juga bisa mendapatkan tes gratis, salah satunya Tes RIASEC ini. Mengenal diri dan tipe pekerjaan yang cocok sama diri kamu, jadi salah satu cara menjaga kesehatan mental dirimu!</p>
+
+                                            <h6>Reference</h6>
+                                            <p class="font-14">Holland, J. L. (1959). A theory of vocational choice. Journal of counseling psychology, 6(1), 35.<br><br></p>
+                                            <p class="font-14">https://satupersen.net/blog/tes-riasec-adalah</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>

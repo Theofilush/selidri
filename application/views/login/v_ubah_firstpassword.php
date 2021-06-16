@@ -47,7 +47,7 @@
                     <div class="col-lg-6">
                         <div>
                             <div >
-                                <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
+                                <a href="<?php echo site_url() ?>" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                             </div>
                             <h5 class="font-14 text-muted mb-4">Kenali Kemampuan dan Bakatmu untuk masa depan lebih cerah</h5>
                             <p class="text-muted mb-4">Proses pemilihan program studi biasanya didasarkan pada kemampuan minat dan bakat dari calon mahasiswa baru. Hal ini menjadi satu hal penting karena hasil dari pemilihan
@@ -73,7 +73,7 @@ program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa 
                                 <div class="p-2">
                                     <h4 class="text-muted float-right font-18 mt-4">Ubah Password Pertamamu</h4>
                                     <div>
-                                        <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
+                                        <a href="<?php echo site_url() ?>" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                                     </div>
                                 </div>
                                 <div class="p-2">

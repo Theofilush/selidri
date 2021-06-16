@@ -79,21 +79,46 @@ program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa 
                                     <form class="form-horizontal m-t-20" action="<?php echo site_url('Register/aksi_buatakun'); ?>" method="post">
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input name="nama_lengkap" class="form-control" type="text" required="" placeholder="nama">
+                                                <input name="nama_lengkap" class="form-control" type="text" required="" placeholder="Nama Lengkap">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input name="email" class="form-control" type="email" required="" placeholder="email">
+                                                <input name="email" class="form-control" type="email" required="" placeholder="Email">
                                             </div>
                                         </div>
-
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input name="cemail" class="form-control" type="email" required="" placeholder="Ulangi email">
+                                                <input name="cemail" class="form-control" type="email" required="" placeholder="Ulangi Email">
                                             </div>
                                         </div>
-
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <input name="asal_sekolah" class="form-control" type="text" required="" placeholder="Asal Sekolah">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <input name="no_handphone" class="form-control" type="text" required="" placeholder="Nomor Handphone">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <select class="form-control" style="width: 100%" data-placeholder="Porgram Studi Pilihan" name="prodi_pilihan">
+                                                        <option>Pilih Program Studi</option>
+                                                        <option>Akuntansi</option>
+                                                        <option>Manajemen</option>
+                                                        <option>Psikologi</option>
+                                                        <option>Ilmu Komunikasi</option>
+                                                        <option>Desain Produk</option>
+                                                        <option>Desain Komunikasi Visual</option>
+                                                        <option>Informatika</option>
+                                                        <option>Sistem Informasi</option>
+                                                        <option>Teknik Sipil</option>
+                                                        <option>Arsitektur</option>
+													</select>
+                                            </div>
+                                        </div>  
                                         <div class="form-inline row">
                                             <div class="form-group ">
                                                 <div class="col-12">
