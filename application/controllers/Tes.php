@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Informasi_prodi extends CI_Controller {
+class Tes extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
@@ -20,7 +20,7 @@ class Informasi_prodi extends CI_Controller {
 		  'da' => $kue,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
-		$this->load->view('v_informasi_prodi');
+		$this->load->view('v_mulai_tes');
 		$this->load->view('dashboard/v_footer');
 	}
 }

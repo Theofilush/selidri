@@ -53,17 +53,29 @@
                                 <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                                     aria-haspopup="false" aria-expanded="false">
-                                        Biodata <i class="mdi mdi-plus"></i>
+                                    <i class="mdi mdi-file-alert-outline"> Biodata</i></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-animated">
-                                        <a class="dropdown-item" href="#">Isi Biodata</a>
-                                        <a class="dropdown-item" href="#">Lihat Biodata</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Biodata/isi_biodata">Isi Biodata</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Biodata">Lihat Biodata</a>
                                     </div>
                                 </li>
-                                <li class="list-inline-item notification-list">
-                                    <a href="#" class="nav-link waves-effect">
+                                <!-- <li class="list-inline-item notification-list">
+                                    <a href="<?php echo site_url(); ?>Informasi_prodi" class="nav-link waves-effect">
                                         Informasi Prodi
                                     </a>
+                                </li> -->
+                                <li class="list-inline-item dropdown notification-list">
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="false" aria-expanded="false">
+                                    <i class="mdi mdi-settings-outline"> Pengelolaan</i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-animated">
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_prodi">Pengelolaan Data Prodi</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_camaba">Pengelolaan Data CAMABA</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_pengukuran">Pengelolaan Data Pengukuran</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_hasil">Pengelolaan Data Hasil Tes</a>
+                                    </div>
                                 </li>
                                 <!-- <li class="list-inline-item notification-list">
                                     <a href="#" class="nav-link waves-effect">
@@ -127,8 +139,11 @@
                                 </li>
 
                                 <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-home"></i> Mengenal Personality Test <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                                    <a href="#"><i class="dripicons-information"></i> Informasi <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                                     <ul class="submenu">
+                                        <li>
+                                            <a href="#">Informasi Program Studi</a>
+                                        </li>
                                         <li class="has-submenu">
                                             <a href="#">Tes Holland</a>
                                             <ul class="submenu">
@@ -148,8 +163,8 @@
                                     </ul>
                                 </li>
 
-                                <li class="has-submenu">
-                                    <a href="index.html"><i class="dripicons-home"></i> Tes Kepribadian</a>
+                                <li class="has-submenu mulai-test" style="color:#fff;">
+                                    <a href="<?php echo site_url(); ?>Tes" style="color:#fff;"><span> Mulai Tes</span></a>
                                 </li>
 
                                 <!-- <li class="has-submenu">
