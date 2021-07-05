@@ -56,7 +56,7 @@
                                     <i class="mdi mdi-file-alert-outline"> Biodata</i></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-animated">
-                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Biodata/isi_biodata">Isi Biodata</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Register">Isi Biodata</a>
                                         <a class="dropdown-item" href="<?php echo site_url(); ?>Biodata">Lihat Biodata</a>
                                     </div>
                                 </li>
@@ -71,10 +71,10 @@
                                     <i class="mdi mdi-settings-outline"> Pengelolaan</i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-animated">
-                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_prodi">Pengelolaan Data Prodi</a>
-                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_camaba">Pengelolaan Data CAMABA</a>
-                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_pengukuran">Pengelolaan Data Pengukuran</a>
-                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengaturan/data_hasil">Pengelolaan Data Hasil Tes</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengelolaan/data_prodi">Pengelolaan Data Prodi</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengelolaan/data_camaba">Pengelolaan Data CAMABA</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengelolaan/data_pengukuran">Pengelolaan Data Pengukuran</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Pengelolaan/data_hasil">Pengelolaan Data Hasil Tes</a>
                                     </div>
                                 </li>
                                 <!-- <li class="list-inline-item notification-list">
@@ -139,11 +139,12 @@
                                 </li>
 
                                 <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-information"></i> Informasi <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                                    <a href="<?php echo site_url(); ?>Informasi_prodi"><i class="dripicons-archive"></i> Program Studi</a>
+                                </li>
+
+                                <li class="has-submenu">
+                                    <a href="#"><i class="dripicons-information"></i> Tes Kepribadian <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                                     <ul class="submenu">
-                                        <li>
-                                            <a href="#">Informasi Program Studi</a>
-                                        </li>
                                         <li class="has-submenu">
                                             <a href="#">Tes Holland</a>
                                             <ul class="submenu">
