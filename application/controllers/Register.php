@@ -84,6 +84,8 @@ class Register extends CI_Controller {
 			'author' => 'camaba', 
 			'ubah_password' => 'belum',
 			'isi_regist' => 'belum',
+			'isi_tes_holland' => 'belum',
+			'isi_tes_bigfive' => 'belum',
         );
 		$this->M_login->insert_TLogin($data);
 

@@ -126,10 +126,10 @@
                     <div class="col-xl-8">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="mt-0 ">Selamat datang, pada aplikasi tes kepribadian untuk menentukan pemilihan program studi di Universitas Pembangunan Jaya</h6>
+                                <h6 class="mt-0" style="line-height:2">Selamat datang, pada aplikasi tes kepribadian untuk menentukan pemilihan program studi di Universitas Pembangunan Jaya</h6>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                    <p class="font-14">Aplikasi www.seleksiprodi.com merupakan aplikasi perangkat lunak yang dapat melakukan pengujian minat dan bakat peserta terhadap sebuah program studi di tingkat perguruan tinggi. Aplikasi ini bertujuan untuk mengetahui seberapa besar minat serta bakat yang dimiliki oleh peserta terhadap pilihan program studi. Sebelumnya, tentu sudah banyak aplikasi serupa bisa diperoleh secara gratis di internet, tetapi pada umumnya aplikasi yang ada hanya menguji kemampuan peserta secara bakat saja, dan pilihan program studi juga terbatas pada program studi yang sifatnya favorit.</p>
+                                    <p class="font-14" style="line-height:2">Aplikasi www.seleksiprodi.com merupakan aplikasi perangkat lunak yang dapat melakukan pengujian minat dan bakat peserta terhadap sebuah program studi di tingkat perguruan tinggi. Aplikasi ini bertujuan untuk mengetahui seberapa besar minat serta bakat yang dimiliki oleh peserta terhadap pilihan program studi. Sebelumnya, tentu sudah banyak aplikasi serupa bisa diperoleh secara gratis di internet, tetapi pada umumnya aplikasi yang ada hanya menguji kemampuan peserta secara bakat saja, dan pilihan program studi juga terbatas pada program studi yang sifatnya favorit.</p>
                                     </div>
                                 </div>
                             </div>
