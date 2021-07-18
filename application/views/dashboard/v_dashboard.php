@@ -140,14 +140,14 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title mb-4">Rekomendasi Prodi</h4>
                                 <div class="text-center">
-                                    <div class="social-source-icon lg-icon mb-3">
+                                    <!-- <div class="social-source-icon lg-icon mb-3">
                                         <i class="mdi mdi-facebook h2 bg-primary text-white"></i>
-                                    </div>
+                                    </div> -->
                                     <h5 class="font-16"><a href="#" class="text-dark">Facebook - <span class="text-muted">125 sales</span> </a></h5>
                                     <p class="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis tincidunt.</p>
                                     <a href="#" class="text-primary font-14">Learn more <i class="mdi mdi-chevron-right"></i></a>
                                 </div>
-                                <div class="row mt-5">
+                                <div class="row"> <!-- mt-5 -->
                                     <div class="col-md-6">
                                         <div class="social-source text-center mt-3">
                                             <div class="social-source-icon mb-2">

@@ -225,9 +225,7 @@
                                                    placeholder="Re-Type Password"/>
                                         </div> -->
                                     </div>
-
                                 </form>
-
                             </div>
                         </div>
                     </div> <!-- end col -->

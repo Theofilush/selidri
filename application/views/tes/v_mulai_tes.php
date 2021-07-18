@@ -42,20 +42,23 @@
                                     <table class="table table-hover mb-0">
                                         <thead>
                                         <tr>
-                                            <th width="100px">#</th>
+                                            <th width="10%">#</th>
                                             <th>Nama Tes</th>
-                                            <th width="200px">Action</th>
+                                            <th width="20%">Sudah Dikerjakan</th>
+                                            <th width="10%">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>Tes Holland</td>
+                                            <td><i class="dripicons-checkmark"></i></td>
                                             <td><a href="<?php echo base_url() ?>Tes/tes_holland" type="button" class="btn btn-outline-primary waves-effect waves-light">Masuk</a></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>Test Big Five</td>
+                                            <td><i class="dripicons-checkmark"></i></td>
                                             <td><a href="<?php echo base_url() ?>Tes/tes_bigfive" type="button" class="btn btn-outline-primary waves-effect waves-light">Masuk</a></td>
                                         </tr>
                                         </tbody>
