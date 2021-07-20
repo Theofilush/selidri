@@ -35,12 +35,14 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <h4 class="mt-0 header-title">Bagian 1</h4>
+                        <h6 class="m-t-10">Pilihlah "Suka" jika Anda suka Kegiatan tersebut, </h6>
+                        <h6>Pilihlah "Tidak Suka" jika anda tidak suka atau biasa saja (bersikap netral) mengenai kegiatan tersebut.</u></h6>
                         <div class="card m-b-30">
                             <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
-                                        foreach($soal_bagian1 as $row){
+                                        foreach($soalr1_awal as $row){
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
                                     <div class="form-group">
@@ -70,7 +72,7 @@
 
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
-                                        foreach($soal_bagian1 as $row){
+                                        foreach($soalr1_akhir as $row){
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
                                 
@@ -100,16 +102,15 @@
                             </div>  
                             </div>
                         </div>
-                    </div> <!-- end col -->
+                    </div> <!-- end col r-->
 
                     <div class="col-lg-8 offset-lg-2">
-                        <h4 class="mt-0 header-title">Bagian 1</h4>
                         <div class="card m-b-30">
                             <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
-                                        foreach($soal_bagian1 as $row){
+                                        foreach($soali1_awal as $row){
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
                                     <div class="form-group">
@@ -139,7 +140,7 @@
 
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
-                                        foreach($soal_bagian1 as $row){
+                                        foreach($soali1_akhir as $row){
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
                                 
@@ -169,16 +170,15 @@
                             </div>  
                             </div>
                         </div>
-                    </div> <!-- end col -->
+                    </div> <!-- end col i-->
 
                     <div class="col-lg-8 offset-lg-2">
-                        <h4 class="mt-0 header-title">Bagian 1</h4>
                         <div class="card m-b-30">
                             <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
-                                        foreach($soal_bagian1 as $row){
+                                        foreach($soala1_awal as $row){
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
                                     <div class="form-group">
@@ -208,7 +208,7 @@
 
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
-                                        foreach($soal_bagian1 as $row){
+                                        foreach($soala1_akhir as $row){
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
                                 
@@ -238,7 +238,211 @@
                             </div>  
                             </div>
                         </div>
-                    </div> <!-- end col -->
+                    </div> <!-- end col a -->
+
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <?php 
+                                        foreach($soals1_awal as $row){
+                                    ?>  
+                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <div class="form-group">
+                                        <div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary1" name="r1">
+                                                <label for="radioPrimary1"> Suka
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary2" name="r1">
+                                                <label for="radioPrimary2"> Tidak Suka
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="m-t-10">
+                                            <input type="password" class="form-control" required
+                                                   data-parsley-equalto="#pass2"
+                                                   placeholder="Re-Type Password"/>
+                                        </div> -->
+                                    </div>
+
+                                    <?php
+                                        }
+                                    ?> 
+                                </div>
+
+                                <div class="col-md-12 col-lg-6">
+                                    <?php 
+                                        foreach($soals1_akhir as $row){
+                                    ?>  
+                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                
+                                    <div class="form-group">
+                                        <div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary1" name="r1">
+                                                <label for="radioPrimary1"> Suka
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary2" name="r1">
+                                                <label for="radioPrimary2"> Tidak Suka
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="m-t-10">
+                                            <input type="password" class="form-control" required
+                                                   data-parsley-equalto="#pass2"
+                                                   placeholder="Re-Type Password"/>
+                                        </div> -->
+                                    </div>
+                                    <?php
+                                        }
+                                    ?> 
+                                </div>
+                            </div>  
+                            </div>
+                        </div>
+                    </div> <!-- end col e -->
+
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <?php 
+                                        foreach($soale1_awal as $row){
+                                    ?>  
+                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <div class="form-group">
+                                        <div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary1" name="r1">
+                                                <label for="radioPrimary1"> Suka
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary2" name="r1">
+                                                <label for="radioPrimary2"> Tidak Suka
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="m-t-10">
+                                            <input type="password" class="form-control" required
+                                                   data-parsley-equalto="#pass2"
+                                                   placeholder="Re-Type Password"/>
+                                        </div> -->
+                                    </div>
+
+                                    <?php
+                                        }
+                                    ?> 
+                                </div>
+
+                                <div class="col-md-12 col-lg-6">
+                                    <?php 
+                                        foreach($soale1_akhir as $row){
+                                    ?>  
+                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                
+                                    <div class="form-group">
+                                        <div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary1" name="r1">
+                                                <label for="radioPrimary1"> Suka
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary2" name="r1">
+                                                <label for="radioPrimary2"> Tidak Suka
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="m-t-10">
+                                            <input type="password" class="form-control" required
+                                                   data-parsley-equalto="#pass2"
+                                                   placeholder="Re-Type Password"/>
+                                        </div> -->
+                                    </div>
+                                    <?php
+                                        }
+                                    ?> 
+                                </div>
+                            </div>  
+                            </div>
+                        </div>
+                    </div> <!-- end col e -->
+
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <?php 
+                                        foreach($soalc1_awal as $row){
+                                    ?>  
+                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <div class="form-group">
+                                        <div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary1" name="r1">
+                                                <label for="radioPrimary1"> Suka
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary2" name="r1">
+                                                <label for="radioPrimary2"> Tidak Suka
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="m-t-10">
+                                            <input type="password" class="form-control" required
+                                                   data-parsley-equalto="#pass2"
+                                                   placeholder="Re-Type Password"/>
+                                        </div> -->
+                                    </div>
+
+                                    <?php
+                                        }
+                                    ?> 
+                                </div>
+
+                                <div class="col-md-12 col-lg-6">
+                                    <?php 
+                                        foreach($soalc1_akhir as $row){
+                                    ?>  
+                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                
+                                    <div class="form-group">
+                                        <div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary1" name="r1">
+                                                <label for="radioPrimary1"> Suka
+                                                </label>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input type="radio" id="radioPrimary2" name="r1">
+                                                <label for="radioPrimary2"> Tidak Suka
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="m-t-10">
+                                            <input type="password" class="form-control" required
+                                                   data-parsley-equalto="#pass2"
+                                                   placeholder="Re-Type Password"/>
+                                        </div> -->
+                                    </div>
+                                    <?php
+                                        }
+                                    ?> 
+                                </div>
+                            </div>  
+                            </div>
+                        </div>
+                    </div> <!-- end col c -->
 
                     <div class="col-lg-12">
                         <div class="card m-b-30" style="background-color: #dfcdfa; border-color: #333;" >

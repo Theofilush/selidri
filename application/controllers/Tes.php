@@ -39,36 +39,91 @@ class Tes extends CI_Controller {
 		} elseif ($key == "1") {
 			$totalBarisR1 =  $this->M_dokumen->totalBarisR1();
 			//$soal_bagian1 =  $this->M_dokumen->tampil_soal_bagian_r1(); //menampilkan semua data
+			$batas_tengahR = floor($totalBarisR1 / 2);
+			$queryr1_awal =  $this->M_dokumen->queryr1_awal(0,$batas_tengahR);
+			$queryr1_akhir =  $this->M_dokumen->queryr1_akhir($batas_tengahR , $totalBarisR1);
 
-			$batas_tengah = floor($totalBarisR1 / 2);
-			$queryr1_awal =  $this->M_dokumen->queryr1_awal(0,$batas_tengah);
-			$queryr1_akhir =  $this->M_dokumen->queryr1_akhir($batas_tengah , $totalBarisR1);
-			// $queryr1_awal = $this->db->query("SELECT * FROM t_soal_holland where bagian=1 and kelompok='r' limit 0, $batas_tengah")->result();
-			// $queryr1_akhir = $this->db->query("SELECT * FROM t_soal_holland where bagian=1 and kelompok='r' limit $batas_tengah, $totalBarisR1")->result();
-			// print_r($queryr1_awal);print_r($queryr1_akhir);exit();
+			$totalBarisI1 =  $this->M_dokumen->totalBarisI1();
+			$batas_tengahI = floor($totalBarisI1 / 2);
+			$queryi1_awal =  $this->M_dokumen->queryi1_awal(0, $batas_tengahI);
+			$queryi1_akhir =  $this->M_dokumen->queryi1_akhir($batas_tengahI , $totalBarisI1);
 
+			$totalBarisA1 =  $this->M_dokumen->totalBarisA1();
+			$batas_tengahA = floor($totalBarisA1 / 2);
+			$querya1_awal =  $this->M_dokumen->querya1_awal(0, $batas_tengahA);
+			$querya1_akhir =  $this->M_dokumen->querya1_akhir($batas_tengahA , $totalBarisA1);
+
+			$totalBarisS1 =  $this->M_dokumen->totalBarisS1();
+			$batas_tengahS = floor($totalBarisS1 / 2);
+			$querys1_awal =  $this->M_dokumen->querys1_awal(0, $batas_tengahS);
+			$querys1_akhir =  $this->M_dokumen->querys1_akhir($batas_tengahS , $totalBarisS1);
+
+			$totalBarisE1 =  $this->M_dokumen->totalBarisE1();
+			$batas_tengahE = floor($totalBarisE1 / 2);
+			$querye1_awal =  $this->M_dokumen->querye1_awal(0, $batas_tengahE);
+			$querye1_akhir =  $this->M_dokumen->querye1_akhir($batas_tengahE , $totalBarisE1);
+
+			$totalBarisC1 =  $this->M_dokumen->totalBarisC1();
+			$batas_tengahC = floor($totalBarisC1 / 2);
+			$queryc1_awal =  $this->M_dokumen->queryc1_awal(0, $batas_tengahC);
+			$queryc1_akhir =  $this->M_dokumen->queryc1_akhir($batas_tengahC , $totalBarisC1);
+			
 			$dataHalaman = array(
 				'title'=>"Dashboard",
 				'da' => $kue,
-				'queryr1_awal'=> $queryr1_awal,
-				'queryr1_akhir'=> $queryr1_akhir,
+				'soalr1_awal'=> $queryr1_awal,
+				'soalr1_akhir'=> $queryr1_akhir,
+				'soali1_awal'=> $queryi1_awal,
+				'soali1_akhir'=> $queryi1_akhir,
+				'soala1_awal'=> $querya1_awal,
+				'soala1_akhir'=> $querya1_akhir,
+				'soals1_awal'=> $querys1_awal,
+				'soals1_akhir'=> $querys1_akhir,
+				'soale1_awal'=> $querye1_awal,
+				'soale1_akhir'=> $querye1_akhir,
+				'soalc1_awal'=> $queryc1_awal,
+				'soalc1_akhir'=> $queryc1_akhir,
 			);
 			
 			$this->load->view('dashboard/v_header', $dataHalaman);
 			$this->load->view('tes/v_tes_holland1');
 			$this->load->view('dashboard/v_footer');
 		} elseif ($key == "2") {
+			$soalr2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_r2(); //menampilkan semua data
+			$soali2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_i2();
+			$soala2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_a2();
+			$soals2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_s2();
+			$soale2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_e2();
+			$soalc2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_c2();
 			$dataHalaman = array(
 				'title'=>"Dashboard",
 				'da' => $kue,
-			  );
+				'soalr2_bagian2' => $soalr2_bagian2,
+				'soali2_bagian2' => $soali2_bagian2,
+				'soala2_bagian2' => $soala2_bagian2,
+				'soals2_bagian2' => $soals2_bagian2,
+				'soale2_bagian2' => $soale2_bagian2,
+				'soalc2_bagian2' => $soalc2_bagian2,
+			);
 			  $this->load->view('dashboard/v_header', $dataHalaman);
 			  $this->load->view('tes/v_tes_holland2');
 			  $this->load->view('dashboard/v_footer');	
 		} elseif ($key == "3") {
+			$soalr3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_r3(); //menampilkan semua data
+			$soali3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_i3();
+			$soala3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_a3();
+			$soals3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_s3();
+			$soale3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_e3();
+			$soalc3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_c3();
 			$dataHalaman = array(
 				'title'=>"Dashboard",
 				'da' => $kue,
+				'soalr3_bagian3' => $soalr3_bagian3,
+				'soali3_bagian3' => $soali3_bagian3,
+				'soala3_bagian3' => $soala3_bagian3,
+				'soals3_bagian3' => $soals3_bagian3,
+				'soale3_bagian3' => $soale3_bagian3,
+				'soalc3_bagian3' => $soalc3_bagian3,
 			  );
 			  $this->load->view('dashboard/v_header', $dataHalaman);
 			  $this->load->view('tes/v_tes_holland3');
@@ -76,7 +131,7 @@ class Tes extends CI_Controller {
 		}		
 	}
 
-	public function tes_bigfive(){
+	public function tes_bigfive($key=""){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 
@@ -89,9 +144,17 @@ class Tes extends CI_Controller {
 			  $this->load->view('tes/v_tes_bigfive');
 			  $this->load->view('dashboard/v_footer');
 		} elseif ($key == "1") {
+			$totalBarisBigFive =  $this->M_dokumen->totalBarisBigFive();
+			//$soal_bagian1 =  $this->M_dokumen->tampil_soal_bagian_r1(); //menampilkan semua data
+			$batas_tengah = floor($totalBarisBigFive / 2);
+			$queryTBF_awal =  $this->M_dokumen->queryTBF_awal(0,$batas_tengah);
+			$queryTBF_akhir =  $this->M_dokumen->queryTBF_akhir($batas_tengah , $totalBarisBigFive);
+
 			$dataHalaman = array(
 				'title'=>"Dashboard",
 				'da' => $kue,
+				'soalTBF_awal'=> $queryTBF_awal,
+				'soalTBF_akhir'=> $queryTBF_akhir,
 			  );
 			  $this->load->view('dashboard/v_header', $dataHalaman);
 			  $this->load->view('tes/v_tes_bigfive1');
