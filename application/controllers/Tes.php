@@ -73,16 +73,22 @@ class Tes extends CI_Controller {
 				'da' => $kue,
 				'soalr1_awal'=> $queryr1_awal,
 				'soalr1_akhir'=> $queryr1_akhir,
+				'batas_tengahR'=> $batas_tengahR,
 				'soali1_awal'=> $queryi1_awal,
 				'soali1_akhir'=> $queryi1_akhir,
+				'batas_tengahI' => $batas_tengahI,
 				'soala1_awal'=> $querya1_awal,
 				'soala1_akhir'=> $querya1_akhir,
+				'batas_tengahA' => $batas_tengahA ,
 				'soals1_awal'=> $querys1_awal,
 				'soals1_akhir'=> $querys1_akhir,
+				'batas_tengahS' => $batas_tengahS,
 				'soale1_awal'=> $querye1_awal,
 				'soale1_akhir'=> $querye1_akhir,
+				'batas_tengahE' => $batas_tengahE,
 				'soalc1_awal'=> $queryc1_awal,
 				'soalc1_akhir'=> $queryc1_akhir,
+				'batas_tengahC' => $batas_tengahC,
 			);
 			
 			$this->load->view('dashboard/v_header', $dataHalaman);
@@ -155,6 +161,7 @@ class Tes extends CI_Controller {
 				'da' => $kue,
 				'soalTBF_awal'=> $queryTBF_awal,
 				'soalTBF_akhir'=> $queryTBF_akhir,
+				'batas_tengah'=> $batas_tengah,
 			  );
 			  $this->load->view('dashboard/v_header', $dataHalaman);
 			  $this->load->view('tes/v_tes_bigfive1');

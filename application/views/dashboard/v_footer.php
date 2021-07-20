@@ -28,6 +28,10 @@
         <!-- dashboard js -->
         <script src="<?php echo base_url() ?>assets/pages/dashboard.int.js"></script>
 
+        <!-- Bootstrap rating js -->
+        <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-rating/bootstrap-rating.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/pages/rating-init.js"></script>
+
         <!-- App js -->
         <script src="<?php echo base_url() ?>assets/js/app.js"></script>
 

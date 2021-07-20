@@ -41,9 +41,11 @@
                         <div class="card m-b-30">
                             <div class="card-body">
                                         <?php 
+                                        $no=0;
                                         foreach($soalr3_bagian3 as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -74,9 +76,11 @@
                         <div class="card m-b-30">
                             <div class="card-body">
                                         <?php 
+                                        $no =0;
                                         foreach($soali3_bagian3 as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ". $row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -107,9 +111,11 @@
                         <div class="card m-b-30">
                             <div class="card-body">
                                         <?php 
+                                        $no=0;
                                         foreach($soala3_bagian3 as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -140,9 +146,11 @@
                         <div class="card m-b-30">
                             <div class="card-body">
                                         <?php 
+                                        $no=0;
                                         foreach($soals3_bagian3 as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -173,9 +181,11 @@
                         <div class="card m-b-30">
                             <div class="card-body">
                                         <?php 
+                                        $no=0;
                                         foreach($soale3_bagian3 as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -206,9 +216,11 @@
                         <div class="card m-b-30">
                             <div class="card-body">
                                         <?php 
+                                        $no=0;
                                         foreach($soalc3_bagian3 as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">

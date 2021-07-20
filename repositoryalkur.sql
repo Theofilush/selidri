@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jul 2021 pada 17.19
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.9
+-- Waktu pembuatan: 20 Jul 2021 pada 14.51
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -168,6 +168,7 @@ CREATE TABLE `temp_register` (
 CREATE TABLE `t_jawaban` (
   `id_jawaban` int(5) NOT NULL,
   `id_peserta` varchar(100) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
   `r1` int(5) NOT NULL,
   `r2` int(5) NOT NULL,
   `r3` int(5) NOT NULL,
@@ -186,15 +187,19 @@ CREATE TABLE `t_jawaban` (
   `c1` int(5) NOT NULL,
   `c2` int(5) NOT NULL,
   `c3` int(5) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `O` int(5) NOT NULL,
+  `C` int(5) NOT NULL,
+  `E` int(5) NOT NULL,
+  `A` int(5) NOT NULL,
+  `N` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `t_jawaban`
 --
 
-INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `tanggal`) VALUES
-(1, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2021-06-09 10:16:57');
+INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `tanggal`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `O`, `C`, `E`, `A`, `N`) VALUES
+(1, '', '2021-07-20 12:01:54', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -212,25 +217,27 @@ CREATE TABLE `t_login` (
   `password` varchar(70) NOT NULL,
   `author` varchar(70) NOT NULL,
   `ubah_password` varchar(7) NOT NULL,
-  `isi_regist` varchar(7) NOT NULL
+  `isi_regist` varchar(7) NOT NULL,
+  `isi_tes_holland` varchar(100) NOT NULL,
+  `isi_tes_bigfive` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `t_login`
 --
 
-INSERT INTO `t_login` (`no`, `nama`, `email`, `asal_sekolah`, `no_handphone`, `prodi_pilihan`, `password`, `author`, `ubah_password`, `isi_regist`) VALUES
-(1, 'Sila Ninin Wisnantiasri', 'sila.wisnantiasri@upj.ac.id', '', '', '', '$2y$12$pUuefn.oMCsBfp3pbYf/pu/1eX5Q3wiQ.WT5ajBvTG7W5U6mmtJbi', 'kaprodi', 'belum', 'belum'),
-(2, 'Yohanes Totok Suyoto', 'totok.suyoto@upj.ac.id', '', '', '', '$2y$12$0a/lXvt0pWc3iEyeEtqYdu2yJ3opIeW6sKO2iI5Ic70r0V0/JfF5m', 'kaprodi', 'belum', 'belum'),
-(3, 'Aries Yulianto', 'aries.yulianto@upj.ac.id', '', '', '', '$2y$12$DE6ttzRueMKwIuV/O9hXp.2l0yWkxWepcolStSPvdcJcx2lLNAuyq', 'kaprodi', 'belum', 'belum'),
-(4, 'Naurissa Biasini', 'naurissa.biasini@upj.ac.id', '', '', '', '$2y$12$89rxA.3XYogmQIxhBKqs8utVvva4ua.2V7P1n25aZjChDcCPLMqia', 'kaprodi', 'belum', 'belum'),
-(5, 'Fitorio Leksono', 'fitorio.leksono@upj.ac.id', '', '', '', '$2y$12$m0skBfoVzgwoM/qF1yz/0uYSXQ/H9HpK8yibT1jrCKtIkqyX3JRMu', 'kaprodi', 'belum', 'belum'),
-(6, 'Desi Dwi Kristanto', 'desi.dwikristanto@upj.ac.id', '', '', '', '$2y$12$IDevyh0P/RCKWziGzthiJOqaaeAuIJtHT6YwEwut4e9I8wUhPcCeS ', 'kaprodi', 'belum', 'belum'),
-(7, 'Safitri Jaya', 'safitri.jaya@upj.ac.id', '', '', '', '$2y$12$yYaxtoObU2jstySYg.QcN.KDS4MVhp4EL/XRZI2sgJ0LBH7rtrmO2', 'kaprodi', 'belum', 'belum'),
-(8, 'Chaerul Anwar', 'chaerul.anwar@upj.ac.id', '', '', '', '$2y$12$9fFdd0wDMnhRVtNr/YFp0.JMnrtyBNVln5f.1j9v8yQK7Zt5Vj1q6', 'kaprodi', 'belum', 'belum'),
-(9, 'Pratika Riris Putrianti', 'pratika.riris@upj.ac.id', '', '', '', '$2y$12$XqDE7SNXaI8r5xtL8tmfR.PlkguqfzUmp45IO.UXMjz1m74TAPoYO', 'kaprodi', 'belum', 'belum'),
-(10, 'Ratna Safitri', 'ratna.safitri@upj.ac.id', '', '', '', '$2y$12$kZViWmMKiKaXt39mqUk7mOmkNuvH2bk8B.by7cqLLLVVYtDEPwkh6', 'kaprodi', 'belum', 'belum'),
-(16, 'Theofilus Handoyo', 'realth99@gmail.com', 'smk iopi', '085219427222', 'Ilmu Komunikasi', '$2y$05$n59n6hjY/BIDE.G2xqqIp.i.bXDxB5aI5fte7j2.VCyVIZ8eYoUeO', 'camaba', 'belum', 'belum');
+INSERT INTO `t_login` (`no`, `nama`, `email`, `asal_sekolah`, `no_handphone`, `prodi_pilihan`, `password`, `author`, `ubah_password`, `isi_regist`, `isi_tes_holland`, `isi_tes_bigfive`) VALUES
+(1, 'Sila Ninin Wisnantiasri', 'sila.wisnantiasri@upj.ac.id', '', '', '', '$2y$12$pUuefn.oMCsBfp3pbYf/pu/1eX5Q3wiQ.WT5ajBvTG7W5U6mmtJbi', 'kaprodi', 'belum', 'belum', '', ''),
+(2, 'Yohanes Totok Suyoto', 'totok.suyoto@upj.ac.id', '', '', '', '$2y$12$0a/lXvt0pWc3iEyeEtqYdu2yJ3opIeW6sKO2iI5Ic70r0V0/JfF5m', 'kaprodi', 'belum', 'belum', '', ''),
+(3, 'Aries Yulianto', 'aries.yulianto@upj.ac.id', '', '', '', '$2y$12$DE6ttzRueMKwIuV/O9hXp.2l0yWkxWepcolStSPvdcJcx2lLNAuyq', 'kaprodi', 'belum', 'belum', '', ''),
+(4, 'Naurissa Biasini', 'naurissa.biasini@upj.ac.id', '', '', '', '$2y$12$89rxA.3XYogmQIxhBKqs8utVvva4ua.2V7P1n25aZjChDcCPLMqia', 'kaprodi', 'belum', 'belum', '', ''),
+(5, 'Fitorio Leksono', 'fitorio.leksono@upj.ac.id', '', '', '', '$2y$12$m0skBfoVzgwoM/qF1yz/0uYSXQ/H9HpK8yibT1jrCKtIkqyX3JRMu', 'kaprodi', 'belum', 'belum', '', ''),
+(6, 'Desi Dwi Kristanto', 'desi.dwikristanto@upj.ac.id', '', '', '', '$2y$12$IDevyh0P/RCKWziGzthiJOqaaeAuIJtHT6YwEwut4e9I8wUhPcCeS ', 'kaprodi', 'belum', 'belum', '', ''),
+(7, 'Safitri Jaya', 'safitri.jaya@upj.ac.id', '', '', '', '$2y$12$yYaxtoObU2jstySYg.QcN.KDS4MVhp4EL/XRZI2sgJ0LBH7rtrmO2', 'kaprodi', 'belum', 'belum', '', ''),
+(8, 'Chaerul Anwar', 'chaerul.anwar@upj.ac.id', '', '', '', '$2y$12$9fFdd0wDMnhRVtNr/YFp0.JMnrtyBNVln5f.1j9v8yQK7Zt5Vj1q6', 'kaprodi', 'belum', 'belum', '', ''),
+(9, 'Pratika Riris Putrianti', 'pratika.riris@upj.ac.id', '', '', '', '$2y$12$XqDE7SNXaI8r5xtL8tmfR.PlkguqfzUmp45IO.UXMjz1m74TAPoYO', 'kaprodi', 'belum', 'belum', '', ''),
+(10, 'Ratna Safitri', 'ratna.safitri@upj.ac.id', '', '', '', '$2y$12$kZViWmMKiKaXt39mqUk7mOmkNuvH2bk8B.by7cqLLLVVYtDEPwkh6', 'kaprodi', 'belum', 'belum', '', ''),
+(16, 'Theofilus Handoyo', 'realth99@gmail.com', 'smk iopi', '085219427222', 'Ilmu Komunikasi', '$2y$05$n59n6hjY/BIDE.G2xqqIp.i.bXDxB5aI5fte7j2.VCyVIZ8eYoUeO', 'camaba', 'belum', 'belum', '', '');
 
 -- --------------------------------------------------------
 

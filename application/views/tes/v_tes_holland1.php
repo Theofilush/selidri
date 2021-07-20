@@ -42,9 +42,11 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
+                                    $no=0;
                                         foreach($soalr1_awal as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ". $row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -73,8 +75,9 @@
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
                                         foreach($soalr1_akhir as $row){
+                                            $batas_tengahR++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $batas_tengahR.". ".$row->soal; ?></p>
                                 
                                     <div class="form-group">
                                         <div>
@@ -110,9 +113,11 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
+                                    $no=0;
                                         foreach($soali1_awal as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -141,8 +146,9 @@
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
                                         foreach($soali1_akhir as $row){
+                                            $batas_tengahI++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $batas_tengahI.". ".$row->soal; ?></p>
                                 
                                     <div class="form-group">
                                         <div>
@@ -178,9 +184,11 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
+                                    $no=0;
                                         foreach($soala1_awal as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -209,8 +217,9 @@
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
                                         foreach($soala1_akhir as $row){
+                                            $batas_tengahA++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $batas_tengahA.". ".$row->soal; ?></p>
                                 
                                     <div class="form-group">
                                         <div>
@@ -246,9 +255,11 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
+                                    $no=0;
                                         foreach($soals1_awal as $row){
+                                            $batas_tengahS++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $batas_tengahS.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -277,8 +288,9 @@
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
                                         foreach($soals1_akhir as $row){
+                                            $batas_tengahS++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $batas_tengahS.". ".$row->soal; ?></p>
                                 
                                     <div class="form-group">
                                         <div>
@@ -313,10 +325,11 @@
                             <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
-                                    <?php 
+                                    <?php $no=0;
                                         foreach($soale1_awal as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -343,10 +356,11 @@
                                 </div>
 
                                 <div class="col-md-12 col-lg-6">
-                                    <?php 
+                                    <?php
                                         foreach($soale1_akhir as $row){
+                                            $batas_tengahE++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $batas_tengahE.". ". $row->soal; ?></p>
                                 
                                     <div class="form-group">
                                         <div>
@@ -381,10 +395,11 @@
                             <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
-                                    <?php 
+                                    <?php $no=0;
                                         foreach($soalc1_awal as $row){
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
@@ -404,7 +419,6 @@
                                                    placeholder="Re-Type Password"/>
                                         </div> -->
                                     </div>
-
                                     <?php
                                         }
                                     ?> 
@@ -413,8 +427,9 @@
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
                                         foreach($soalc1_akhir as $row){
+                                            $batas_tengahC++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $batas_tengahC.". ".$row->soal; ?></p>
                                 
                                     <div class="form-group">
                                         <div>
