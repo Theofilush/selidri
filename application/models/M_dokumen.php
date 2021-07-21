@@ -186,7 +186,20 @@ class M_dokumen extends CI_Model{
         $query = $this->db->query("SELECT * FROM `t_soal_big_five` limit $b, $c")->result();
         return $query;
     }
-    
+
+    function save_tes_holland1($data){
+        return $this->db->insert("t_jawaban", $data);
+    }
+
+    function save_update_tes_holland2($data, $id_peserta){
+        $this->db->where('id_peserta',$id_peserta);
+        return $this->db->update("t_jawaban",$data);
+    }
+
+    function save_update_tes_holland3($data, $id_peserta){
+        $this->db->where('id_peserta',$id_peserta);
+        return $this->db->update("t_jawaban",$data);
+    }
 
 }
 ?>

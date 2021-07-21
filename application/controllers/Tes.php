@@ -184,4 +184,197 @@ class Tes extends CI_Controller {
 			  $this->load->view('dashboard/v_footer');
 		}
 	}
+
+	public function savedok_tes_holland1(){     
+		if($this->input->post('btnUpload') == "Upload"){			 
+			$inputTxt2= $this->input->post(NULL, True);
+			$jumlahR = 0;
+			$jumlahI = 0;
+			$jumlahA = 0;
+			$jumlahS = 0;
+			$jumlahE = 0;
+			$jumlahC = 0;
+			foreach ($inputTxt2 as $key => $value) {
+
+				$filterInisial = str_split($key,1);
+					
+				if($filterInisial[0] == 'r'){
+					$jumlahR += $value;
+				}
+				if($filterInisial[0] == 'i'){
+					$jumlahI += $value;
+				}
+				if($filterInisial[0] == 'a'){
+					$jumlahA += $value;
+				}
+				if($filterInisial[0] == 's'){
+					$jumlahS += $value;
+				}
+				if($filterInisial[0] == 'e'){
+					$jumlahE += $value;
+				}
+				if($filterInisial[0] == 'c'){
+					$jumlahC += $value;
+				}
+			}
+			// 	echo " jumlah R : $jumlahR <br>";
+			// 	echo " jumlah I : $jumlahI <br>";
+			// 	echo " jumlah A : $jumlahA <br>";
+			// 	echo " jumlah S : $jumlahS <br>";
+			// 	echo " jumlah E : $jumlahE <br>";
+			// 	echo " jumlah C : $jumlahC <br>";
+			// echo "<br><br><br>-------------------------------------<br>";
+
+			// print_r($inputTxt2);exit();
+
+			$data = array(
+				'id_peserta'=> $this->session->userdata('id_peserta'),
+				  'r1' => $jumlahR,
+				  'i1' => $jumlahI,
+				  'a1' => $jumlahA,
+				  's1' => $jumlahS,
+				  'e1' => $jumlahE,
+				  'c1' => $jumlahC,
+			);
+			$query= $this->M_dokumen->save_tes_holland1($data, $id);
+			   
+			if ($query) {
+				//$this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');
+				redirect(site_url('Tes/tes_holland/2'));
+			}
+			else{
+				redirect(site_url('Tes/tes_holland/2'));
+			}
+		}
+			  
+	}
+
+	public function savedok_tes_holland2(){     
+		if($this->input->post('btnUpload') == "Upload"){			 
+			$inputTxt2= $this->input->post(NULL, True);
+			$jumlahR = 0;
+			$jumlahI = 0;
+			$jumlahA = 0;
+			$jumlahS = 0;
+			$jumlahE = 0;
+			$jumlahC = 0;
+			foreach ($inputTxt2 as $key => $value) {
+
+				$filterInisial = str_split($key,1);
+					
+				if($filterInisial[0] == 'r'){
+					$jumlahR += $value;
+				}
+				if($filterInisial[0] == 'i'){
+					$jumlahI += $value;
+				}
+				if($filterInisial[0] == 'a'){
+					$jumlahA += $value;
+				}
+				if($filterInisial[0] == 's'){
+					$jumlahS += $value;
+				}
+				if($filterInisial[0] == 'e'){
+					$jumlahE += $value;
+				}
+				if($filterInisial[0] == 'c'){
+					$jumlahC += $value;
+				}
+			}
+			// 	echo " jumlah R : $jumlahR <br>";
+			// 	echo " jumlah I : $jumlahI <br>";
+			// 	echo " jumlah A : $jumlahA <br>";
+			// 	echo " jumlah S : $jumlahS <br>";
+			// 	echo " jumlah E : $jumlahE <br>";
+			// 	echo " jumlah C : $jumlahC <br>";
+			// echo "<br><br><br>-------------------------------------<br>";
+
+			// print_r($inputTxt2);exit();
+
+			$data = array(
+				  'r2' => $jumlahR,
+				  'i2' => $jumlahI,
+				  'a2' => $jumlahA,
+				  's2' => $jumlahS,
+				  'e2' => $jumlahE,
+				  'c2' => $jumlahC,
+			);
+			$id_peserta = $this->session->userdata('id_peserta');
+			$query= $this->M_dokumen->save_update_tes_holland2($data, $id_peserta);
+			   
+			if ($query) {
+				//$this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');
+				redirect(site_url('Tes/tes_holland/3'));
+			}
+			else{
+				redirect(site_url('Tes/tes_holland/3'));
+			}
+		}
+			  
+	}
+
+	public function savedok_tes_holland3(){     
+		if($this->input->post('btnUpload') == "Upload"){			 
+			$inputTxt3= $this->input->post(NULL, True);
+			$jumlahR = 0;
+			$jumlahI = 0;
+			$jumlahA = 0;
+			$jumlahS = 0;
+			$jumlahE = 0;
+			$jumlahC = 0;
+			foreach ($inputTxt3 as $key => $value) {
+
+				$filterInisial = str_split($key,1);
+					
+				if($filterInisial[0] == 'r'){
+					$jumlahR += $value;
+				}
+				if($filterInisial[0] == 'i'){
+					$jumlahI += $value;
+				}
+				if($filterInisial[0] == 'a'){
+					$jumlahA += $value;
+				}
+				if($filterInisial[0] == 's'){
+					$jumlahS += $value;
+				}
+				if($filterInisial[0] == 'e'){
+					$jumlahE += $value;
+				}
+				if($filterInisial[0] == 'c'){
+					$jumlahC += $value;
+				}
+			}
+			// 	echo " jumlah R : $jumlahR <br>";
+			// 	echo " jumlah I : $jumlahI <br>";
+			// 	echo " jumlah A : $jumlahA <br>";
+			// 	echo " jumlah S : $jumlahS <br>";
+			// 	echo " jumlah E : $jumlahE <br>";
+			// 	echo " jumlah C : $jumlahC <br>";
+			// echo "<br><br><br>-------------------------------------<br>";
+
+			// print_r($inputTxt3);exit();
+
+			$data = array(
+				  'r3' => $jumlahR,
+				  'i3' => $jumlahI,
+				  'a3' => $jumlahA,
+				  's3' => $jumlahS,
+				  'e3' => $jumlahE,
+				  'c3' => $jumlahC,
+			);
+			$id_peserta = $this->session->userdata('id_peserta');
+			$query= $this->M_dokumen->save_update_tes_holland3($data, $id_peserta);
+			   
+			if ($query) {
+				//$this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');
+				redirect(site_url('Tes/'));
+			}
+			else{
+				redirect(site_url('Tes/'));
+			}
+		}
+			  
+	}
+
 }

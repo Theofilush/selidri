@@ -28,13 +28,15 @@ class Login extends CI_Controller {
 				if ($db->ubah_password == "belum") { 
 					$data_session = array(
 						'email' => $email,
-						'status' => "login"
+                        'id_peserta' => $db->no,
+						'status' => "login",
 					);
 					$this->session->set_userdata($data_session);
 					redirect(site_url("login/ubah_firstpassword"),'refresh');
 				} elseif ($db->ubah_password == "sudah") {
 					$data_session = array(
 						'email' => $email,
+                        'id_peserta' => $db->no,
 						'status' => "login"
 					);
 					$this->session->set_userdata($data_session);

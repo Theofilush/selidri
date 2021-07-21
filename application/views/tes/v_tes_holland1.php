@@ -33,10 +33,26 @@
                 <!-- end page title end breadcrumb -->
 
                 <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <?php
+                            $atribut = array();
+                            echo form_open_multipart('Tes/savedok_tes_holland1',$atribut);
+                            // echo form_hidden('pic',$bubi);
+                    ?>
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4 class="mt-0 header-title">Bagian 1</h4>
+                                    <h6 class="m-t-10">Pilihlah "Suka" jika Anda suka Kegiatan tersebut, </h6>
+                                    <h6>Pilihlah "Tidak Suka" jika anda tidak suka atau biasa saja (bersikap netral) mengenai kegiatan tersebut.</u></h6>
+                                </div>
+                            </div>  
+                            </div>
+                        </div>
+                    </div> <!-- end col r-->
+
                     <div class="col-lg-8 offset-lg-2">
-                        <h4 class="mt-0 header-title">Bagian 1</h4>
-                        <h6 class="m-t-10">Pilihlah "Suka" jika Anda suka Kegiatan tersebut, </h6>
-                        <h6>Pilihlah "Tidak Suka" jika anda tidak suka atau biasa saja (bersikap netral) mengenai kegiatan tersebut.</u></h6>
                         <div class="card m-b-30">
                             <div class="card-body">
                             <div class="row">
@@ -49,22 +65,17 @@
                                     <p class="text-muted m-b-10"><?php echo $no.". ". $row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="radio icheck-emerland">
+                                                <input type="radio" id="ra1<?php echo $no; ?>" name="r1<?php echo $no; ?>" value="1" required>
+                                                <label for="ra1<?php echo $no; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="radio icheck-emerland">
+                                                <input type="radio" id="rb1<?php echo $no; ?>" name="r1<?php echo $no; ?>" value="0" required>
+                                                <label for="rb1<?php echo $no; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
 
                                     <?php
@@ -81,22 +92,17 @@
                                 
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="radio icheck-emerland">
+                                                <input type="radio" id="ra1<?php echo $batas_tengahR; ?>" name="r1<?php echo $batas_tengahR; ?>" value="1" required>
+                                                <label for="ra1<?php echo $batas_tengahR; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="radio icheck-emerland">
+                                                <input type="radio" id="rb1<?php echo $batas_tengahR; ?>" name="r1<?php echo $batas_tengahR; ?>" value="0" required>
+                                                <label for="rb1<?php echo $batas_tengahR; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
                                     <?php
                                         }
@@ -115,29 +121,23 @@
                                     <?php 
                                     $no=0;
                                         foreach($soali1_awal as $row){
-                                            $no++;
+                                        $no++;
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="radio icheck-peterriver">
+                                                <input type="radio" id="ia1<?php echo $no; ?>" name="i1<?php echo $no; ?>" value="1" required>
+                                                <label for="ia1<?php echo $no; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="radio icheck-peterriver">
+                                                <input type="radio" id="ib1<?php echo $no; ?>" name="i1<?php echo $no; ?>" value="0" required>
+                                                <label for="ib1<?php echo $no; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
-
                                     <?php
                                         }
                                     ?> 
@@ -152,22 +152,17 @@
                                 
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-peterriver">
+                                                <input type="radio" id="ia1<?php echo $batas_tengahI; ?>" name="i1<?php echo $batas_tengahI; ?>" value="1" required>
+                                                <label for="ia1<?php echo $batas_tengahI; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-peterriver">
+                                                <input type="radio" id="ib1<?php echo $batas_tengahI; ?>" name="i1<?php echo $batas_tengahI; ?>" value="0" required>
+                                                <label for="ib1<?php echo $batas_tengahI; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
                                     <?php
                                         }
@@ -186,27 +181,22 @@
                                     <?php 
                                     $no=0;
                                         foreach($soala1_awal as $row){
-                                            $no++;
+                                        $no++;
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-amethyst">
+                                                <input type="radio" id="aa1<?php echo $no; ?>" name="a1<?php echo $no; ?>" value="1" required>
+                                                <label for="aa1<?php echo $no; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-amethyst">
+                                                <input type="radio" id="ab1<?php echo $no; ?>" name="a1<?php echo $no; ?>" value="0" required>
+                                                <label for="ab1<?php echo $no; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
 
                                     <?php
@@ -223,22 +213,17 @@
                                 
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-amethyst">
+                                                <input type="radio" id="aa1<?php echo $batas_tengahA; ?>" name="a1<?php echo $batas_tengahA; ?>" value="1" required>
+                                                <label for="aa1<?php echo $batas_tengahA; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-amethyst">
+                                                <input type="radio" id="ab1<?php echo $batas_tengahA; ?>" name="a1<?php echo $batas_tengahA; ?>" value="0" required>
+                                                <label for="ab1<?php echo $batas_tengahA; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
                                     <?php
                                         }
@@ -257,27 +242,22 @@
                                     <?php 
                                     $no=0;
                                         foreach($soals1_awal as $row){
-                                            $batas_tengahS++;
+                                            $no++;
                                     ?>  
-                                    <p class="text-muted m-b-10"><?php echo $batas_tengahS.". ".$row->soal; ?></p>
+                                    <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-belizehole">
+                                                <input type="radio" id="sa1<?php echo $no; ?>" name="s1<?php echo $no; ?>" value="1" required>
+                                                <label for="sa1<?php echo $no; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-belizehole">
+                                                <input type="radio" id="sb1<?php echo $no; ?>" name="s1<?php echo $no; ?>" value="0" required>
+                                                <label for="sb1<?php echo $no; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
 
                                     <?php
@@ -294,22 +274,17 @@
                                 
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-belizehole">
+                                                <input type="radio" id="sa1<?php echo $batas_tengahS; ?>" name="s1<?php echo $batas_tengahS; ?>" value="1" required>
+                                                <label for="sa1<?php echo $batas_tengahS; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-belizehole">
+                                                <input type="radio" id="sb1<?php echo $batas_tengahS; ?>" name="s1<?php echo $batas_tengahS; ?>" value="0" required>
+                                                <label for="sb1<?php echo $batas_tengahS; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
                                     <?php
                                         }
@@ -318,7 +293,7 @@
                             </div>  
                             </div>
                         </div>
-                    </div> <!-- end col e -->
+                    </div> <!-- end col s -->
 
                     <div class="col-lg-8 offset-lg-2">
                         <div class="card m-b-30">
@@ -332,14 +307,14 @@
                                     <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-wetasphalt">
+                                                <input type="radio" id="ea1<?php echo $no; ?>" name="e1<?php echo $no; ?>" value="1" required>
+                                                <label for="ea1<?php echo $no; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-wetasphalt">
+                                                <input type="radio" id="eb1<?php echo $no; ?>" name="e1<?php echo $no; ?>" value="0" required>
+                                                <label for="eb1<?php echo $no; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
@@ -364,14 +339,14 @@
                                 
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-wetasphalt">
+                                                <input type="radio" id="ea1<?php echo $batas_tengahE; ?>" name="e1<?php echo $batas_tengahE; ?>" value="1" required>
+                                                <label for="ea1<?php echo $batas_tengahE; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-wetasphalt">
+                                                <input type="radio" id="eb1<?php echo $batas_tengahE; ?>" name="e1<?php echo $batas_tengahE; ?>" value="0" required>
+                                                <label for="eb1<?php echo $batas_tengahE; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
@@ -402,22 +377,17 @@
                                     <p class="text-muted m-b-10"><?php echo $no.". ".$row->soal; ?></p>
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-alizarin">
+                                                <input type="radio" id="ca1<?php echo $no; ?>" name="c1<?php echo $no; ?>" value="1" required>
+                                                <label for="ca1<?php echo $no; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-alizarin">
+                                                <input type="radio" id="cb1<?php echo $no; ?>" name="c1<?php echo $no; ?>" value="0" required>
+                                                <label for="cb1<?php echo $no; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
                                     <?php
                                         }
@@ -433,22 +403,17 @@
                                 
                                     <div class="form-group">
                                         <div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary1" name="r1">
-                                                <label for="radioPrimary1"> Suka
+                                            <div class="icheck-alizarin">
+                                                <input type="radio" id="ca1<?php echo $batas_tengahC; ?>" name="c1<?php echo $batas_tengahC; ?>" value="1" required>
+                                                <label for="ca1<?php echo $batas_tengahC; ?>"> Suka
                                                 </label>
                                             </div>
-                                            <div class="icheck-primary">
-                                                <input type="radio" id="radioPrimary2" name="r1">
-                                                <label for="radioPrimary2"> Tidak Suka
+                                            <div class="icheck-alizarin">
+                                                <input type="radio" id="cb1<?php echo $batas_tengahC; ?>" name="c1<?php echo $batas_tengahC; ?>" value="0" required>
+                                                <label for="cb1<?php echo $batas_tengahC; ?>"> Tidak Suka
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <div class="m-t-10">
-                                            <input type="password" class="form-control" required
-                                                   data-parsley-equalto="#pass2"
-                                                   placeholder="Re-Type Password"/>
-                                        </div> -->
                                     </div>
                                     <?php
                                         }
@@ -458,6 +423,7 @@
                             </div>
                         </div>
                     </div> <!-- end col c -->
+                   
 
                     <div class="col-lg-12">
                         <div class="card m-b-30" style="background-color: #dfcdfa; border-color: #333;" >
@@ -467,22 +433,17 @@
                                 <p class="card-text m-b-30">Parsley is a javascript form validation
                                     library. It helps you provide your users with feedback on their form
                                     submission before sending it to your server.</p> -->
-
-                                <form class="" action="<?php echo site_url(); ?>Tes/tes_holland/2" method="post">
                                     <div class="form-group">
                                         <div>
-                                            <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5">
-                                                Lanjut ke bagian 2
-                                            </button>  
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5" name="btnUpload" value="Upload">Lanjut ke bagian 2</button>
                                         </div>
                                     </div>
-                                </form>
-
                             </div>
                         </div>
                     </div> <!-- end col -->
-
-
+                    <?php
+                        echo form_close();
+                    ?>
                 </div> <!-- end row -->
 
             </div> <!-- end container-fluid -->

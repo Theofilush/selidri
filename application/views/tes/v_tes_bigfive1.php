@@ -33,6 +33,25 @@
                 <!-- end page title end breadcrumb -->
 
                 <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h6 class="m-t-10">Daftar di bawah ini menggambarkan perasaan dan sikap Anda terhadap bermacam pekerjaan. </h6>
+                                    <h6> Pada setiap pekerjaan pilihlah "Ya", bila pekerjaan tersebut, <u>Anda sukai atau menarik bagi Anda</u>. </h6>
+                                    <h6>Pilihlah "Tidak", bila Anda merasa perkejaan tersebut <u>tidak Anda sukai atau tidak menarik bagi Anda. </u></h6>
+                                    <h6>1 ceklis => Tidak setuju sekali</h6>
+                                    <h6>2 ceklis => Tidak setuju</h6>
+                                    <h6>3 ceklis => Netral</h6>
+                                    <h6>4 ceklis => Setuju</h6>
+                                    <h6>5 ceklis => Setuju sekali</h6>
+                                </div>
+                            </div>  
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                
                     <div class="col-lg-8 offset-lg-2">
                         <div class="card m-b-30">
                             <div class="card-body">
