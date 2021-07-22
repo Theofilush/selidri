@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jul 2021 pada 14.51
+-- Waktu pembuatan: 22 Jul 2021 pada 09.18
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.21
 
@@ -199,7 +199,9 @@ CREATE TABLE `t_jawaban` (
 --
 
 INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `tanggal`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `O`, `C`, `E`, `A`, `N`) VALUES
-(1, '', '2021-07-20 12:01:54', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1, '', '2021-07-20 12:01:54', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, '16', '2021-07-21 15:29:51', 9, 5, 14, 9, 4, 12, 9, 5, 11, 6, 6, 12, 6, 6, 11, 9, 11, 13, 0, 0, 0, 0, 0),
+(3, '16', '2021-07-21 16:51:20', 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -247,64 +249,65 @@ INSERT INTO `t_login` (`no`, `nama`, `email`, `asal_sekolah`, `no_handphone`, `p
 
 CREATE TABLE `t_soal_big_five` (
   `id_soal` int(10) NOT NULL,
-  `soal` varchar(200) NOT NULL
+  `soal` varchar(200) NOT NULL,
+  `kelompok` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `t_soal_big_five`
 --
 
-INSERT INTO `t_soal_big_five` (`id_soal`, `soal`) VALUES
-(1, 'Saya seorang imajinatif'),
-(2, 'Saya seorang yang perfeksionis'),
-(3, 'Saya seorang yang ramah'),
-(4, 'Saya sulit mempercayai orang lain'),
-(5, 'Mudah khawatir pada masalah sepele'),
-(6, 'Saya menyukai kesenian'),
-(7, 'Saya dapat diandalkan dalam kerja kelompok'),
-(8, 'Saya suka menyendiri'),
-(9, 'Saya tulus ketika berbicara'),
-(10, 'Saya seorang pemalu'),
-(11, 'Saya seorang yang kreatif'),
-(12, 'Buku-buku saya tersimpan rapi'),
-(13, 'Saya menyukai kebersamaan'),
-(14, 'Apa yang saya katakan, menunjukkan apa yang sebenarnya saya pikirkan atau rasakan'),
-(15, 'Saya mampu menahan amarah'),
-(16, 'Orang-orang di sekitar saya tahu apa yang sedang saya rasakan'),
-(17, 'Teman-teman bilang saya tukang telat'),
-(18, 'Mampu memulai pembicaraan'),
-(19, 'Saya seorang yang murah hati'),
-(20, 'Saya dikenal sebagai seorang yang tidak mudah marah '),
-(21, 'Sering kali saya tidak tahu apakah saya sedang sedih atau senang'),
-(22, 'Saya sering terlambat dalam mengumpulkan tugas'),
-(23, 'Mewakili kelompok dalam berbicara'),
-(24, 'Saya dikenal sebagai orang yang suka membantu orang lain'),
-(25, 'Saya sering merasa tidak berharga'),
-(26, 'Saya tidak menyukai rutinitas'),
-(27, 'Saya seorang yang ambisius'),
-(28, 'Ketika beraktivitas, saya cenderung santai'),
-(29, 'Saya memiliki banyak konflik terhadap orang lain '),
-(30, 'Mudah tersinggung dengan orang lain'),
-(31, 'Saya dikenal sebagai orang yang punya banyak ide'),
-(32, 'Sebisa mungkin prestasi saya lebih tinggi dari teman-teman'),
-(33, 'Saya memiliki banyak aktivitas'),
-(34, 'Saya cenderung mengalah'),
-(35, 'Saya tidak percaya diri'),
-(36, 'Mampu menciptakan ide baru'),
-(37, 'Saya mengerjakan tugas ketika mendekati deadline'),
-(38, 'Saya senang berpetualang'),
-(39, 'Saya seorang yang rendah hati'),
-(40, 'Saya seorang yang moody'),
-(41, 'Tradisi harus dijalankan meskipun di jaman modern'),
-(42, 'Spontan adalah salah satu sifat saya'),
-(43, 'Saya suka mengikuti kegiatan yang ramai'),
-(44, 'Peduli terhadap orang lain'),
-(45, 'Saya mudah panik ketika terjadi situasi yang tidak diharapkan'),
-(46, 'Cenderung menentang tradisi yang telah ada'),
-(47, 'Berpikir sebelum bertindak'),
-(48, 'Sering merasa bahagia'),
-(49, 'Seorang yang pengertian'),
-(50, 'Bila lingkungan tidak bisa menyesuaikan saya, sayalah yang akan menyesuaikan');
+INSERT INTO `t_soal_big_five` (`id_soal`, `soal`, `kelompok`) VALUES
+(1, 'Saya seorang imajinatif', 'o'),
+(2, 'Saya seorang yang perfeksionis', 'c'),
+(3, 'Saya seorang yang ramah', 'e'),
+(4, 'Saya sulit mempercayai orang lain', 'a'),
+(5, 'Mudah khawatir pada masalah sepele', 'n'),
+(6, 'Saya menyukai kesenian', 'o'),
+(7, 'Saya dapat diandalkan dalam kerja kelompok', 'c'),
+(8, 'Saya suka menyendiri', 'e'),
+(9, 'Saya tulus ketika berbicara', 'a'),
+(10, 'Saya seorang pemalu', 'n'),
+(11, 'Saya seorang yang kreatif', 'o'),
+(12, 'Buku-buku saya tersimpan rapi', 'c'),
+(13, 'Saya menyukai kebersamaan', 'e'),
+(14, 'Apa yang saya katakan, menunjukkan apa yang sebenarnya saya pikirkan atau rasakan', 'a'),
+(15, 'Saya mampu menahan amarah', 'n'),
+(16, 'Orang-orang di sekitar saya tahu apa yang sedang saya rasakan', 'o'),
+(17, 'Teman-teman bilang saya tukang telat', 'c'),
+(18, 'Mampu memulai pembicaraan', 'e'),
+(19, 'Saya seorang yang murah hati', 'a'),
+(20, 'Saya dikenal sebagai seorang yang tidak mudah marah ', 'n'),
+(21, 'Sering kali saya tidak tahu apakah saya sedang sedih atau senang', 'o'),
+(22, 'Saya sering terlambat dalam mengumpulkan tugas', 'c'),
+(23, 'Mewakili kelompok dalam berbicara', 'e'),
+(24, 'Saya dikenal sebagai orang yang suka membantu orang lain', 'a'),
+(25, 'Saya sering merasa tidak berharga', 'n'),
+(26, 'Saya tidak menyukai rutinitas', 'o'),
+(27, 'Saya seorang yang ambisius', 'c'),
+(28, 'Ketika beraktivitas, saya cenderung santai', 'e'),
+(29, 'Saya memiliki banyak konflik terhadap orang lain ', 'a'),
+(30, 'Mudah tersinggung dengan orang lain', 'n'),
+(31, 'Saya dikenal sebagai orang yang punya banyak ide', 'o'),
+(32, 'Sebisa mungkin prestasi saya lebih tinggi dari teman-teman', 'c'),
+(33, 'Saya memiliki banyak aktivitas', 'e'),
+(34, 'Saya cenderung mengalah', 'a'),
+(35, 'Saya tidak percaya diri', 'n'),
+(36, 'Mampu menciptakan ide baru', 'o'),
+(37, 'Saya mengerjakan tugas ketika mendekati deadline', 'c'),
+(38, 'Saya senang berpetualang', 'e'),
+(39, 'Saya seorang yang rendah hati', 'a'),
+(40, 'Saya seorang yang moody', 'n'),
+(41, 'Tradisi harus dijalankan meskipun di jaman modern', 'o'),
+(42, 'Spontan adalah salah satu sifat saya', 'c'),
+(43, 'Saya suka mengikuti kegiatan yang ramai', 'e'),
+(44, 'Peduli terhadap orang lain', 'a'),
+(45, 'Saya mudah panik ketika terjadi situasi yang tidak diharapkan', 'n'),
+(46, 'Cenderung menentang tradisi yang telah ada', 'o'),
+(47, 'Berpikir sebelum bertindak', 'c'),
+(48, 'Sering merasa bahagia', 'e'),
+(49, 'Seorang yang pengertian', 'a'),
+(50, 'Bila lingkungan tidak bisa menyesuaikan saya, sayalah yang akan menyesuaikan', 'n');
 
 -- --------------------------------------------------------
 
@@ -665,7 +668,7 @@ ALTER TABLE `temp_register`
 -- AUTO_INCREMENT untuk tabel `t_jawaban`
 --
 ALTER TABLE `t_jawaban`
-  MODIFY `id_jawaban` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jawaban` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_login`

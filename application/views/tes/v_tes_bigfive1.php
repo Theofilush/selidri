@@ -31,9 +31,14 @@
                     </div>
                 </div>
                 <!-- end page title end breadcrumb -->
-
+                <?php
+                            $atribut = array();
+                            echo form_open_multipart('Tes',$atribut);
+                            // echo form_hidden('pic',$bubi);
+                    ?>
                 <div class="row">
-                <div class="col-lg-8 offset-lg-2">
+                
+                    <div class="col-lg-8 offset-lg-2">
                         <div class="card m-b-30">
                             <div class="card-body">
                             <div class="row">
@@ -66,7 +71,7 @@
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
-                                                <input type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted" /> 
+                                                <input name="tbf<?php echo $no; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +91,7 @@
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
-                                                <input type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted" /> 
+                                                <input name="tbf<?php echo $batas_tengah; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
                                             </div>
                                         </div>
                                     </div>
@@ -106,26 +111,21 @@
                                 <p class="card-text m-b-30">Parsley is a javascript form validation
                                     library. It helps you provide your users with feedback on their form
                                     submission before sending it to your server.</p> -->
-
-                                <form class="" action="<?php echo site_url(); ?>Tes/tes_holland/2" method="post">
                                     <div class="form-group">
                                         <div>
-                                            <button type="reset" class="btn btn-primary btn-lg btn-block waves-effect m-b-5">
-                                                Selesaikan tes bigfive
-                                            </button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5" name="btnUpload" value="Upload">Selesaikan Tes Big Five</button>
                                             <!-- <button type="reset" class="btn btn-secondary btn-lg btn-block waves-effect m-b-5">
                                                 Cancel
                                             </button> -->
                                         </div>
                                     </div>
-                                </form>
-
                             </div>
                         </div>
                     </div> <!-- end col -->
-
-
                 </div> <!-- end row -->
+                <?php
+                        echo form_close();
+                    ?>
 
             </div> <!-- end container-fluid -->
         </div>
