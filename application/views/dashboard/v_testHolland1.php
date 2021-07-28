@@ -134,7 +134,6 @@
                                             <img src="<?php echo base_url() ?>assets/images/holland1.jpg" alt="holland1" style="height:20vw;">
                                         </div>
                                         
-                                        <p class="font-14">Hai, Perseners! Kenalin aku Nida, Associate Writer Satu Persen.</p>
                                         <p class="font-14">Tulisan kali ini aku pengen ngebahas salah satu alat tes psikologi yang mungkin akan kamu dapatkan ketika mengikuti mentoring di Satu Persen.</p>
                                         <p class="font-14">Yap! Jadi, layanan mentoring di Satu Persen ini, kamu bukan cuma mendapatkan waktu untuk konseling sama mentor aja, tapi kamu juga akan mendapatkan worksheet, tes psikologi, hingga interpretasinya, biar kamu gak salah memahami hasil dari alat tes tersebut.</p>
                                         <p class="font-14">Nah, kali ini aku mau ngajak kalian buat mengenal salah satu alat tes, yaitu Tes RIASEC.  Mulai dari sejarahnya, tokoh pengembangnya, tujuan tes, serta bagaimana alat tes ini bisa membantu kamu mengenal diri dan menentukan karier atau pendidikan perguruan tinggi yang cocok buat diri kamu.</p>

@@ -11,6 +11,13 @@
 
         <!-- App Icons -->
         <link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/favicon.ico">
+        
+        <!-- DataTables -->
+        <link href="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="<?php echo base_url(); ?>assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
         <!-- App css -->
         <link href="<?php echo base_url() ?>assets/plugins/bootstrap-rating/bootstrap-rating.css" rel="stylesheet" type="text/css">
@@ -18,7 +25,6 @@
         <link href="<?php echo base_url() ?>assets/css/icheck-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url() ?>assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet" type="text/css" />
-
     </head>
 
 

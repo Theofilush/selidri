@@ -143,15 +143,13 @@
                                     <!-- <div class="social-source-icon lg-icon mb-3">
                                         <i class="mdi mdi-facebook h2 bg-primary text-white"></i>
                                     </div> -->
-                                    <h5 class="font-16"><a href="#" class="text-dark">Facebook - <span class="text-muted">125 sales</span> </a></h5>
-                                    <p class="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis tincidunt.</p>
-                                    <a href="#" class="text-primary font-14">Learn more <i class="mdi mdi-chevron-right"></i></a>
+                                    <p class="text-muted">Pengujian berdasarkan minat dan bakat direkomendasikan pada program pilihan berikut</p>
                                 </div>
                                 <div class="row"> <!-- mt-5 -->
                                     <div class="col-md-6">
                                         <div class="social-source text-center mt-3">
                                             <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-twitter h5 bg-info text-white"></i>
+                                                <i class="mdi mdi-graphql h5 bg-info text-white"></i>
                                             </div>
                                             <p class="font-14 text-muted mb-2">Pilihan 1</p>
                                             <h6>Twitter</h6>
@@ -160,7 +158,7 @@
                                     <div class="col-md-6">
                                         <div class="social-source text-center mt-3">
                                             <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-instagram h5 bg-pink text-white"></i>
+                                                <i class="mdi mdi-graphql h5 bg-pink text-white"></i>
                                             </div>
                                             <p class="font-14 text-muted mb-2">Pilihan 2</p>
                                             <h6>Instagram</h6>

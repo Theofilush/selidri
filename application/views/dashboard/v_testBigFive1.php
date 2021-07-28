@@ -132,7 +132,6 @@
                                         <div style="text-align:center;margin: 20px;">
                                             <img src="<?php echo base_url() ?>assets/images/ocean1.png" alt="holland1" style="height:20vw;">
                                         </div>
-                                        <p class="font-14">Hello Perseners! Kenalin namaku Nouvend, seorang associate writer di Satu Persen.</p>
                                         <p class="font-14">Kalian pasti sering denger soal tes kepribadian kayak MBTI. Nah, tapi pernah gak denger yang namanya OCEAN?</p>
                                         <p class="font-14">Beberapa dari kalian mungkin udah pernah denger, atau mungkin udah pernah dapat hasil Tes OCEAN. Ngapain sih, Tes OCEAN itu?</p>
                                         <p class="font-14">Gini, biar sederhana ya. Pernah gak kamu pas lagi ngerjain sesuatu project, misalnya. Kamu merasa skill dan kompetensimu tuh cukup, tapi kayak gak cocok aja gitu sama lingkungan project-nya. Kayak gak fit in sama dirimu.</p>

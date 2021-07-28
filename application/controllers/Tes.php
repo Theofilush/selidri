@@ -111,9 +111,9 @@ class Tes extends CI_Controller {
 				'soale2_bagian2' => $soale2_bagian2,
 				'soalc2_bagian2' => $soalc2_bagian2,
 			);
-			  $this->load->view('dashboard/v_header', $dataHalaman);
-			  $this->load->view('tes/v_tes_holland2');
-			  $this->load->view('dashboard/v_footer');	
+			$this->load->view('dashboard/v_header', $dataHalaman);
+			$this->load->view('tes/v_tes_holland2');
+			$this->load->view('dashboard/v_footer');	
 		} elseif ($key == "3") {
 			$soalr3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_r3(); //menampilkan semua data
 			$soali3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_i3();
@@ -379,56 +379,59 @@ class Tes extends CI_Controller {
 
 	public function savedok_tes_bigfive(){     
 		if($this->input->post('btnUpload') == "Upload"){			 
-			$inputTxt3= $this->input->post(NULL, True);
-			$jumlahR = 0;
-			$jumlahI = 0;
-			$jumlahA = 0;
-			$jumlahS = 0;
-			$jumlahE = 0;
+			$inputTxtTBF= $this->input->post(NULL, True);
+			$jumlahO = 0;
 			$jumlahC = 0;
-			foreach ($inputTxt3 as $key => $value) {
+			$jumlahE = 0;
+			$jumlahA = 0;
+			$jumlahN = 0;
+			// print_r($inputTxtTBF);exit();
+			
+			foreach ($inputTxtTBF as $key => $value) {
 
-				$filterInisial = str_split($key,1);
-					
-				if($filterInisial[0] == 'r'){
-					$jumlahR += $value;
+				$putusStr = substr($key,3);
+				if (strlen($putusStr) == 2) {
+					$putusStr = substr($putusStr,1);
 				}
-				if($filterInisial[0] == 'i'){
-					$jumlahI += $value;
+				if ($value == "" || $value == NULL || $value == "Upload") {
+					$value =0;
 				}
-				if($filterInisial[0] == 'a'){
-					$jumlahA += $value;
+
+				if($putusStr == 1 || $putusStr == 6){
+					$jumlahO += $value;
 				}
-				if($filterInisial[0] == 's'){
-					$jumlahS += $value;
-				}
-				if($filterInisial[0] == 'e'){
-					$jumlahE += $value;
-				}
-				if($filterInisial[0] == 'c'){
+				if($putusStr == 2 || $putusStr == 7){
 					$jumlahC += $value;
 				}
+				if($putusStr == 3 || $putusStr == 8){
+					$jumlahE += $value;
+				}
+				if($putusStr == 4 || $putusStr == 9){
+					$jumlahA += $value;
+				}
+				if($putusStr == 5 || $putusStr == 0){
+					$jumlahN += $value;
+				}
 			}
-			// 	echo " jumlah R : $jumlahR <br>";
-			// 	echo " jumlah I : $jumlahI <br>";
-			// 	echo " jumlah A : $jumlahA <br>";
-			// 	echo " jumlah S : $jumlahS <br>";
-			// 	echo " jumlah E : $jumlahE <br>";
+			// 	echo "<br>";
+			// 	echo " jumlah O : $jumlahO <br>";
 			// 	echo " jumlah C : $jumlahC <br>";
+			// 	echo " jumlah E : $jumlahE <br>";
+			// 	echo " jumlah A : $jumlahA <br>";
+			// 	echo " jumlah N : $jumlahN <br>";
 			// echo "<br><br><br>-------------------------------------<br>";
 
-			// print_r($inputTxt3);exit();
+			// print_r($inputTxtTBF);exit();
 
 			$data = array(
-				  'r3' => $jumlahR,
-				  'i3' => $jumlahI,
-				  'a3' => $jumlahA,
-				  's3' => $jumlahS,
-				  'e3' => $jumlahE,
-				  'c3' => $jumlahC,
+				  'O' => $jumlahO,
+				  'C' => $jumlahC,
+				  'E' => $jumlahE,
+				  'A' => $jumlahA,
+				  'N' => $jumlahN,
 			);
 			$id_peserta = $this->session->userdata('id_peserta');
-			$query= $this->M_dokumen->save_update_tes_holland3($data, $id_peserta);
+			$query= $this->M_dokumen->save_update_tes_bigfive($data, $id_peserta);
 			   
 			if ($query) {
 				//$this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');

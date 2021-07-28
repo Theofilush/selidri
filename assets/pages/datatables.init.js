@@ -7,6 +7,9 @@
 
 $(document).ready(function() {
     $('#datatable').DataTable();
+    $('#datatable_data_hasil').DataTable();
+    $('#datatable_soal_holland').DataTable();
+    $('#datatable_soal_bigfive').DataTable();
 
     //Buttons examples
     var table = $('#datatable-buttons').DataTable({

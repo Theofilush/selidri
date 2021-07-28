@@ -33,9 +33,9 @@
                 <!-- end page title end breadcrumb -->
                 <?php
                             $atribut = array();
-                            echo form_open_multipart('Tes',$atribut);
+                            echo form_open_multipart('Tes/savedok_tes_bigfive',$atribut);
                             // echo form_hidden('pic',$bubi);
-                    ?>
+                ?>
                 <div class="row">
                 
                     <div class="col-lg-8 offset-lg-2">
@@ -71,11 +71,10 @@
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
-                                                <input name="tbf<?php echo $no; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
+                                                <input name="TBF<?php echo $no; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
                                             </div>
                                         </div>
                                     </div>
-
                                     <?php
                                         }
                                     ?> 
@@ -84,14 +83,14 @@
                                 <div class="col-md-12 col-lg-6">
                                     <?php 
                                         foreach($soalTBF_akhir as $row){
-                                            $batas_tengah++;
+                                            $batas_tengah++; 
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $batas_tengah.". ". $row->soal; ?></p>
                                 
                                     <div class="form-group">
                                         <div>
                                             <div class="icheck-primary">
-                                                <input name="tbf<?php echo $batas_tengah; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
+                                                <input name="TBF<?php echo $batas_tengah; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
                                             </div>
                                         </div>
                                     </div>

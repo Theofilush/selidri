@@ -4,6 +4,7 @@ class M_dokumen extends CI_Model{
 
     var $t_soal_hollandd = 't_soal_holland';
     var $t_soal_big_fivee = 't_soal_big_five';
+    var $t_jawaban = 't_jawaban';
 
     function totalBarisR1(){
         $this->db->where('bagian','1');
@@ -188,17 +189,50 @@ class M_dokumen extends CI_Model{
     }
 
     function save_tes_holland1($data){
-        return $this->db->insert("t_jawaban", $data);
+        return $this->db->insert($this->t_jawaban, $data);
     }
 
     function save_update_tes_holland2($data, $id_peserta){
         $this->db->where('id_peserta',$id_peserta);
-        return $this->db->update("t_jawaban",$data);
+        return $this->db->update($this->t_jawaban,$data);
     }
 
     function save_update_tes_holland3($data, $id_peserta){
         $this->db->where('id_peserta',$id_peserta);
-        return $this->db->update("t_jawaban",$data);
+        return $this->db->update($this->t_jawaban,$data);
+    }
+     
+    function save_update_tes_bigfive($data, $id_peserta){
+        $this->db->where('id_peserta',$id_peserta);
+        return $this->db->update($this->t_jawaban,$data);
+    }
+
+    // function tampil_hasil_tes(){ //query untuk menampilkan list user pada halaman user      
+    //     $query = $this->db->get($this->t_jawaban);        
+    //     return $query->result();
+    // }
+
+    function tampil_hasil_tes(){
+        $this->db->select('*');
+        $this->db->join("t_login", 't_jawaban.id_peserta = t_login.no','INNER');
+        $this->db->order_by('t_jawaban.tanggal');
+        $hasil = $this->db->get($this->t_jawaban);
+        return $hasil->result();
+    }
+
+    function tampil_soal_holland($id_soal){
+        $this->db->where('id_soal',$id_soal);
+        $this->db->order_by('t_soal_holland.bagian','ASC');
+        $this->db->order_by('t_soal_holland.kelompok', 'ASC');
+        $query = $this->db->get("t_soal_holland");
+        return $query->result();
+    }
+
+    function tampil_soal_bigfive($id_soal){
+        $this->db->where('id_soal',$id_soal);
+        $this->db->order_by('t_soal_big_five.kelompok','ASC');
+        $query = $this->db->get("t_soal_big_five");
+        return $query->result();
     }
 
 }
