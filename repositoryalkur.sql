@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Jul 2021 pada 12.32
+-- Waktu pembuatan: 04 Agu 2021 pada 12.42
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.21
 
@@ -20,6 +20,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `repositoryalkur`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `acuan_skoring`
+--
+
+CREATE TABLE `acuan_skoring` (
+  `no` int(3) NOT NULL,
+  `KATEG` varchar(1) NOT NULL,
+  `R` int(1) NOT NULL,
+  `I` int(1) NOT NULL,
+  `A` int(1) NOT NULL,
+  `S` int(1) NOT NULL,
+  `E` int(1) NOT NULL,
+  `C` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `acuan_skoring`
+--
+
+INSERT INTO `acuan_skoring` (`no`, `KATEG`, `R`, `I`, `A`, `S`, `E`, `C`) VALUES
+(1, 'R', 3, 2, 1, 0, 1, 2),
+(2, 'I', 2, 3, 2, 1, 0, 1),
+(3, 'A', 1, 2, 3, 2, 1, 0),
+(4, 'S', 0, 1, 2, 3, 2, 1),
+(5, 'E', 1, 0, 1, 2, 3, 2),
+(6, 'C', 2, 1, 0, 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -99,6 +128,64 @@ CREATE TABLE `data_sekolah` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kode_acuan_prodi`
+--
+
+CREATE TABLE `kode_acuan_prodi` (
+  `no` int(11) NOT NULL,
+  `manajemen` varchar(3) NOT NULL,
+  `akuntansi` varchar(3) NOT NULL,
+  `komunikasi` varchar(3) NOT NULL,
+  `psikologi` varchar(3) NOT NULL,
+  `desain_komunikasi_visual` varchar(3) NOT NULL,
+  `desain_produk` varchar(3) NOT NULL,
+  `arsitektur` varchar(3) NOT NULL,
+  `teknik_sipil` varchar(3) NOT NULL,
+  `informatika` varchar(3) NOT NULL,
+  `sistem_informasi` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kode_acuan_prodi`
+--
+
+INSERT INTO `kode_acuan_prodi` (`no`, `manajemen`, `akuntansi`, `komunikasi`, `psikologi`, `desain_komunikasi_visual`, `desain_produk`, `arsitektur`, `teknik_sipil`, `informatika`, `sistem_informasi`) VALUES
+(1, 'ISR', 'ISR', 'IAE', 'IAE', 'RAI', 'RAI', 'RAE', 'RIA', 'RIS', 'RIS'),
+(2, 'ISA', 'ISA', 'ISA', 'ISA', 'RAS', 'RAS', 'RSE', 'RIE', 'RIA', 'RIA'),
+(3, 'ISC', 'ISE', 'ISC', 'ISE', 'RAE', 'RAE', 'RSC', 'RSI', 'RIE', 'RIE'),
+(4, 'IER', 'IEA', 'IER', 'IEC', 'RAC', 'RAC', 'IAR', 'RSA', 'RIC', 'REA'),
+(5, 'IEA', 'IES', 'IEA', 'ICA', 'RSE', 'RSE', 'IAS', 'RSE', 'REC', 'RES'),
+(6, 'IEC', 'ICR', 'IEC', 'ICE', 'RSC', 'RSC', 'IAC', 'REA', 'RCA', 'RCA'),
+(7, 'ICR', 'ICA', 'ICR', 'SIR', 'REI', 'REI', 'ARS', 'REC', 'RCS', 'RCS'),
+(8, 'ICA', 'ICS', 'ICA', 'SIA', 'IAR', 'IAR', 'ARE', 'RCI', 'RCE', 'IRA'),
+(9, 'SIR', 'SCA', 'SRI', 'SIE', 'IAS', 'IAS', 'AIR', 'RCA', 'ERA', 'IRS'),
+(10, 'SIA', 'ECR', 'SRA', 'SAR', 'IAC', 'IAC', 'AIE', 'IRA', 'IRS', 'IAR'),
+(11, 'SAR', 'ECA', 'SRC', 'SAE', 'ARI', 'ARI', 'ASR', 'CRI', 'IRE', 'IAS'),
+(12, 'SER', 'ECS', 'SIA', 'SER', 'ARS', 'ARS', 'ASE', 'CRA', 'IRC', 'ERA'),
+(13, 'SEA', 'CIR', 'SIC', 'SCR', 'ARE', 'ARE', 'ACR', 'CRS', 'IAS', 'ERS'),
+(14, 'SCR', 'CIA', 'SAR', 'SCA', 'ARC', 'ARC', 'ACS', 'CEA', '', 'EIS'),
+(15, 'SCA', 'CIS', 'SAI', 'SCE', 'AIR', 'AIR', 'ACE', 'CES', '', 'CEA'),
+(16, 'ERI', 'CIE', 'SAC', 'CSR', 'AIS', 'AIS', 'SRE', '', '', 'CES'),
+(17, 'ERC', 'CSE', 'SER', 'CSA', 'AIE', 'AIE', 'CAR', '', '', ''),
+(18, 'EIR', 'CER', 'SEI', 'CSE', 'AIC', 'AIC', '', '', '', ''),
+(19, 'EIA', '', 'SEA', '', 'ASR', 'ASI', '', '', '', ''),
+(20, 'EIC', '', 'SEC', '', 'ASI', 'ASE', '', '', '', ''),
+(21, 'EAR', '', 'SCI', '', 'ASE', 'ASC', '', '', '', ''),
+(22, 'EAI', '', 'SCA', '', 'ASC', 'AER', '', '', '', ''),
+(23, 'ESR', '', 'EAI', '', 'AER', 'AEI', '', '', '', ''),
+(24, 'ESI', '', 'ESR', '', 'AEI', 'AES', '', '', '', ''),
+(25, 'ESA', '', 'ESA', '', 'AES', 'AEC', '', '', '', ''),
+(26, 'ESC', '', 'ESC', '', 'AEC', 'ACI', '', '', '', ''),
+(27, 'ECR', '', 'CSI', '', 'ACI', '', '', '', '', ''),
+(28, 'ECI', '', 'CSA', '', '', '', '', '', '', ''),
+(29, 'ECA', '', 'CER', '', '', '', '', '', '', ''),
+(30, 'CSA', '', '', '', '', '', '', '', '', ''),
+(31, 'CER', '', '', '', '', '', '', '', '', ''),
+(32, 'CEI', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `program_studi`
 --
 
@@ -159,6 +246,14 @@ CREATE TABLE `temp_register` (
   `active` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `temp_register`
+--
+
+INSERT INTO `temp_register` (`no`, `nama`, `email`, `asal_sekolah`, `no_handphone`, `prodi_pilihan`, `password`, `active`) VALUES
+(51, 'Theofilus Handoyo', 'realth99@gmail.com', 'smk yadika', '085219427222', 'Ilmu Komunikasi', 'bsHsSwVWBbjoYht', 0),
+(52, 'Theofilus Handoyo', 'realth99@gmail.com', 'smk yadika', '085219427222', 'Ilmu Komunikasi', 'ARyIZbEznpnOgFL', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -187,20 +282,32 @@ CREATE TABLE `t_jawaban` (
   `c1` int(5) NOT NULL,
   `c2` int(5) NOT NULL,
   `c3` int(5) NOT NULL,
+  `R_holland` int(3) NOT NULL,
+  `I_holland` int(3) NOT NULL,
+  `A_holland` int(3) NOT NULL,
+  `S_holland` int(3) NOT NULL,
+  `E_holland` int(3) NOT NULL,
+  `C_holland` int(3) NOT NULL,
   `O` int(5) NOT NULL,
   `C` int(5) NOT NULL,
   `E` int(5) NOT NULL,
   `A` int(5) NOT NULL,
-  `N` int(5) NOT NULL
+  `N` int(5) NOT NULL,
+  `rekomendasi_prodi1` varchar(35) NOT NULL,
+  `rekomendasi_prodi2` varchar(35) NOT NULL,
+  `rekomendasi_prodi3` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `t_jawaban`
 --
 
-INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `tanggal`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `O`, `C`, `E`, `A`, `N`) VALUES
-(1, '', '2021-07-20 12:01:54', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, '16', '2021-07-24 09:03:18', 6, 9, 11, 9, 7, 10, 10, 9, 9, 6, 9, 9, 7, 8, 11, 9, 9, 11, 14, 4, 4, 4, 4);
+INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `tanggal`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `R_holland`, `I_holland`, `A_holland`, `S_holland`, `E_holland`, `C_holland`, `O`, `C`, `E`, `A`, `N`, `rekomendasi_prodi1`, `rekomendasi_prodi2`, `rekomendasi_prodi3`) VALUES
+(1, '', '2021-07-20 12:01:54', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', ''),
+(4, '15', '2021-07-24 09:03:18', 6, 8, 9, 9, 10, 12, 10, 8, 12, 6, 9, 12, 7, 8, 13, 9, 7, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', ''),
+(5, '14', '2021-07-28 09:36:10', 2, 8, 9, 0, 8, 12, 4, 9, 12, 8, 8, 12, 9, 8, 13, 11, 9, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', ''),
+(6, '13', '2021-08-03 07:54:11', 3, 8, 11, 9, 8, 9, 7, 8, 11, 9, 8, 10, 7, 8, 10, 9, 8, 11, 48, 50, 53, 50, 51, 55, 0, 0, 0, 0, 0, '', '', ''),
+(9, '16', '2021-08-04 10:09:36', 10, 9, 11, 9, 7, 10, 8, 7, 11, 8, 6, 10, 9, 6, 10, 6, 6, 11, 30, 26, 26, 24, 25, 23, 0, 0, 0, 0, 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -547,6 +654,12 @@ INSERT INTO `t_soal_holland` (`id_soal`, `soal`, `kelompok`, `bagian`) VALUES
 --
 
 --
+-- Indeks untuk tabel `acuan_skoring`
+--
+ALTER TABLE `acuan_skoring`
+  ADD PRIMARY KEY (`no`);
+
+--
 -- Indeks untuk tabel `data_akademik`
 --
 ALTER TABLE `data_akademik`
@@ -573,6 +686,12 @@ ALTER TABLE `data_pilprod`
 ALTER TABLE `data_sekolah`
   ADD PRIMARY KEY (`id_datasekolah`),
   ADD UNIQUE KEY `id_datadiri` (`id_datadiri`);
+
+--
+-- Indeks untuk tabel `kode_acuan_prodi`
+--
+ALTER TABLE `kode_acuan_prodi`
+  ADD PRIMARY KEY (`no`);
 
 --
 -- Indeks untuk tabel `program_studi`
@@ -622,6 +741,12 @@ ALTER TABLE `t_soal_holland`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `acuan_skoring`
+--
+ALTER TABLE `acuan_skoring`
+  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT untuk tabel `data_akademik`
 --
 ALTER TABLE `data_akademik`
@@ -646,6 +771,12 @@ ALTER TABLE `data_sekolah`
   MODIFY `id_datasekolah` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `kode_acuan_prodi`
+--
+ALTER TABLE `kode_acuan_prodi`
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
 -- AUTO_INCREMENT untuk tabel `program_studi`
 --
 ALTER TABLE `program_studi`
@@ -661,13 +792,13 @@ ALTER TABLE `status_sekolah`
 -- AUTO_INCREMENT untuk tabel `temp_register`
 --
 ALTER TABLE `temp_register`
-  MODIFY `no` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `no` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_jawaban`
 --
 ALTER TABLE `t_jawaban`
-  MODIFY `id_jawaban` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jawaban` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_login`

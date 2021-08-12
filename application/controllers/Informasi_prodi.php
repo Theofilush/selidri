@@ -16,7 +16,7 @@ class Informasi_prodi extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Informasi Prodi",		
 		  'da' => $kue,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);

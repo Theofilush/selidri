@@ -69,10 +69,28 @@
                                     ?>  
                                     <p class="text-muted m-b-10"><?php echo $no.". ". $row->soal; ?></p>
                                     <div class="form-group">
-                                        <div>
-                                            <div class="icheck-primary">
-                                                <input name="TBF<?php echo $no; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
-                                            </div>
+                                        <div style="display: flex;">
+                                                <!-- <input name="TBF?php echo $no; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted" value="0" required />  -->
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFa<?php echo $no; ?>" name="TBF<?php echo $no; ?>" required> 
+                                                    <label for="TBFa<?php echo $no; ?>"> 1
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFb<?php echo $no; ?>" name="TBF<?php echo $no; ?>" required> 
+                                                    <label for="TBFb<?php echo $no; ?>"> 2
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFc<?php echo $no; ?>" name="TBF<?php echo $no; ?>" required> 
+                                                    <label for="TBFc<?php echo $no; ?>"> 3
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFd<?php echo $no; ?>" name="TBF<?php echo $no; ?>" required> 
+                                                    <label for="TBFd<?php echo $no; ?>"> 4
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFe<?php echo $no; ?>" name="TBF<?php echo $no; ?>" required> 
+                                                    <label for="TBFe<?php echo $no; ?>"> 5
+                                                </div>
                                         </div>
                                     </div>
                                     <?php
@@ -88,10 +106,33 @@
                                     <p class="text-muted m-b-10"><?php echo $batas_tengah.". ". $row->soal; ?></p>
                                 
                                     <div class="form-group">
-                                        <div>
-                                            <div class="icheck-primary">
-                                                <input name="TBF<?php echo $batas_tengah; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/> 
-                                            </div>
+                                        <div style="display: flex;">
+                                                <!-- <div class="radio icheck-emerland">
+                                                    <input type="radio" id="ra1?php echo $batas_tengah; ?>" name="r1?php echo $batas_tengah; ?>" value="1" required>
+                                                    <label for="ra1?php echo $batas_tengah; ?>"> Suka
+                                                    </label>
+                                                </div> -->
+                                                <!-- <input name="TBF?php echo $batas_tengah; ?>" type="hidden" class="rating" data-filled="mdi mdi-checkbox-marked font-32 text-primary" data-empty="mdi mdi-checkbox-blank-outline font-32 text-muted"  required/>  -->
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFa<?php echo $batas_tengah; ?>" name="TBF<?php echo $batas_tengah; ?>" required> 
+                                                    <label for="TBFa<?php echo $batas_tengah; ?>"> 1
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFb<?php echo $batas_tengah; ?>" name="TBF<?php echo $batas_tengah; ?>" required> 
+                                                    <label for="TBFb<?php echo $batas_tengah; ?>"> 2
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFc<?php echo $batas_tengah; ?>" name="TBF<?php echo $batas_tengah; ?>" required> 
+                                                    <label for="TBFc<?php echo $batas_tengah; ?>"> 3
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFd<?php echo $batas_tengah; ?>" name="TBF<?php echo $batas_tengah; ?>" required> 
+                                                    <label for="TBFd<?php echo $batas_tengah; ?>"> 4
+                                                </div>
+                                                <div class="radio icheck-emerland" style="margin: auto 10px;">
+                                                    <input type="radio" id="TBFe<?php echo $batas_tengah; ?>" name="TBF<?php echo $batas_tengah; ?>" required> 
+                                                    <label for="TBFe<?php echo $batas_tengah; ?>"> 5
+                                                </div>
                                         </div>
                                     </div>
                                     <?php

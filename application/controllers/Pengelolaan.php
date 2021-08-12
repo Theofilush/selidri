@@ -20,7 +20,7 @@ class Pengelolaan extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Data Prodi",		
 		  'da' => $kue,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
@@ -31,10 +31,12 @@ class Pengelolaan extends CI_Controller {
     public function data_camaba(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
+		$queryHolland = $this->M_dokumen->tampil_daftar_data_camaba();
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Data Camaba",		
 		  'da' => $kue,
+		  'queryHolland'=> $queryHolland,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
 		$this->load->view('v_data_camaba');
@@ -44,11 +46,11 @@ class Pengelolaan extends CI_Controller {
     public function data_pengukuran(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
-		$queryHolland = $this->M_dokumen->tampil_soal_holland();
-		$queryBigFive = $this->M_dokumen->tampil_soal_bigfive();
+		$queryHolland = $this->M_dokumen->tampil_daftar_soal_holland();
+		$queryBigFive = $this->M_dokumen->tampil_daftar_soal_bigfive();
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Data Pengukuran",		
 		  'da' => $kue,
 		  'queryHolland'=> $queryHolland,
 		  'queryBigFive'=> $queryBigFive,
@@ -64,7 +66,7 @@ class Pengelolaan extends CI_Controller {
 		$query = $this->M_dokumen->tampil_hasil_tes();
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",
+		  'title'=>"Data Hasil",
 		  'da' => $kue,
 		  'query'=> $query,
         );
@@ -79,7 +81,7 @@ class Pengelolaan extends CI_Controller {
 		$queryHolland = $this->M_dokumen->tampil_soal_holland($id_soal);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",
+		  'title'=>"Edit Data",
 		  'da' => $kue,
 		  'queryHolland'=> $queryHolland,
         );
@@ -94,7 +96,7 @@ class Pengelolaan extends CI_Controller {
 		$queryBigFive = $this->M_dokumen->tampil_soal_bigfive($id_soal);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",
+		  'title'=>"Edit Data",
 		  'da' => $kue,
 		  'queryBigFive'=> $queryBigFive,
         );
@@ -103,34 +105,48 @@ class Pengelolaan extends CI_Controller {
 		$this->load->view('dashboard/v_footer');
     }
 
-	public function update_data_pengukuran_holland($id_soal){
-		$usan = $this->session->userdata('email');
-		$kue = $this->M_login->hak_ak($usan);
-		$queryHolland = $this->M_dokumen->tampil_soal_holland($id_soal);
+	public function update_data_pengukuran_holland(){
+		if ($this->input->post('btnSimpan') == "Simpan") {
+			$id_soal = $this->input->post('id_soal', TRUE);
+			$soal = $this->input->post('soal', TRUE);
+			$kelompok = $this->input->post('kelompok', TRUE);
+			$bagian = $this->input->post('bagian', TRUE);
 
-		$dataHalaman = array(
-		  'title'=>"Dashboard",
-		  'da' => $kue,
-		  'queryHolland'=> $queryHolland,
-        );
-		$this->load->view('dashboard/v_header', $dataHalaman);
-		$this->load->view('v_edit_data_pengukuran_holland');
-		$this->load->view('dashboard/v_footer');
+			$data = array(
+				'soal' => $soal,
+				'kelompok' => $kelompok,
+				'bagian' => $bagian,
+			);
+			$query= $this->M_dokumen->update_soal_holland($data,$id_soal);
+
+			if ($query) {
+				redirect('Pengelolaan/data_pengukuran');
+			}
+			else{
+				redirect('Pengelolaan/data_pengukuran');
+			}
+		}
     }
 
-	public function update_data_pengukuran_bigfive($id_soal){
-		$usan = $this->session->userdata('email');
-		$kue = $this->M_login->hak_ak($usan);
-		$queryBigFive = $this->M_dokumen->tampil_soal_bigfive($id_soal);
+	public function update_data_pengukuran_bigfive(){
+		if ($this->input->post('btnSimpan') == "Simpan") {
+			$id_soal = $this->input->post('id_soal', TRUE);
+			$soal = $this->input->post('soal', TRUE);
+			$kelompok = $this->input->post('kelompok', TRUE);
 
-		$dataHalaman = array(
-		  'title'=>"Dashboard",
-		  'da' => $kue,
-		  'queryBigFive'=> $queryBigFive,
-        );
-		$this->load->view('dashboard/v_header', $dataHalaman);
-		$this->load->view('v_edit_data_pengukuran_bigfive');
-		$this->load->view('dashboard/v_footer');
+			$data = array(
+				'soal' => $soal,
+				'kelompok' => $kelompok,
+			);
+			$query= $this->M_dokumen->update_soal_bigfive($data,$id_soal);
+
+			if ($query) {
+				redirect('Pengelolaan/data_pengukuran');
+			}
+			else{
+				redirect('Pengelolaan/data_pengukuran');
+			}
+		}
     }
     
     

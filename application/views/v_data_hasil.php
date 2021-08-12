@@ -72,33 +72,33 @@
                                                 Realistic pertama: <?php echo $row->r1; ?><br>
                                                 Realistic kedua: <?php echo $row->r2; ?><br>
                                                 Realistic ketiga: <?php echo $row->r3; ?><br>
-                                                <b>Total Realistic: <?php echo $row->r3; ?></b><br><br>
+                                                <b>Total Realistic: <?php echo $row->R_holland; ?></b><br><br>
 
-                                                Investigative pertama: <?php echo $row->r1; ?><br>
-                                                Investigative kedua: <?php echo $row->r2; ?><br>
-                                                Investigative ketiga: <?php echo $row->r3; ?><br>
-                                                <b>Total Investigative: <?php echo $row->r3; ?></b><br><br>
+                                                Investigative pertama: <?php echo $row->i1; ?><br>
+                                                Investigative kedua: <?php echo $row->i2; ?><br>
+                                                Investigative ketiga: <?php echo $row->i3; ?><br>
+                                                <b>Total Investigative: <?php echo $row->I_holland; ?></b><br><br>
 
-                                                Artistic pertama: <?php echo $row->r1; ?><br>
-                                                Artistic kedua: <?php echo $row->r2; ?><br>
-                                                Artistic ketiga: <?php echo $row->r3; ?><br>
-                                                <b>Total Artistic: <?php echo $row->r3; ?></b><br><br>
+                                                Artistic pertama: <?php echo $row->a1; ?><br>
+                                                Artistic kedua: <?php echo $row->a2; ?><br>
+                                                Artistic ketiga: <?php echo $row->a3; ?><br>
+                                                <b>Total Artistic: <?php echo $row->A_holland; ?></b><br><br>
                                             </td>
                                             <td>
-                                                Social pertama: <?php echo $row->r1; ?><br>
-                                                Social kedua: <?php echo $row->r2; ?><br>
-                                                Social ketiga: <?php echo $row->r3; ?><br>
-                                                <b>Total Social: <?php echo $row->r3; ?></b><br><br>
+                                                Social pertama: <?php echo $row->s1; ?><br>
+                                                Social kedua: <?php echo $row->s2; ?><br>
+                                                Social ketiga: <?php echo $row->s3; ?><br>
+                                                <b>Total Social: <?php echo $row->S_holland; ?></b><br><br>
 
-                                                Enterprising pertama: <?php echo $row->r1; ?><br>
-                                                Enterprising kedua: <?php echo $row->r2; ?><br>
-                                                Enterprising ketiga: <?php echo $row->r3; ?><br>
-                                                <b>Total Enterprising: <?php echo $row->r3; ?></b><br><br>
+                                                Enterprising pertama: <?php echo $row->e1; ?><br>
+                                                Enterprising kedua: <?php echo $row->e2; ?><br>
+                                                Enterprising ketiga: <?php echo $row->e3; ?><br>
+                                                <b>Total Enterprising: <?php echo $row->E_holland; ?></b><br><br>
 
-                                                Conventional pertama: <?php echo $row->r1; ?><br>
-                                                Conventional kedua: <?php echo $row->r2; ?><br>
-                                                Conventional ketiga: <?php echo $row->r3; ?><br>
-                                                <b>Total Conventional: <?php echo $row->r3; ?></b><br><br>
+                                                Conventional pertama: <?php echo $row->c1; ?><br>
+                                                Conventional kedua: <?php echo $row->c2; ?><br>
+                                                Conventional ketiga: <?php echo $row->c3; ?><br>
+                                                <b>Total Conventional: <?php echo $row->C_holland; ?></b><br><br>
                                             </td>                                            
                                             <td>
                                                 Openness: <?php echo $row->O; ?><br>

@@ -40,7 +40,10 @@
                 <!-- end page title end breadcrumb -->
 <?php 
 foreach ($queryHolland as $rou) {
-?>
+                                        $atribut = array();
+                                        echo form_open('Pengelolaan/update_data_pengukuran_holland/',$atribut);
+                                        echo form_hidden('id_soal',$rou->id_soal);
+                                    ?>
                 <div class="row">
                     <div class="col-xl-8 offset-lg-2">
                         <div class="card">
@@ -50,45 +53,37 @@ foreach ($queryHolland as $rou) {
                                             class="highlighter-rouge">.form-control</code> applied to each
                                         textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
                                                 class="highlighter-rouge">type</code>.</p> -->
-                                    <?php
-                                        $atribut = array();
-                                        echo form_open('Pengelolaan/update_data_pengukuran_holland/',$atribut);
-                                        echo form_hidden('id',$rou->id_soal);
-                                    ?>
-
+                                    
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Soal</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" value="<?php echo $rou->soal ?>" id="example-text-input">
+                                            <input name="soal" class="form-control" type="text" value="<?php echo $rou->soal ?>" id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-search-input" class="col-sm-2 col-form-label">Kelompok</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
-                                                <option value="R" <?php if () { echo "selected";} ?>>R</option>
-                                                <option value="I" <?php if () { echo "selected";} ?>>I</option>
-                                                <option value="A" <?php if () { echo "selected";} ?>>A</option>
-                                                <option value="S" <?php if () { echo "selected";} ?>>S</option>
-                                                <option value="E" <?php if () { echo "selected";} ?>>E</option>
-                                                <option value="C" <?php if () { echo "selected";} ?>>C</option>
+                                            <select name="kelompok" class="form-control">
+                                                <option value="r" <?php if ($rou->kelompok == "r" ) { echo "selected";} ?>>R - Realistic</option>
+                                                <option value="i" <?php if ($rou->kelompok == "i" ) { echo "selected";} ?>>I - Investigative</option>
+                                                <option value="a" <?php if ($rou->kelompok == "a" ) { echo "selected";} ?>>A - Artistic</option>
+                                                <option value="s" <?php if ($rou->kelompok == "s" ) { echo "selected";} ?>>S - Social</option>
+                                                <option value="e" <?php if ($rou->kelompok == "e" ) { echo "selected";} ?>>E - Enterprising</option>
+                                                <option value="c" <?php if ($rou->kelompok == "c" ) { echo "selected";} ?>>C - Conventional</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-email-input" class="col-sm-2 col-form-label">Bagian</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
-                                                <option value="1" <?php if () { echo "selected";} ?>>1</option>
-                                                <option value="2" <?php if () { echo "selected";} ?>>2</option>
-                                                <option value="3" <?php if () { echo "selected";} ?>>3</option>
+                                            <select name="bagian" class="form-control">
+                                                <option value="1" <?php if ($rou->bagian == "1") { echo "selected";} ?>>1</option>
+                                                <option value="2" <?php if ($rou->bagian == "2") { echo "selected";} ?>>2</option>
+                                                <option value="3" <?php if ($rou->bagian == "3") { echo "selected";} ?>>3</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <?php
-                                    echo form_close();
-                                ?>
                             </div>
                     </div>
                     <div class="col-xl-8 offset-lg-2">
@@ -100,10 +95,7 @@ foreach ($queryHolland as $rou) {
                                     submission before sending it to your server.</p> -->
                                     <div class="form-group">
                                         <div>
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5" name="btnUpload" value="Upload">Simpan</button>
-                                            <!-- <button type="reset" class="btn btn-secondary btn-lg btn-block waves-effect m-b-5">
-                                                Cancel
-                                            </button> -->
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5" name="btnSimpan" value="Simpan">Simpan</button>
                                         </div>
                                     </div>
                             </div>
@@ -112,6 +104,7 @@ foreach ($queryHolland as $rou) {
                 </div>
                 <!-- end row -->
 <?php
+                                    echo form_close();
  }
 ?>
 

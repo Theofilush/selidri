@@ -1,17 +1,24 @@
 <div class="wrapper">
             <div class="container-fluid">
 
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div style="margin: 10px;">
+                            <?php echo $this->session->flashdata('notification_password')?>
+                        </div>
+                    </div>
+                </div>
                 <!-- Page-Title -->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title m-0">Form Elements</h4>
+                                    <h4 class="page-title m-0">Data Pengukuran</h4>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="float-right d-none d-md-block">
-                                        <div class="dropdown">
+                                        <!-- <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="ti-settings mr-1"></i> Settings
                                             </button>
@@ -22,7 +29,7 @@
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="#">Separated link</a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -32,456 +39,49 @@
                 </div>
                 <!-- end page title end breadcrumb -->
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Textual inputs</h4>
-                                <p class="text-muted m-b-30 font-14">Here are examples of <code
-                                        class="highlighter-rouge">.form-control</code> applied to each
-                                    textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
-                                            class="highlighter-rouge">type</code>.</p>
-
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">NIK</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-search-input" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-url-input" class="col-sm-2 col-form-label">Tempat Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-tel-input" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">No. Handphone</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-
-                                
-                            </div>
-                        </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
+                <!-- end row -->
 
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card m-b-30">
+                    <div class="col-xl-12">
+                        <div class="card">
                             <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Textual inputs</h4>
-                                <p class="text-muted m-b-30 font-14">Here are examples of <code
-                                        class="highlighter-rouge">.form-control</code> applied to each
-                                    textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
-                                            class="highlighter-rouge">type</code>.</p>
-
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">NIK</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-search-input" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-url-input" class="col-sm-2 col-form-label">Tempat Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-tel-input" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">No. Handphone</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-
-                                
+                            <h4 class="page-title">Tes Holland</h4>
+                            <table id="datatable_soal_holland" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Bagian Soal</th>
+                                            <th>Kelompok</th>
+                                            <th>Bagian</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $no = 0; 
+                                            foreach($queryHolland as $row){
+                                                $no++;
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $row->soal; ?></td>
+                                            <td><?php echo $row->kelompok; ?></td>
+                                            <td><?php echo $row->bagian; ?></td>
+                                            <td>
+                                                <a type="button" href="<?php echo site_url(); ?>Pengelolaan/edit_data_pengukuran_holland/<?php echo $row->id_soal; ?>" class="btn btn-primary btn-xs" ><span class="mdi mdi-pencil"></span></a> 
+                                                <a href="<?php echo site_url(); ?>edit_data_pengukuran_holland/<?php echo $row->id_soal; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="mdi mdi-delete"></i></a> 
+                                            </td>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Textual inputs</h4>
-                                <p class="text-muted m-b-30 font-14">Here are examples of <code
-                                        class="highlighter-rouge">.form-control</code> applied to each
-                                    textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
-                                            class="highlighter-rouge">type</code>.</p>
-
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">NIK</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-search-input" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-url-input" class="col-sm-2 col-form-label">Tempat Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-tel-input" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">No. Handphone</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-
-                                
-                            </div>
-                        </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Textual inputs</h4>
-                                <p class="text-muted m-b-30 font-14">Here are examples of <code
-                                        class="highlighter-rouge">.form-control</code> applied to each
-                                    textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
-                                            class="highlighter-rouge">type</code>.</p>
-
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">NIK</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-search-input" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-url-input" class="col-sm-2 col-form-label">Tempat Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-tel-input" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">No. Handphone</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-
-                                
-                            </div>
-                        </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Textual inputs</h4>
-                                <p class="text-muted m-b-30 font-14">Here are examples of <code
-                                        class="highlighter-rouge">.form-control</code> applied to each
-                                    textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
-                                            class="highlighter-rouge">type</code>.</p>
-
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">NIK</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-search-input" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-url-input" class="col-sm-2 col-form-label">Tempat Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-tel-input" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">No. Handphone</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ayah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ibu</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                    </div>
-                                </div>
-
-                                
-                            </div>
-                        </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-
+                    </div>
+                </div>
+                <!-- end row -->
             </div> <!-- end container-fluid -->
         </div>
         <!-- end wrapper -->

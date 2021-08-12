@@ -40,16 +40,15 @@
                 <!-- end page title end breadcrumb -->
 <?php 
 foreach ($queryBigFive as $rou) {
+                                        $atribut = array();
+                                        echo form_open('Pengelolaan/update_data_pengukuran_bigfive/',$atribut);
+                                        echo form_hidden('id_soal',$rou->id_soal);
 ?>
                 <div class="row">
                     <div class="col-xl-8 offset-lg-2">
                         <div class="card">
                             <div class="card-body">
-                                    <?php
-                                        $atribut = array();
-                                        echo form_open('Pengelolaan/update_data_pengukuran_bigfive/',$atribut);
-                                        echo form_hidden('id',$rou->id_soal);
-                                    ?>
+                                   
                                     <h4 class="mt-0 header-title" style="margin-bottom:20px;">Halaman Edit Soal Tes Big Five</h4>
                                     <!-- <p class="text-muted m-b-30 font-14">Here are examples of <code
                                             class="highlighter-rouge">.form-control</code> applied to each
@@ -59,18 +58,18 @@ foreach ($queryBigFive as $rou) {
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Soal</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" type="text" value="<?php echo $rou->soal ?>" id="example-text-input">
+                                            <input name="soal" class="form-control" type="text" value="<?php echo $rou->soal ?>" id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-search-input" class="col-sm-2 col-form-label">Kelompok</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
-                                                <option>O - Openness</option>
-                                                <option>C - Conscientiousness</option>
-                                                <option>E - Extraversion</option>
-                                                <option>A - Agreeableness</option>
-                                                <option>N - Neuroticism</option>
+                                            <select name="kelompok" class="form-control">
+                                                <option value="o" <?php if($rou->kelompok == "o") { echo "selected"; } ?>>O - Openness</option>
+                                                <option value="c" <?php if($rou->kelompok == "c") { echo "selected"; } ?>>C - Conscientiousness</option>
+                                                <option value="e" <?php if($rou->kelompok == "e") { echo "selected"; } ?>>E - Extraversion</option>
+                                                <option value="a" <?php if($rou->kelompok == "a") { echo "selected"; } ?>>A - Agreeableness</option>
+                                                <option value="n" <?php if($rou->kelompok == "n") { echo "selected"; } ?>>N - Neuroticism</option>
                                             </select>
                                         </div>
                                     </div>
@@ -89,10 +88,7 @@ foreach ($queryBigFive as $rou) {
                                     submission before sending it to your server.</p> -->
                                     <div class="form-group">
                                         <div>
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5" name="btnUpload" value="Upload">Simpan</button>
-                                            <!-- <button type="reset" class="btn btn-secondary btn-lg btn-block waves-effect m-b-5">
-                                                Cancel
-                                            </button> -->
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5" name="btnSimpan" value="Simpan">Simpan</button>
                                         </div>
                                     </div>
                             </div>
@@ -100,7 +96,9 @@ foreach ($queryBigFive as $rou) {
                     </div> <!-- end col -->
                 </div>
                 <!-- end row -->
-<?php
+ <?php
+                                    echo form_close();
+                               
  }
 ?>
 
