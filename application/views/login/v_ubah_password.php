@@ -50,8 +50,7 @@
                                 <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                             </div>
                             <h5 class="font-14 text-muted mb-4">Kenali Kemampuan dan Bakatmu untuk masa depan lebih cerah</h5>
-                            <p class="text-muted mb-4">Proses pemilihan program studi biasanya didasarkan pada kemampuan minat dan bakat dari calon mahasiswa baru. Hal ini menjadi satu hal penting karena hasil dari pemilihan
-program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa yang benar-benar memahami kemampuan minat maupun bakatnya pada sebuah program studi akan merasa nyaman dalam menjalankan masa studinya, bahkan berpotensi untuk memperoleh hasil studi yang membanggakan.</p>
+                            <p class="text-muted mb-4">Proses pemilihan program studi biasanya didasarkan pada kemampuan minat dan bakat dari calon mahasiswa baru. Hal ini menjadi satu hal penting karena hasil dari pemilihan program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa yang benar-benar memahami kemampuan minat maupun bakatnya pada sebuah program studi akan merasa nyaman dalam menjalankan masa studinya, bahkan berpotensi untuk memperoleh hasil studi yang membanggakan.</p>
                             <h5 class="font-14 text-muted mb-4">Website atau sistem ini dapat digunakan untuk :</h5>
                             <div>
                                 <p style="margin-bottom: 0.3rem;">bagi calon mahasiswa baru :</p>

@@ -8,8 +8,8 @@
                             <div class="row align-items-center">
                                 <div class="col-md-8">
                                     <h4 class="page-title m-0">Tes Minat Bakat</h4>
-                                <!-- </div>
-                                <div class="col-md-4">
+                                </div>
+                                 <!--<div class="col-md-4">
                                     <div class="float-right d-none d-md-block">
                                         <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,16 +75,23 @@
 
                                 <h4 class="mt-0 header-title">Tombol aktivasi akan muncul setelah kedua tes diatas telah diselesaikan</h4>
 
-                                <form class="" action="#">
+                                <?php
+                                        $atribut = array();
+                                        echo form_open_multipart('Tes/hasil_tes',$atribut);
+                                        // echo form_hidden('pic',$bubi);
+                                ?>
+                                <!-- <form class="" action="#"> -->
                                     <div class="form-group">
                                         <div>
-                                            <button type="reset" class="btn btn-primary btn-lg btn-block waves-effect m-b-5" disabled>
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5">
                                                 Submit
                                             </button>
                                         </div>
                                     </div>
-                                </form>
-
+                                <!-- </form> -->
+                                <!-- <?php
+                                    echo form_close();
+                                ?> -->
                             </div>
                         </div>
                     </div> <!-- end col -->

@@ -65,7 +65,7 @@
                                     <i class="mdi mdi-file-alert-outline"> Biodata</i></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-animated">
-                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Register">Isi Biodata</a>
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>Biodata/isi_biodata">Isi Biodata</a>
                                         <a class="dropdown-item" href="<?php echo site_url(); ?>Biodata">Lihat Biodata</a>
                                     </div>
                                 </li>

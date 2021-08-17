@@ -16,7 +16,7 @@ class Biodata extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Biodata",		
+		  'title'=>"Biodata",
 		  'da' => $kue,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);

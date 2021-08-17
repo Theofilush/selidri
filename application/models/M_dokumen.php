@@ -201,7 +201,12 @@ class M_dokumen extends CI_Model{
         $this->db->where('id_peserta',$id_peserta);
         return $this->db->update($this->t_jawaban,$data);
     }
-     
+    
+    function save_update_rekomendasi1($txtProdi, $id_peserta){
+        $this->db->where('id_peserta',$id_peserta);
+        return $this->db->update($this->t_jawaban,$txtProdi);
+    }
+
     function save_update_tes_bigfive($data, $id_peserta){
         $this->db->where('id_peserta',$id_peserta);
         return $this->db->update($this->t_jawaban,$data);

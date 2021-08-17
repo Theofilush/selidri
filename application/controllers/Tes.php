@@ -623,7 +623,7 @@ class Tes extends CI_Controller {
 				}
 			}
 
-			echo "<br><br>";
+			// echo "<br><br>";
 			print_r($opposite);echo "<br>";
 			print_r($alternate);echo "<br>";
 			print_r($adjacent);echo "<br><br>";
@@ -632,18 +632,28 @@ class Tes extends CI_Controller {
 			echo "<br><br>";
 
 			if ($opposite > $alternate && $opposite > $adjacent) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sangat tidak cocok";
+				echo "Program studi pilihan Anda: ".$txtProdi." sangat tidak cocok <br><br>";
+				$txtProdi = "Tidak Cocok dengan pilihan prodi";
 			}
 			elseif ($alternate > $opposite && $alternate > $adjacent) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sesuai minat";
+				echo "Program studi pilihan Anda: ".$txtProdi." sesuai minat <br><br>";
 			}
 			elseif ($adjacent > $opposite && $adjacent > $alternate) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sangat sesuai dengan minat";
+				echo "Program studi pilihan Anda: ".$txtProdi." sangat sesuai dengan minat <br><br>";
 			}
 
+			if ($opposite == $alternate) {
+				echo "Program studi pilihan Anda: ".$txtProdi." sesuai minat <br><br>";
+			}elseif ($alternate == $adjacent) {
+				echo "Program studi pilihan Anda: ".$txtProdi." sangat sesuai minat <br><br>";
+			}
 
-			$Xprodi = array("akuntansi","manajemen","psikologi","ilmu_komunikasi","desain_produk","desain_komunikasi_visual","informatika","sistem_informasi","teknik_sipil","arsitektur");
+			$dataRekomendasi = array(
+				'rekomendasi_prodi1' => $txtProdi,
+		 	);
+			$querySave_rekomendasi= $this->M_dokumen->save_update_rekomendasi1($dataRekomendasi, $id_peserta);
 
+			/*$Xprodi = array("akuntansi","manajemen","psikologi","ilmu_komunikasi","desain_produk","desain_komunikasi_visual","informatika","sistem_informasi","teknik_sipil","arsitektur");
 			for ($ij=0; $ij < count($Xprodi); $ij++) { 
 				$i=0;
 				$digit_1 = array();
@@ -849,17 +859,16 @@ class Tes extends CI_Controller {
 					$txtHasil_tertinggi = "Sesuai Minat";
 				}elseif ($adjacent > $opposite && $adjacent > $alternate) {
 					$txtHasil_tertinggi = "Sangat Sesuai Minat";
+					$rekomendasiProdi = $Xprodi[$ij];
 				}
 
 				$hasil_tertinggi = max($opposite, $alternate, $adjacent);
 				echo "Prodi yang ".$txtHasil_tertinggi." adalah ".$Xprodi[$ij];
 				echo "<br>";
 			}
- 
-			
-			exit();
+			exit();*/
 
-			if ($query) {
+			if ($querySave_rekomendasi) {
 				redirect(site_url('Tes/'));
 			}
 			else{
@@ -935,4 +944,16 @@ class Tes extends CI_Controller {
 			  
 	}
 
+	public function hasil_tes(){
+		$usan = $this->session->userdata('email');
+		$kue = $this->M_login->hak_ak($usan);
+
+		$dataHalaman = array(
+		  'title'=>"Mulai Tes",	
+		  'da' => $kue,
+        );
+		$this->load->view('dashboard/v_header', $dataHalaman);
+		$this->load->view('tes/v_hasil_tes');
+		$this->load->view('dashboard/v_footer');
+	}
 }

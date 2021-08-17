@@ -199,6 +199,14 @@ class Login extends CI_Controller {
         }
 	}
 
+    public function lupa_password() {
+		$dataHalaman = array(
+		  'title'=>"Lupa Password",
+        );
+		// $this->load->view('login/v_lupa_password', $dataHalaman);
+        $this->load->view('login/v_lupa_password', $dataHalaman);
+	}
+
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect(site_url('login'));

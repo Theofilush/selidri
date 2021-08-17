@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Login Page</title>
+        <title><?php echo $title ?> Page</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="ThemeDesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,6 +21,7 @@
 
 
     <body>
+        <!-- <php foreach($da as $row){ $email= $row->email; } ?> -->
 
         <!-- Loader -->
         <div id="preloader">
@@ -49,7 +50,7 @@
                                 <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                             </div>
                             <h5 class="font-14 text-muted mb-4">Kenali Kemampuan dan Bakatmu untuk masa depan lebih cerah</h5>
-                            <p class="text-muted mb-4">Proses pemilihan program studi biasanya didasarkan pada kemampuan minat dan bakat dari calon mahasiswa baru. Hal ini menjadi satu hal penting karena hasil dari pemilihan program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa yang benar-benar memahami kemampuan minat maupun bakatnya pada sebuah program studi akan merasa nyaman dalam menjalankan masa studinya, bahkan berpotensi untuk memperoleh hasil studi yang membanggakan.</p>
+                            <p class="text-muted mb-4">Proses pemilihan program studi biasanya didasarkan pada kemampuan minat dan bakat dari calon mahasiswa baru. Hal ini menjadi satu hal penting karena hasil dari pemilihanprogram studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa yang benar-benar memahami kemampuan minat maupun bakatnya pada sebuah program studi akan merasa nyaman dalam menjalankan masa studinya, bahkan berpotensi untuk memperoleh hasil studi yang membanggakan.</p>
                             <h5 class="font-14 text-muted mb-4">Website atau sistem ini dapat digunakan untuk :</h5>
                             <div>
                                 <p style="margin-bottom: 0.3rem;">bagi calon mahasiswa baru :</p>
@@ -66,25 +67,50 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <div class="p-2">
-                                    <?php echo $this->session->flashdata('notification')?>
+                                    <?php echo $this->session->flashdata('notification_password')?>
                                 </div>
-                                <div class="p-2">
-                                    <h4 class="text-muted float-right font-18 mt-4">Sign In</h4>
+
+                                <div class="text-center">
                                     <div>
                                         <a href="#" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                                     </div>
+                                    <h4 class="text-muted font-18 mt-4">Reset Password</h4>
                                 </div>
+        
                                 <div class="p-2">
-                                    <form class="form-horizontal m-t-20" action="<?php echo site_url('login/aksi_login'); ?>" method="post">
+                                    <!-- <form class="form-horizontal m-t-20" action="<?php echo site_url('login/aksi_ubah_firstpassword'); ?>" method="post"> -->
+
+                                         <?php
+                                            $atribut = array(
+                                                    'class' => 'form-horizontal m-t-20',
+                                                    'method'=>'post'
+                                            );                                        
+                                                echo form_open('login/aksi_ubah_firstpassword/', $atribut); 
+                                        ?>
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input name="email" class="form-control" type="email" required="" placeholder="email">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input name="email" class="form-control" type="text" required="" placeholder="Email">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <label>Password Baru</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input name="password_baru" class="form-control" type="password" required="" placeholder="Password">
                                             </div>
                                         </div>
         
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <input name="password" class="form-control" type="password" required="" placeholder="Password">
+                                                <label>Ulangi Password Baru</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input name="ulangi_password_baru" class="form-control" type="password" required="" placeholder="Ulangi Password">
                                             </div>
                                         </div>
         
@@ -99,19 +125,36 @@
         
                                         <div class="form-group text-center row m-t-20">
                                             <div class="col-12">
-                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Log In</button>
+                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Verifikasi Cek Email</button>
                                             </div>
                                         </div>
+                                    <?php
+                                        echo form_close();
+                                    ?>
+                                </div>
         
-                                        <div class="form-group m-t-10 mb-0 row">
-                                            <div class="col-sm-7 m-t-20">
-                                                <!-- <a href="<?php echo site_url(); ?>Login/lupa_password" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a> -->
-                                            </div>
-                                            <div class="col-sm-5 m-t-20">
-                                                <a href="<?php echo site_url(); ?>Register/buat_akun" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
+                                <div class="p-2">
+                                    <form class="form-horizontal m-t-20" action="index.html">
+        
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            Enter your <b>Email</b> and instructions will be sent to you!
+                                        </div>
+            
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <input class="form-control" type="email" required="" placeholder="Email">
                                             </div>
                                         </div>
+            
+                                        <div class="form-group text-center row m-t-20">
+                                            <div class="col-12">
+                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Send Email</button>
+                                            </div>
+                                        </div>
+            
                                     </form>
+                                    <!-- end form -->
                                 </div>
         
                             </div>
