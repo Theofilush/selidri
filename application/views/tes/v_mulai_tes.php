@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper"><?php  foreach ($query as $key) { $isiTesHolland = $key->isi_tes_holland; $isiTesBigFive = $key->isi_tes_bigfive; } ?>
             <div class="container-fluid">
 
                 <!-- Page-Title -->
@@ -52,14 +52,32 @@
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>Tes Holland</td>
-                                            <td><i class="dripicons-checkmark"></i></td>
-                                            <td><a href="<?php echo base_url() ?>Tes/tes_holland" type="button" class="btn btn-outline-primary waves-effect waves-light">Masuk</a></td>
+                                            <td>
+                                                <?php if ($isiTesHolland == "sudah") { ?>
+                                                    <i class="dripicons-checkmark"></i>
+                                                <?php } ?> 
+                                            </td>
+                                            <td>
+                                                <?php if ($isiTesHolland == "belum") {  ?>
+                                                    <a href="<?php echo base_url() ?>Tes/tes_holland" type="button" class="btn btn-outline-primary waves-effect waves-light">Masuk</a>
+                                                <?php }elseif ($isiTesHolland == "sudah") {
+                                                    
+                                                } ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>Test Big Five</td>
-                                            <td><i class="dripicons-checkmark"></i></td>
-                                            <td><a href="<?php echo base_url() ?>Tes/tes_bigfive" type="button" class="btn btn-outline-primary waves-effect waves-light">Masuk</a></td>
+                                            <td>
+                                                <?php if ($isiTesBigFive == "sudah") { ?>
+                                                    <i class="dripicons-checkmark"></i>
+                                                <?php } ?> 
+                                            </td>
+                                            <td>
+                                               <?php if ($isiTesHolland == "sudah") {  ?>
+                                                    <a href="<?php echo base_url() ?>Tes/tes_bigfive" type="button" class="btn btn-outline-primary waves-effect waves-light">Masuk</a> 
+                                               <?php } ?> 
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -72,26 +90,16 @@
                     <div class="col-lg-12">
                         <div class="card m-b-30" style="background-color: #dfcdfa; border-color: #333;" >
                             <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Tombol aktivasi akan muncul setelah kedua tes diatas telah diselesaikan</h4>
-
-                                <?php
-                                        $atribut = array();
-                                        echo form_open_multipart('Tes/hasil_tes',$atribut);
-                                        // echo form_hidden('pic',$bubi);
-                                ?>
+                                <h4 class="mt-0 header-title">Halaman Hasil Tes akan muncul setelah kedua tes diatas telah diselesaikan</h4>
                                 <!-- <form class="" action="#"> -->
                                     <div class="form-group">
                                         <div>
-                                            <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5">
-                                                Submit
-                                            </button>
+                                            <?php if ($isiTesHolland == "sudah" && $isiTesBigFive == "sudah") {  ?>
+                                                <a href="<?php echo base_url() ?>Tes/hasil_tes" type="submit" class="btn btn-primary btn-lg btn-block waves-effect m-b-5">Submit</a>
+                                            <?php } ?> 
                                         </div>
                                     </div>
                                 <!-- </form> -->
-                                <!-- <?php
-                                    echo form_close();
-                                ?> -->
                             </div>
                         </div>
                     </div> <!-- end col -->

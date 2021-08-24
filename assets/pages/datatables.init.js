@@ -11,6 +11,9 @@ $(document).ready(function() {
     $('#datatable_soal_holland').DataTable();
     $('#datatable_soal_bigfive').DataTable();
 
+    $('#datatable_mnj_peserta').DataTable();
+    $('#datatable_mnj_dosen').DataTable();
+
     //Buttons examples
     var table = $('#datatable-buttons').DataTable({
         lengthChange: false,

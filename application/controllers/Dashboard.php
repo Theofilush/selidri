@@ -30,7 +30,7 @@ class Dashboard extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Tes Holland",		
 		  'da' => $kue,
 		);
 		
@@ -44,7 +44,7 @@ class Dashboard extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Tes Holland",		
 		  'da' => $kue,
 		);
 		
@@ -58,7 +58,7 @@ class Dashboard extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Tes Big Five",		
 		  'da' => $kue,
 		);
 		
@@ -72,7 +72,7 @@ class Dashboard extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Tes Big Five",		
 		  'da' => $kue,
 		);
 		
@@ -86,7 +86,7 @@ class Dashboard extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		$dataHalaman = array(
-		  'title'=>"Dashboard",		
+		  'title'=>"Tes Big Five",		
 		  'da' => $kue,
 		);
 		

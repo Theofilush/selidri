@@ -14,10 +14,13 @@ class Tes extends CI_Controller {
 	public function index(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
+		foreach($kue as $key){$kuee = $key;}
+		$query = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
 
 		$dataHalaman = array(
-		  'title'=>"Mulai Tes",	
-		  'da' => $kue,
+		  'title'=>"Mulai Tes",
+			'da' => $kue,
+			'query' => $query,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
 		$this->load->view('tes/v_mulai_tes');
@@ -627,248 +630,280 @@ class Tes extends CI_Controller {
 			print_r($opposite);echo "<br>";
 			print_r($alternate);echo "<br>";
 			print_r($adjacent);echo "<br><br>";
+
 			$hasil_tertinggi = max($opposite, $alternate, $adjacent);
+
 			echo "Hasil tertinggi : ".$hasil_tertinggi;
 			echo "<br><br>";
 
 			if ($opposite > $alternate && $opposite > $adjacent) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sangat tidak cocok <br><br>";
-				$txtProdi = "Tidak Cocok dengan pilihan prodi";
+				// echo "Program studi pilihan Anda: ".$txtProdi." sangat tidak cocok <br><br>";
+				$txtProdi = "Tidak cocok dengan Prodi yang dipilih";
 			}
 			elseif ($alternate > $opposite && $alternate > $adjacent) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sesuai minat <br><br>";
+				// echo "Program studi pilihan Anda: ".$txtProdi." sesuai minat <br><br>";
 			}
 			elseif ($adjacent > $opposite && $adjacent > $alternate) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sangat sesuai dengan minat <br><br>";
+				// echo "Program studi pilihan Anda: ".$txtProdi." sangat sesuai dengan minat <br><br>";
 			}
 
 			if ($opposite == $alternate) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sesuai minat <br><br>";
+				// echo "Program studi pilihan Anda: ".$txtProdi." sesuai minat <br><br>";
+				$txtProdi = $prodi." Sesuai Minat";
 			}elseif ($alternate == $adjacent) {
-				echo "Program studi pilihan Anda: ".$txtProdi." sangat sesuai minat <br><br>";
+				// echo "Program studi pilihan Anda: ".$txtProdi." sangat sesuai minat <br><br>";
+				$txtProdi = $prodi." Sangat Sesuai Minat";
 			}
+
+			
+
+			if ($opposite > $alternate && $opposite > $adjacent) {
+				$tidakCocok = array();
+				$Xprodi = array("akuntansi","manajemen","psikologi","ilmu_komunikasi","desain_produk","desain_komunikasi_visual","informatika","sistem_informasi","teknik_sipil","arsitektur");
+				for ($ij=0; $ij < count($Xprodi); $ij++) { 
+					$i=0;
+					$digit_1 = array();
+					$digit_2 = array();
+					$digit_3 = array();
+
+					foreach ($total as $row => $value) {
+						$i++;
+						if ($i >= 4) { break; }
+
+						$kateg_tes = str_split($row,1);
+
+						if ($i == 1) {
+							if($kateg_tes[0] == 'R'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
+									if (empty($kateg_acuan_prodi[1])) {  break; }
+									// echo "kateg acuan prodi: ";print_r($kateg_acuan_prodi);echo "<br>";
+
+									$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_R($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
+									// echo "ambildigit1 : ";print_r($ambil_digit1);echo "<br><br>";
+									foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->R); }
+								}
+							}
+							elseif($kateg_tes[0] == 'I'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_I($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->I); }
+								}
+							}
+							elseif($kateg_tes[0] == 'A'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_A($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->A); }
+								}
+							}
+							elseif($kateg_tes[0] == 'S'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_S($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->S); }
+								}
+							}
+							elseif($kateg_tes[0] == 'E'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_E($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->E); }
+								}
+							}
+							elseif($kateg_tes[0] == 'C'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_C($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->C); }
+								}	
+							}
+						}
+
+						if ($i == 2) {
+							if($kateg_tes[0] == 'R'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
+									if (empty($kateg_acuan_prodi[1])) {  break; }
+									$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_R($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->R); }
+								}
+							}
+							elseif($kateg_tes[0] == 'I'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
+									if (empty($kateg_acuan_prodi[1])) {  break; }
+									// echo "kateg acuan prodi: ";print_r($kateg_acuan_prodi[1]);echo "<br>";
+
+									$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_I($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
+									// echo "ambildigit2 : ";print_r($ambil_digit2);echo "<br><br>";
+									foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->I); }
+								}
+							}
+							elseif($kateg_tes[0] == 'A'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[1])) {  break; }
+									$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_A($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->A); }
+								}
+							}
+							elseif($kateg_tes[0] == 'S'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[1])) {  break; }
+									$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_S($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->S); }
+								}
+							}
+							elseif($kateg_tes[0] == 'E'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[1])) {  break; }
+									$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_E($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->E); }
+								}
+							}
+							elseif($kateg_tes[0] == 'C'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[1])) {  break; }
+									$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_C($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->C); }
+								}	
+							}
+						}
+
+						if ($i == 3) {
+							if($kateg_tes[0] == 'R'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
+									if (empty($kateg_acuan_prodi[2])) {  break; }
+									$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_R($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->R); }
+								}
+							}
+							elseif($kateg_tes[0] == 'I'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
+									if (empty($kateg_acuan_prodi[2])) {  break; }
+									$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_I($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->I); }
+								}
+							}
+							elseif($kateg_tes[0] == 'A'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[2])) {  break; }
+									// echo "kateg acuan prodi: ";print_r($kateg_acuan_prodi[2]);echo "<br>";
+									$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_A($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
+									// echo "ambildigit3 : ";print_r($ambil_digit3);echo "<br><br>";
+									foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->A); }
+								}
+							}
+							elseif($kateg_tes[0] == 'S'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[2])) {  break; }
+									$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_S($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->S); }
+								}
+							}
+							elseif($kateg_tes[0] == 'E'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[2])) {  break; }
+									$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_E($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->E); }
+								}
+							}
+							elseif($kateg_tes[0] == 'C'){
+								foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
+									$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
+									if (empty($kateg_acuan_prodi[2])) {  break; }
+									$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_C($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
+									foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->C); }
+								}	
+							}
+						}
+
+						
+					}
+
+					$level_congruence = array();
+					for($i=0; $i < count($digit_1); $i++){ 
+						$hitung = (3 * $digit_1[$i]) + (2 * $digit_2[$i]) + $digit_3[$i];
+						array_push($level_congruence, $hitung); 
+					}
+
+					$opposite = 0;
+					$alternate = 0;
+					$adjacent = 0;
+					$txtHasil_tertinggi = "";
+
+					for($i=0; $i < count($level_congruence); $i++){ 
+						if ($level_congruence[$i] >= 0 && $level_congruence[$i] <= 6 ) {
+							$opposite++;
+						}
+						elseif ($level_congruence[$i] >= 7 && $level_congruence[$i] <= 12 ) {
+							$alternate++;
+						}
+						elseif ($level_congruence[$i] >= 13 && $level_congruence[$i] <= 18 ) {
+							$adjacent++;
+						}
+					}
+
+					echo "<br>";
+					echo "opposite :";print_r($opposite);echo "<br>";
+					echo "alternate :";print_r($alternate);echo "<br>";
+					echo "adjacent :";print_r($adjacent);echo "<br>";
+
+					if ($opposite > $alternate && $opposite > $adjacent) {
+						$txtHasil_tertinggi = "Sangat Tidak Cocok";
+						array_push($tidakCocok, "$Xprodi[$ij]");
+
+						$txtProdi = "Mayoritas prodi memiliki kesesuaian dengan minat kecuali ";
+						for($i=0; $i < count($tidakCocok); $i++){ 
+							$txtProdi .= $tidakCocok[$i].", ";
+						}
+					}elseif ($alternate > $opposite && $alternate > $adjacent) {
+						$txtHasil_tertinggi = "Sesuai Minat";
+					}elseif ($adjacent > $opposite && $adjacent > $alternate) {
+						$txtHasil_tertinggi = "Sangat Sesuai Minat";
+
+						$rekomendasiProdi = $Xprodi[$ij];
+						$txtProdi = $Xprodi[$ij]; 
+					}
+
+					if ($opposite == $alternate) {
+						// echo "Program studi pilihan Anda: ".$txtHasil_tertinggi." sesuai minat <br><br>";
+						$txtHasil_tertinggi = " Sesuai Minat";
+					}elseif ($alternate == $adjacent) {
+						// echo "Program studi pilihan Anda: ".$txtHasil_tertinggi." sangat sesuai minat <br><br>";
+						$txtHasil_tertinggi = " Sangat Sesuai Minat";
+					}
+
+					$hasil_tertinggi = max($opposite, $alternate, $adjacent);
+					echo "Prodi yang ".$txtHasil_tertinggi." adalah ".$Xprodi[$ij];
+					echo "<br>";
+				} 
+				
+			}
+
+			print_r($txtProdi);
+			
 
 			$dataRekomendasi = array(
 				'rekomendasi_prodi1' => $txtProdi,
 		 	);
 			$querySave_rekomendasi= $this->M_dokumen->save_update_rekomendasi1($dataRekomendasi, $id_peserta);
 
-			/*$Xprodi = array("akuntansi","manajemen","psikologi","ilmu_komunikasi","desain_produk","desain_komunikasi_visual","informatika","sistem_informasi","teknik_sipil","arsitektur");
-			for ($ij=0; $ij < count($Xprodi); $ij++) { 
-				$i=0;
-				$digit_1 = array();
-				$digit_2 = array();
-				$digit_3 = array();
+			$queryDone_tes_holland = $this->M_dokumen->done_tes_holland( array('isi_tes_holland' => "sudah"), $id_peserta);
 
-				foreach ($total as $row => $value) {
-					$i++;
-					if ($i >= 4) { break; }
+			exit();
 
-					$kateg_tes = str_split($row,1);
-
-					if ($i == 1) {
-						if($kateg_tes[0] == 'R'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
-								if (empty($kateg_acuan_prodi[1])) {  break; }
-								// echo "kateg acuan prodi: ";print_r($kateg_acuan_prodi);echo "<br>";
-
-								$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_R($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
-								// echo "ambildigit1 : ";print_r($ambil_digit1);echo "<br><br>";
-								foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->R); }
-							}
-						}
-						elseif($kateg_tes[0] == 'I'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_I($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->I); }
-							}
-						}
-						elseif($kateg_tes[0] == 'A'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_A($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->A); }
-							}
-						}
-						elseif($kateg_tes[0] == 'S'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_S($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->S); }
-							}
-						}
-						elseif($kateg_tes[0] == 'E'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_E($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->E); }
-							}
-						}
-						elseif($kateg_tes[0] == 'C'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								$ambil_digit1 =  $this->M_dokumen->ambil_acuan_skoring_C($kateg_acuan_prodi[0]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit1 as $abc => $value) { array_push($digit_1, $value->C); }
-							}	
-						}
-					}
-
-					if ($i == 2) {
-						if($kateg_tes[0] == 'R'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
-								if (empty($kateg_acuan_prodi[1])) {  break; }
-								$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_R($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->R); }
-							}
-						}
-						elseif($kateg_tes[0] == 'I'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
-								if (empty($kateg_acuan_prodi[1])) {  break; }
-								// echo "kateg acuan prodi: ";print_r($kateg_acuan_prodi[1]);echo "<br>";
-
-								$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_I($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
-								// echo "ambildigit2 : ";print_r($ambil_digit2);echo "<br><br>";
-								foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->I); }
-							}
-						}
-						elseif($kateg_tes[0] == 'A'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[1])) {  break; }
-								$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_A($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->A); }
-							}
-						}
-						elseif($kateg_tes[0] == 'S'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[1])) {  break; }
-								$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_S($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->S); }
-							}
-						}
-						elseif($kateg_tes[0] == 'E'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[1])) {  break; }
-								$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_E($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->E); }
-							}
-						}
-						elseif($kateg_tes[0] == 'C'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[1])) {  break; }
-								$ambil_digit2 =  $this->M_dokumen->ambil_acuan_skoring_C($kateg_acuan_prodi[1]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit2 as $abc => $value) { array_push($digit_2, $value->C); }
-							}	
-						}
-					}
-
-					if ($i == 3) {
-						if($kateg_tes[0] == 'R'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
-								if (empty($kateg_acuan_prodi[2])) {  break; }
-								$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_R($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->R); }
-							}
-						}
-						elseif($kateg_tes[0] == 'I'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1); 
-								if (empty($kateg_acuan_prodi[2])) {  break; }
-								$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_I($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->I); }
-							}
-						}
-						elseif($kateg_tes[0] == 'A'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[2])) {  break; }
-								// echo "kateg acuan prodi: ";print_r($kateg_acuan_prodi[2]);echo "<br>";
-								$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_A($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
-								// echo "ambildigit3 : ";print_r($ambil_digit3);echo "<br><br>";
-								foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->A); }
-							}
-						}
-						elseif($kateg_tes[0] == 'S'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[2])) {  break; }
-								$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_S($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->S); }
-							}
-						}
-						elseif($kateg_tes[0] == 'E'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[2])) {  break; }
-								$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_E($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->E); }
-							}
-						}
-						elseif($kateg_tes[0] == 'C'){
-							foreach ($kode_acuan_prodi as $roww => $value) { // memunculkan hanya 1 kolom kode acuan prodi 
-								$kateg_acuan_prodi = str_split($value[$Xprodi[$ij]],1);
-								if (empty($kateg_acuan_prodi[2])) {  break; }
-								$ambil_digit3 =  $this->M_dokumen->ambil_acuan_skoring_C($kateg_acuan_prodi[2]); // mengambil prodi pilihan calon mahasiswa
-								foreach ($ambil_digit3 as $abc => $value) { array_push($digit_3, $value->C); }
-							}	
-						}
-					}
-
-					
-				}
-
-				$level_congruence = array();
-				for($i=0; $i < count($digit_1); $i++){ 
-					$hitung = (3 * $digit_1[$i]) + (2 * $digit_2[$i]) + $digit_3[$i];
-					array_push($level_congruence, $hitung); 
-				}
-
-				$opposite = 0;
-				$alternate = 0;
-				$adjacent = 0;
-				$txtHasil_tertinggi = "";
-
-				for($i=0; $i < count($level_congruence); $i++){ 
-					if ($level_congruence[$i] >= 0 && $level_congruence[$i] <= 6 ) {
-						$opposite++;
-					}
-					elseif ($level_congruence[$i] >= 7 && $level_congruence[$i] <= 12 ) {
-						$alternate++;
-					}
-					elseif ($level_congruence[$i] >= 13 && $level_congruence[$i] <= 18 ) {
-						$adjacent++;
-					}
-				}
-
-				echo "<br>";
-				echo "opposite :";print_r($opposite);echo "<br>";
-				echo "alternate :";print_r($alternate);echo "<br>";
-				echo "adjacent :";print_r($adjacent);echo "<br>";
-
-				if ($opposite > $alternate && $opposite > $adjacent) {
-					$txtHasil_tertinggi = "Sangat Tidak Cocok";
-				}elseif ($alternate > $opposite && $alternate > $adjacent) {
-					$txtHasil_tertinggi = "Sesuai Minat";
-				}elseif ($adjacent > $opposite && $adjacent > $alternate) {
-					$txtHasil_tertinggi = "Sangat Sesuai Minat";
-					$rekomendasiProdi = $Xprodi[$ij];
-				}
-
-				$hasil_tertinggi = max($opposite, $alternate, $adjacent);
-				echo "Prodi yang ".$txtHasil_tertinggi." adalah ".$Xprodi[$ij];
-				echo "<br>";
-			}
-			exit();*/
-
-			if ($querySave_rekomendasi) {
+			if ($queryDone_tes_holland) {
 				redirect(site_url('Tes/'));
 			}
 			else{
@@ -947,10 +982,13 @@ class Tes extends CI_Controller {
 	public function hasil_tes(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
+		foreach($kue as $key){$kuee = $key;}
+		$query = $this->M_dokumen->tampil_rekomendasi($kuee->no);
 
 		$dataHalaman = array(
-		  'title'=>"Mulai Tes",	
+		  'title'=>"Hasil Tes",	
 		  'da' => $kue,
+		  'query' => $query,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
 		$this->load->view('tes/v_hasil_tes');

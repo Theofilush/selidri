@@ -29,6 +29,7 @@
 
         <!-- dashboard js -->
         <script src="<?php echo base_url() ?>assets/pages/dashboard.int.js"></script>
+        <script src="<?php echo base_url() ?>assets/register/js/bootstrap-datepicker.min.js"></script>
 
         <!-- Bootstrap rating js -->
         <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-rating/bootstrap-rating.min.js"></script>
@@ -78,6 +79,16 @@
                 checkboxClass: 'icheckbox_flat-green',
                 radioClass   : 'iradio_flat-green'
             })
+
+            $(document).ready(function() {
+	            demo.initFormExtendedDatetimepickers();
+            });
+
+            $("#datepicker").datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true,
+            });
         </script>
 
     </body>

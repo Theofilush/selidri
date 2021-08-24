@@ -87,7 +87,13 @@ class Register extends CI_Controller {
 			'isi_tes_holland' => 'belum',
 			'isi_tes_bigfive' => 'belum',
         );
-		$this->M_login->insert_TLogin($data);
+		$datal = array(
+			'id_camaba' => $id,
+			"id_dataakademik" => $id,
+			"id_datasekolah" =>$id,
+			"id_datapilprod" =>$id,
+		);
+		$this->M_login->insert_TLogin($data,$datal);
 
 		$this->M_login->delete_tempRegister($id);
 

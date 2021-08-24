@@ -21,6 +21,7 @@
 
         <!-- App css -->
         <link href="<?php echo base_url() ?>assets/plugins/bootstrap-rating/bootstrap-rating.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url() ?>assets/register/css/bootstrap-datepicker.min.css" rel="stylesheet" />
         <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url() ?>assets/css/icheck-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url() ?>assets/plugins/iCheck/all.css" rel="stylesheet" type="text/css">

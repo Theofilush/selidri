@@ -31,16 +31,251 @@ class Pengelolaan extends CI_Controller {
     public function data_camaba(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
-		$queryHolland = $this->M_dokumen->tampil_daftar_data_camaba();
+		$queryTampilCamaba = $this->M_dokumen->tampil_daftar_data_camaba();
+		$queryTampilDosen = $this->M_dokumen->tampil_daftar_data_dosen();
 
 		$dataHalaman = array(
 		  'title'=>"Data Camaba",		
 		  'da' => $kue,
-		  'queryHolland'=> $queryHolland,
+		  'queryTampilCamaba'=> $queryTampilCamaba,
+		  'queryTampilDosen'=> $queryTampilDosen,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
 		$this->load->view('v_data_camaba');
 		$this->load->view('dashboard/v_footer');
+    }
+
+	public function data_camaba_tambah1(){
+		$usan = $this->session->userdata('email');
+		$kue = $this->M_login->hak_ak($usan);
+
+		$dataHalaman = array(
+		  'title'=>"Data Camaba",		
+		  'da' => $kue,
+        );
+		$this->load->view('dashboard/v_header', $dataHalaman);
+		$this->load->view('v_data_camaba_add1');
+		$this->load->view('dashboard/v_footer');
+    }
+
+	public function data_camaba_tambah2(){
+		$usan = $this->session->userdata('email');
+		$kue = $this->M_login->hak_ak($usan);
+
+		$dataHalaman = array(
+		  'title'=>"Data Camaba",		
+		  'da' => $kue,
+        );
+		$this->load->view('dashboard/v_header', $dataHalaman);
+		$this->load->view('v_data_camaba_add2');
+		$this->load->view('dashboard/v_footer');
+    }
+
+	public function aksi_tambahUser1(){
+		if($this->input->post('btnSimpan') == "Simpan"){
+			$nama_lengkap = $this->input->post('nama_lengkap', TRUE);
+			$email = $this->input->post('email', TRUE);
+			$no_handphone = $this->input->post('no_handphone', TRUE);
+			$asal_sekolah = $this->input->post('asal_sekolah', TRUE);
+			$password = $this->input->post('password', TRUE);
+			$prodi_pilihan = $this->input->post('prodi_pilihan', TRUE);
+
+			$data = array(
+				  'nama' => $nama_lengkap,
+				  'email' => $email,
+				  'no_handphone' => $no_handphone,
+				  'asal_sekolah'=> $asal_sekolah,
+				  'prodi_pilihan'=> $prodi_pilihan,
+				  'password'=> get_hash($password),
+				  'author'=> 'camaba',
+				  'ubah_password' => 'belum',
+				  'isi_regist' => 'belum',
+				  'isi_tes_holland' => 'belum',
+				  'isi_tes_bigfive' => 'belum',
+			); 
+				$query= $this->M_dokumen->simpanUser($data);
+				if ($query) {
+					$this->session->set_flashdata('notification', 'Penambahan Peserta Berhasil');	
+				  redirect(site_url('Pengelolaan/data_camaba'));
+				}
+				else{
+					$this->session->set_flashdata('notification', 'Penambahan Peserta Tidak Berhasil');	
+				  redirect(site_url('Pengelolaan/data_camaba'));
+				}
+		}
+	}
+
+	public function aksi_tambahUser2(){
+		if($this->input->post('btnSimpan') == "Simpan"){
+			$nama_lengkap = $this->input->post('nama_lengkap', TRUE);
+			$email = $this->input->post('email', TRUE);
+			$no_handphone = $this->input->post('no_handphone', TRUE);
+			$password = $this->input->post('password', TRUE);
+			$prodi_pilihan = $this->input->post('prodi_pilihan', TRUE);
+
+			$data = array(
+				  'nama' => $nama_lengkap,
+				  'email' => $email,
+				  'no_handphone' => $no_handphone,
+				  'prodi_pilihan'=> $prodi_pilihan,
+				  'password'=> get_hash($password),
+				  'author'=> 'kaprodi',
+				  'ubah_password' => 'belum',
+			); 
+				$query= $this->M_dokumen->simpanUser($data);
+				if ($query) {
+					$this->session->set_flashdata('notification', 'Penambahan Peserta Berhasil');	
+				  redirect(site_url('Pengelolaan/data_camaba'));
+				}
+				else{
+					$this->session->set_flashdata('notification', 'Penambahan Peserta Tidak Berhasil');	
+				  redirect(site_url('Pengelolaan/data_camaba'));
+				}
+		}
+	}
+
+	public function data_camaba_detail1($id){ // butuh pengeditannnnnnnnnnnnnnnnnnnnnnnnnnn
+		$usan = $this->session->userdata('email');
+		$kue = $this->M_login->hak_ak($usan);
+		$queryTampilCamaba = $this->M_dokumen->tampil_data_edit_camaba($id);
+
+		$dataHalaman = array(
+		  'title'=>"Data Camaba",		
+		  'da' => $kue,
+		  'queryTampilCamaba'=> $queryTampilCamaba,
+        );
+		$this->load->view('dashboard/v_header', $dataHalaman);
+		$this->load->view('v_data_camaba_edit1');
+		$this->load->view('dashboard/v_footer');
+    }
+
+	public function data_camaba_detail2($id){
+		$usan = $this->session->userdata('email');
+		$kue = $this->M_login->hak_ak($usan);
+		$queryTampilDosen = $this->M_dokumen->tampil_data_edit_dosen($id);
+
+		$dataHalaman = array(
+		  'title'=>"Data Camaba",		
+		  'da' => $kue,
+		  'queryTampilDosen'=> $queryTampilDosen,
+        );
+		$this->load->view('dashboard/v_header', $dataHalaman);
+		$this->load->view('v_data_camaba_edit2');
+		$this->load->view('dashboard/v_footer');
+    }
+
+	public function aksi_editUser1(){
+		if ($this->input->post('btnSimpan') == "Simpan") {
+			$nama_lengkap = $this->input->post('nama_lengkap', TRUE);
+			$email = $this->input->post('email', TRUE);
+			$no_handphone = $this->input->post('no_handphone', TRUE);
+
+			$_password = $this->input->post('password', TRUE);
+			$_cpassword = $this->input->post('cpassword', TRUE);
+			$id = $this->input->post('id', TRUE);
+			
+			if($_password == ""){
+			  $data = array(
+				'nama' => $nama_lengkap,
+				'email' => $email,
+				'no_handphone' => $no_handphone,
+			  );
+			  $query= $this->M_dokumen->simpanUpdateUser($data,$id);
+			}
+			else{
+			  if ($_password == $_cpassword) { //jika password sama
+				//kumpulkan semua inputan kedalam array
+				$data = array(
+					'nama' => $nama_lengkap,
+					'email' => $email,
+					'no_handphone' => $no_handphone,
+				  'password'=> get_hash($_password), 
+				);              
+				$query= $this->M_dokumen->simpanUpdateUser($data,$id);
+			  }
+			  else{
+				//jika password tidak sama
+				$this->session->set_flashdata('notification_password', '<div class="col-xs-5 alert alert-danger alert-dismissible pull-right">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<p><i class="icon fa fa-ban"></i> Password konfirmasi tidak cocok!</p>
+				  </div>');
+				redirect('Pengelolaan/data_camaba');
+			  }
+			}
+
+			if ($query) {
+			  redirect('Pengelolaan/data_camaba');
+			}
+			else{
+				   $this->session->set_flashdata( ' notification_password', '<div class="col-xs-5 alert alert-danger alert-dismissible pull-right">
+					  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					  <p><i class="icon fa fa-ban"></i> Edit Data gagal dilakukan</p>
+				</div>');
+			  redirect('Pengelolaan/data_camaba');
+			}
+		}
+	}
+
+	public function aksi_editUser2(){
+		if ($this->input->post('btnSimpan') == "Simpan") {
+			$nama_lengkap = $this->input->post('nama_lengkap', TRUE);
+			$email = $this->input->post('email', TRUE);
+			$no_handphone = $this->input->post('no_handphone', TRUE);
+
+			$_password = $this->input->post('password', TRUE);
+			$_cpassword = $this->input->post('cpassword', TRUE);
+			$id = $this->input->post('id', TRUE);
+			
+			if($_password == ""){
+			  $data = array(
+				'nama' => $nama_lengkap,
+				'email' => $email,
+				'no_handphone' => $no_handphone,
+			  );
+			  $query= $this->M_dokumen->simpanUpdateUser($data,$id);
+			}
+			else{
+			  if ($_password == $_cpassword) { //jika password sama
+				//kumpulkan semua inputan kedalam array
+				$data = array(
+					'nama' => $nama_lengkap,
+					'email' => $email,
+					'no_handphone' => $no_handphone,
+				  'password'=> get_hash($_password), 
+				);              
+				$query= $this->M_dokumen->simpanUpdateUser($data,$id);
+			  }
+			  else{
+				//jika password tidak sama
+				$this->session->set_flashdata('notification_password', '<div class="col-xs-5 alert alert-danger alert-dismissible pull-right">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<p><i class="icon fa fa-ban"></i> Password konfirmasi tidak cocok!</p>
+				  </div>');
+				redirect('Pengelolaan/data_camaba');
+			  }
+			}
+
+			if ($query) {
+			  redirect('Pengelolaan/data_camaba');
+			}
+			else{
+				   $this->session->set_flashdata( ' notification_password', '<div class="col-xs-5 alert alert-danger alert-dismissible pull-right">
+					  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					  <p><i class="icon fa fa-ban"></i> Edit Data gagal dilakukan</p>
+				</div>');
+			  redirect('Pengelolaan/data_camaba');
+			}
+		}
+	}
+
+	public function data_camaba_hapus1($id){
+		$this->M_dokumen->deleteUser($id);
+		redirect('Pengelolaan/data_camaba');
+    }
+
+	public function data_camaba_hapus2($id){
+		$this->M_dokumen->deleteUser($id);
+		redirect('Pengelolaan/data_camaba');
     }
     
     public function data_pengukuran(){

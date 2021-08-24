@@ -207,6 +207,11 @@ class M_dokumen extends CI_Model{
         return $this->db->update($this->t_jawaban,$txtProdi);
     }
 
+    function done_tes_holland($txt, $id_peserta){
+        $this->db->where('no',$id_peserta);
+        return $this->db->update('t_login',$txt);
+    }
+
     function save_update_tes_bigfive($data, $id_peserta){
         $this->db->where('id_peserta',$id_peserta);
         return $this->db->update($this->t_jawaban,$data);
@@ -220,7 +225,7 @@ class M_dokumen extends CI_Model{
     function tampil_hasil_tes(){
         $this->db->select('*');
         $this->db->join("t_login", 't_jawaban.id_peserta = t_login.no','INNER');
-        $this->db->order_by('t_jawaban.tanggal');
+        $this->db->order_by('t_jawaban.tanggal', 'DESC');
         $hasil = $this->db->get($this->t_jawaban);
         return $hasil->result();
     }
@@ -239,9 +244,16 @@ class M_dokumen extends CI_Model{
     }
 
     function tampil_daftar_data_camaba(){
-        $this->db->order_by('t_soal_holland.bagian','ASC');
-        $this->db->order_by('t_soal_holland.kelompok', 'ASC');
-        $query = $this->db->get("t_soal_holland");
+        $this->db->where('author',"camaba");
+        $this->db->order_by('no', 'DESC');
+        $query = $this->db->get("t_login");
+        return $query->result();
+    }
+
+    function tampil_daftar_data_dosen(){
+        $this->db->where('author',"kaprodi");
+        $this->db->order_by('no', 'DESC');
+        $query = $this->db->get("t_login");
         return $query->result();
     }
 
@@ -445,5 +457,65 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }
 
+    function tampil_biodata($id){
+        $this->db->select('*');
+        $this->db->join("data_diri", 'data_diri.id_camaba = t_login.no','INNER');
+        $this->db->where('t_login.no',$id);
+        $hasil = $this->db->get("t_login");
+        return $hasil->result();
+    }
+
+    function updateBiodata1($data,$id){
+        $this->db->where('no',$id);
+        return $this->db->update("t_login",$data);
+    }
+
+    function updateBiodata2($data,$id){
+        $this->db->where('id_camaba',$id);
+        return $this->db->update("data_diri",$data);
+    }
+
+    function tampil_rekomendasi($id){
+        $this->db->select('*');
+        // $this->db->join("data_diri", 'data_diri.id_camaba = t_login.no','INNER');
+        $this->db->where('t_jawaban.id_peserta',$id);
+        $hasil = $this->db->get($this->t_jawaban);
+        return $hasil->result();
+    }
+
+    function cekSudahIsiTesBigFive($id){
+        $this->db->where('no',$id);
+        $hasil = $this->db->get("t_login");
+    }
+
+    function deleteUser($id){
+        $this->db->where('no', $id);
+        $this->db->delete("t_login");
+    }
+
+    public function simpanUser($data){
+		return $this->db->insert('t_login', $data);
+	}
+
+    function tampil_data_edit_dosen($id){
+        $this->db->where('no', $id);
+        $this->db->where('author',"kaprodi");
+        $this->db->order_by('no', 'DESC');
+        $query = $this->db->get("t_login");
+        return $query->result();
+    }
+    function tampil_data_edit_camaba($id){
+        $this->db->where('no', $id);
+        $this->db->where('author',"camaba");
+        $this->db->order_by('no', 'DESC');
+        $query = $this->db->get("t_login");
+        return $query->result();
+    }
+
+    function simpanUpdateUser($data,$id){
+        $this->db->where('no',$id);
+        $hasil = $this->db->update("t_login",$data);
+        return $hasil; 
+    }
 }
 ?>

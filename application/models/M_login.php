@@ -57,7 +57,8 @@ class M_login extends CI_Model{
         $this->db->delete('temp_register');
     }
 
-    function insert_TLogin($data){
+    function insert_TLogin($data,$datal){
+        $this->db->insert('data_diri', $datal);
         return $this->db->insert('t_login', $data);
     } 
 
