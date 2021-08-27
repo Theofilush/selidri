@@ -1,4 +1,4 @@
-<div class="wrapper"><?php  foreach ($query as $key) { $isiTesHolland = $key->isi_tes_holland; $isiTesBigFive = $key->isi_tes_bigfive; } ?>
+<div class="wrapper"><?php foreach ($query as $key) { $isiTesHolland = $key->isi_tes_holland; $isiTesBigFive = $key->isi_tes_bigfive; } ?>
             <div class="container-fluid">
 
                 <!-- Page-Title -->

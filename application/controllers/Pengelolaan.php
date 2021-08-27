@@ -169,8 +169,10 @@ class Pengelolaan extends CI_Controller {
 			$nama_lengkap = $this->input->post('nama_lengkap', TRUE);
 			$email = $this->input->post('email', TRUE);
 			$no_handphone = $this->input->post('no_handphone', TRUE);
+			$asal_sekolah = $this->input->post('asal_sekolah', TRUE);
+			$prodi_pilihan = $this->input->post('prodi_pilihan', TRUE);
 
-			$_password = $this->input->post('password', TRUE);
+			$_password = $this->input->post('ppassword', TRUE);
 			$_cpassword = $this->input->post('cpassword', TRUE);
 			$id = $this->input->post('id', TRUE);
 			
@@ -179,6 +181,8 @@ class Pengelolaan extends CI_Controller {
 				'nama' => $nama_lengkap,
 				'email' => $email,
 				'no_handphone' => $no_handphone,
+				'asal_sekolah' => $asal_sekolah,
+				'prodi_pilihan' => $prodi_pilihan,
 			  );
 			  $query= $this->M_dokumen->simpanUpdateUser($data,$id);
 			}
@@ -189,7 +193,9 @@ class Pengelolaan extends CI_Controller {
 					'nama' => $nama_lengkap,
 					'email' => $email,
 					'no_handphone' => $no_handphone,
-				  'password'=> get_hash($_password), 
+					'asal_sekolah' => $asal_sekolah,
+					'prodi_pilihan' => $prodi_pilihan,
+				  	'password'=> get_hash($_password), 
 				);              
 				$query= $this->M_dokumen->simpanUpdateUser($data,$id);
 			  }

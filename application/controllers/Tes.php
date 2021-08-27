@@ -144,7 +144,24 @@ class Tes extends CI_Controller {
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 
-		if ($key == "") {
+		$totalBarisBigFive =  $this->M_dokumen->totalBarisBigFive();
+		//$soal_bagian1 =  $this->M_dokumen->tampil_soal_bagian_r1(); //menampilkan semua data
+		$batas_tengah = floor($totalBarisBigFive / 2);
+		$queryTBF_awal =  $this->M_dokumen->queryTBF_awal(0,$batas_tengah);
+		$queryTBF_akhir =  $this->M_dokumen->queryTBF_akhir($batas_tengah , $totalBarisBigFive);
+
+		$dataHalaman = array(
+			'title'=>"Tes Big Five",
+			'da' => $kue,
+			'soalTBF_awal'=> $queryTBF_awal,
+			'soalTBF_akhir'=> $queryTBF_akhir,
+			'batas_tengah'=> $batas_tengah,
+		);
+		$this->load->view('dashboard/v_header', $dataHalaman);
+		$this->load->view('tes/v_tes_bigfive1');
+		$this->load->view('dashboard/v_footer');
+
+		/*if ($key == "") {
 			$dataHalaman = array(
 				'title'=>"Tes Big Five",		
 				'da' => $kue,
@@ -152,24 +169,11 @@ class Tes extends CI_Controller {
 			  $this->load->view('dashboard/v_header', $dataHalaman);
 			  $this->load->view('tes/v_tes_bigfive');
 			  $this->load->view('dashboard/v_footer');
-		} elseif ($key == "1") {
-			$totalBarisBigFive =  $this->M_dokumen->totalBarisBigFive();
-			//$soal_bagian1 =  $this->M_dokumen->tampil_soal_bagian_r1(); //menampilkan semua data
-			$batas_tengah = floor($totalBarisBigFive / 2);
-			$queryTBF_awal =  $this->M_dokumen->queryTBF_awal(0,$batas_tengah);
-			$queryTBF_akhir =  $this->M_dokumen->queryTBF_akhir($batas_tengah , $totalBarisBigFive);
-
-			$dataHalaman = array(
-				'title'=>"Dashboard",
-				'da' => $kue,
-				'soalTBF_awal'=> $queryTBF_awal,
-				'soalTBF_akhir'=> $queryTBF_akhir,
-				'batas_tengah'=> $batas_tengah,
-			  );
-			  $this->load->view('dashboard/v_header', $dataHalaman);
-			  $this->load->view('tes/v_tes_bigfive1');
-			  $this->load->view('dashboard/v_footer');
-		} elseif ($key == "2") {
+		} else*/
+		// if ($key == "1") {
+			
+		//} 
+		/*elseif ($key == "2") {
 			$dataHalaman = array(
 				'title'=>"Dashboard",		
 				'da' => $kue,
@@ -185,7 +189,7 @@ class Tes extends CI_Controller {
 			  $this->load->view('dashboard/v_header', $dataHalaman);
 			  $this->load->view('tes/v_tes_bigfive3');
 			  $this->load->view('dashboard/v_footer');
-		}
+		}*/
 	}
 
 	public function savedok_tes_holland1(){
@@ -418,6 +422,14 @@ class Tes extends CI_Controller {
 			$total= array("R"=>$totalR, "I"=>$totalI, "A"=>$totalA, "S"=>$totalS, "E"=>$totalE, "C"=>$totalC); //menyimpan array dan mengurutkan hasil yang terbaru
 			arsort($total);
 
+			$type_peserta = "";
+			$urutanKe3 = 0 ;
+			foreach ($total as $row => $value) {
+				$type_peserta .= $row;
+				if ($urutanKe3 >= 2) { break; }
+				$urutanKe3++;
+			}
+
 			$prodi_pilihan =  $this->M_dokumen->ambil_prodi_pilihan($id_peserta); // mengambil prodi pilihan calon mahasiswa
 			$kode_acuan_prodi =  $this->M_dokumen->ambil_kode_acuan_prodi($id_peserta); // mengambil seluruh kode acuan prodi yang banyak itu
 
@@ -627,14 +639,14 @@ class Tes extends CI_Controller {
 			}
 
 			// echo "<br><br>";
-			print_r($opposite);echo "<br>";
-			print_r($alternate);echo "<br>";
-			print_r($adjacent);echo "<br><br>";
+			// print_r($opposite);echo "<br>";
+			// print_r($alternate);echo "<br>";
+			// print_r($adjacent);echo "<br><br>";
 
 			$hasil_tertinggi = max($opposite, $alternate, $adjacent);
 
-			echo "Hasil tertinggi : ".$hasil_tertinggi;
-			echo "<br><br>";
+			// echo "Hasil tertinggi : ".$hasil_tertinggi;
+			// echo "<br><br>";
 
 			if ($opposite > $alternate && $opposite > $adjacent) {
 				// echo "Program studi pilihan Anda: ".$txtProdi." sangat tidak cocok <br><br>";
@@ -854,10 +866,10 @@ class Tes extends CI_Controller {
 						}
 					}
 
-					echo "<br>";
-					echo "opposite :";print_r($opposite);echo "<br>";
-					echo "alternate :";print_r($alternate);echo "<br>";
-					echo "adjacent :";print_r($adjacent);echo "<br>";
+					// echo "<br>";
+					// echo "opposite :";print_r($opposite);echo "<br>";
+					// echo "alternate :";print_r($alternate);echo "<br>";
+					// echo "adjacent :";print_r($adjacent);echo "<br>";
 
 					if ($opposite > $alternate && $opposite > $adjacent) {
 						$txtHasil_tertinggi = "Sangat Tidak Cocok";
@@ -885,13 +897,13 @@ class Tes extends CI_Controller {
 					}
 
 					$hasil_tertinggi = max($opposite, $alternate, $adjacent);
-					echo "Prodi yang ".$txtHasil_tertinggi." adalah ".$Xprodi[$ij];
-					echo "<br>";
+					// echo "Prodi yang ".$txtHasil_tertinggi." adalah ".$Xprodi[$ij];
+					// echo "<br>";
 				} 
 				
 			}
 
-			print_r($txtProdi);
+			// print_r($txtProdi);
 			
 
 			$dataRekomendasi = array(
@@ -899,9 +911,9 @@ class Tes extends CI_Controller {
 		 	);
 			$querySave_rekomendasi= $this->M_dokumen->save_update_rekomendasi1($dataRekomendasi, $id_peserta);
 
-			$queryDone_tes_holland = $this->M_dokumen->done_tes_holland( array('isi_tes_holland' => "sudah"), $id_peserta);
+			$queryDone_tes_holland = $this->M_dokumen->done_tes_holland( array('isi_tes_holland' => "sudah", 'tipe_peserta' => $type_peserta), $id_peserta);
 
-			exit();
+			// exit();
 
 			if ($queryDone_tes_holland) {
 				redirect(site_url('Tes/'));
@@ -920,7 +932,7 @@ class Tes extends CI_Controller {
 			$jumlahE = 0;
 			$jumlahA = 0;
 			$jumlahN = 0;
-			// print_r($inputTxtTBF);exit();
+			print_r($inputTxtTBF);exit();
 			
 			foreach ($inputTxtTBF as $key => $value) {
 
@@ -967,7 +979,7 @@ class Tes extends CI_Controller {
 			);
 			$id_peserta = $this->session->userdata('id_peserta');
 			$query= $this->M_dokumen->save_update_tes_bigfive($data, $id_peserta);
-			   
+			   exit();
 			if ($query) {
 				//$this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');
 				redirect(site_url('Tes/'));
@@ -984,11 +996,13 @@ class Tes extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 		foreach($kue as $key){$kuee = $key;}
 		$query = $this->M_dokumen->tampil_rekomendasi($kuee->no);
+		$query2 = $this->M_dokumen->tampil_intrepretasi($kuee->no);
 
 		$dataHalaman = array(
 		  'title'=>"Hasil Tes",	
 		  'da' => $kue,
 		  'query' => $query,
+		  'queryIntrepretasi' => $query2,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
 		$this->load->view('tes/v_hasil_tes');

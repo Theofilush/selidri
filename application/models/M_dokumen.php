@@ -477,15 +477,24 @@ class M_dokumen extends CI_Model{
 
     function tampil_rekomendasi($id){
         $this->db->select('*');
-        // $this->db->join("data_diri", 'data_diri.id_camaba = t_login.no','INNER');
+        // $this->db->join("intrepretasi", 'intrepretasi.tipe = t_jawaban.tipe_peserta','INNER');
         $this->db->where('t_jawaban.id_peserta',$id);
         $hasil = $this->db->get($this->t_jawaban);
+        return $hasil->result();
+    }
+
+    function tampil_intrepretasi($id){
+        $this->db->select('*');
+        $this->db->join("intrepretasi", 'intrepretasi.tipe = t_login.tipe_peserta','INNER');
+        $this->db->where('t_login.no',$id);
+        $hasil = $this->db->get('t_login');
         return $hasil->result();
     }
 
     function cekSudahIsiTesBigFive($id){
         $this->db->where('no',$id);
         $hasil = $this->db->get("t_login");
+        return $hasil->result();
     }
 
     function deleteUser($id){
@@ -505,8 +514,9 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }
     function tampil_data_edit_camaba($id){
+        $this->db->join("data_diri", 'data_diri.id_camaba = t_login.no','INNER');
         $this->db->where('no', $id);
-        $this->db->where('author',"camaba");
+        // $this->db->where('author',"camaba");
         $this->db->order_by('no', 'DESC');
         $query = $this->db->get("t_login");
         return $query->result();

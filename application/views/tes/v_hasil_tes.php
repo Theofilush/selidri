@@ -1,7 +1,5 @@
 <div class="wrapper">
             <div class="container-fluid">
-
-
                 <div class="row justify-content-center" style="margin-top:120px;">
                     <div class="col-md-6">
                         <div class="text-center">
@@ -25,7 +23,16 @@
                                 <p class="mt-0">Berdasarkan Tes Holland</p>
                             </div>
                             <div class="pt-3 pb-4">
-                                <h1 class="price font-weight-normal"><?php echo ( $rou->rekomendasi_prodi1 == null ? "Belum Melakukan Tes" : $rou->rekomendasi_prodi1 ) ?></h1>
+                                <h3 class="price font-weight-normal">
+                                    <?php echo ( $rou->rekomendasi_prodi1 == null ? "Belum Melakukan Tes" : $rou->rekomendasi_prodi1 ) ?>,
+                                    <?php
+                                        foreach ($queryIntrepretasi as $roq) {
+                                    ?>
+                                    <p><?php echo $roq->rekomendasi ; ?>:</p>
+                                    <?php
+                                        }
+                                    ?>
+                                </h3>
                             </div>
                             <!-- <div class="plan-features mb-4">
                                 <p>10 GB Storage</p>
@@ -50,7 +57,7 @@
                                 <p class="mt-0">Berdasarkan Tes Big Five</p>
                             </div>
                             <div class="pt-3 pb-4">
-                                <h1 class="price font-weight-normal"><?php echo ($rou->rekomendasi_prodi2 == null ? "Belum Melakukan Tes" : $rou->rekomendasi_prodi2 ) ?></h1>
+                                <h3 class="price font-weight-normal"><?php echo ($rou->rekomendasi_prodi2 == null ? "Belum Melakukan Tes" : $rou->rekomendasi_prodi2 ) ?></h3>
                             </div>
                             <!-- <div class="plan-features mb-4">
                                 <p>10 GB Storage</p>
@@ -71,10 +78,10 @@
                       }
                 ?>
                 <?php
-                    foreach ($query as $rou) { //print_r($query);exit();
+                    foreach ($query as $rou) {
                 ?>
                 <div class="row">
-                    <div class="col-8 offset-lg-2">
+                    <div class="col-10 offset-lg-1">
                         <div class="card m-b-30">
                             <div class="card-body">
                                 <div class="row">
@@ -101,6 +108,15 @@
                                                 <div class="pt-3">
                                                     <a href="<?php echo base_url() ?>Dashboard/tes_holland2" target="_blank" class="btn btn-primary btn-block">Ayok Cek Arti Istilah RIASEC</a>
                                                 </div>
+                                                <?php
+                                                    foreach ($queryIntrepretasi as $rot) {
+                                                ?>
+                                                <div class="pt-3">
+                                                    <p><?php echo $rot->deskripsi ; ?>:</p>
+                                                </div>
+                                                <?php
+                                                    }
+                                                ?>
                                             </div>
                                             <div class="col-6">
                                                 <p>Hasil tes berdasarkan tes Big Five:</p>

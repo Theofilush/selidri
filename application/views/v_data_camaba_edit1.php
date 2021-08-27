@@ -64,13 +64,13 @@
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">No Handphone</label>
                                     <div class="col-sm-6">
-                                        <input name="no_handphone" class="form-control" value="<?php echo $rou-> no_handphone; ?>" type="text" id="example-text-input">
+                                        <input name="no_handphone" class="form-control" value="<?php echo $rou->no_handphone; ?>" type="text" id="example-text-input">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Password baru</label>
                                     <div class="col-sm-6">
-                                        <input name="password" class="form-control" value="" type="password" id="example-text-input">
+                                        <input name="ppassword" class="form-control" value="" type="password" id="example-text-input">
                                         <small>#kosongkan jika tidak ingin dirubah</small>
                                     </div>
                                 </div>
@@ -81,8 +81,98 @@
                                         <small>#kosongkan jika tidak ingin dirubah</small>
                                     </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Asal Sekolah</label>
+                                    <div class="col-sm-6">
+                                        <input name="asal_sekolah" class="form-control" value="<?php echo $rou->asal_sekolah; ?>" type="text" id="example-text-input">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-search-input" class="col-sm-2 col-form-label">Program studi pilihanmu</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control" style="width: 100%" data-placeholder="Porgram Studi Pilihan" name="prodi_pilihan">
+                                                        <option>Pilih Program Studi</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Akuntansi"){ echo "selected"; } ?>>Akuntansi</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Manajemen"){ echo "selected"; } ?>>Manajemen</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Psikologi"){ echo "selected"; } ?>>Psikologi</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Ilmu Komunikasi"){ echo "selected"; } ?>>Ilmu Komunikasi</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Desain Produk"){ echo "selected"; } ?>>Desain Produk</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Desain Komunikasi Visual"){ echo "selected"; } ?>>Desain Komunikasi Visual</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Informatika"){ echo "selected"; } ?>>Informatika</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Sistem Informasi"){ echo "selected"; } ?>>Sistem Informasi</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Teknik Sipil"){ echo "selected"; } ?>>Teknik Sipil</option>
+                                                        <option <?php if($rou->prodi_pilihan == "Arsitektur"){ echo "selected"; } ?>>Arsitektur</option>
+										</select>
+                                    </div>
+                                </div>
                                 
-                                <hr>
+                                <hr><hr>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">NIK</label>
+                                    <div class="col-sm-6">
+                                        <input name="nik" class="form-control" value="<?php echo $rou->nik; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                                    <div class="col-sm-6">
+                                        <input name="tempat_lahir" class="form-control" value="<?php echo $rou->tempat_lahir; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                    <div class="col-sm-6">
+                                        <input name="tanggal_lahir" class="form-control" value="<?php echo $rou->tanggal_lahir; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ayah</label>
+                                    <div class="col-sm-6">
+                                        <input name="nama_ayah" class="form-control" value="<?php echo $rou->nama_ayah; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ayah</label>
+                                    <div class="col-sm-6">
+                                        <input name="pekerjaan_ayah" class="form-control" value="<?php echo $rou->pekerjaan_ayah; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ayah</label>
+                                    <div class="col-sm-6">
+                                        <input name="penghasilan_ayah" class="form-control" value="<?php echo $rou->penghasilan_ayah; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Ibu</label>
+                                    <div class="col-sm-6">
+                                        <input name="nama_ibu" class="form-control" value="<?php echo $rou->nama_ibu; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pekerjaan Ibu</label>
+                                    <div class="col-sm-6">
+                                        <input name="pekerjaan_ibu" class="form-control" value="<?php echo $rou->pekerjaan_ibu; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penghasilan Ibu</label>
+                                    <div class="col-sm-6">
+                                        <input name="penghasilan_ibu" class="form-control" value="<?php echo $rou->penghasilan_ibu; ?>" type="text" id="example-text-input" disabled>
+                                    </div>
+                                </div>
+
                                 <div class="text-center">
                                     <button type="reset" class="btn btn-outline-dark btn-lg waves-effect waves-light" name="btnReset" value="Reset">Reset</button>
                                     <button type="submit" class="btn btn-success btn-lg waves-effect waves-light" name="btnSimpan" value="Simpan">Finish</button>
