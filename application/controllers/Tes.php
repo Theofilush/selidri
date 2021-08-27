@@ -932,41 +932,32 @@ class Tes extends CI_Controller {
 			$jumlahE = 0;
 			$jumlahA = 0;
 			$jumlahN = 0;
-			print_r($inputTxtTBF);exit();
+			// print_r($inputTxtTBF);exit();
 			
 			foreach ($inputTxtTBF as $key => $value) {
+				$filterInisial = str_split($key,1);
+				echo "<br>filter inisial: "; print_r($filterInisial);
+				echo "<br>";
 
-				$putusStr = substr($key,3);
-				if (strlen($putusStr) == 2) {
-					$putusStr = substr($putusStr,1);
-				}
-				if ($value == "" || $value == NULL || $value == "Upload") {
-					$value =0;
-				}
-
-				if($putusStr == 1 || $putusStr == 6){
+				if($filterInisial[0] == 'r'){
 					$jumlahO += $value;
 				}
-				if($putusStr == 2 || $putusStr == 7){
+				if($filterInisial[0] == 'i'){
 					$jumlahC += $value;
 				}
-				if($putusStr == 3 || $putusStr == 8){
+				if($filterInisial[0] == 'a'){
 					$jumlahE += $value;
 				}
-				if($putusStr == 4 || $putusStr == 9){
+				if($filterInisial[0] == 's'){
 					$jumlahA += $value;
 				}
-				if($putusStr == 5 || $putusStr == 0){
+				if($filterInisial[0] == 'e'){
+					$jumlahE += $value;
+				}
+				if($filterInisial[0] == 'c'){
 					$jumlahN += $value;
 				}
 			}
-			// 	echo "<br>";
-			// 	echo " jumlah O : $jumlahO <br>";
-			// 	echo " jumlah C : $jumlahC <br>";
-			// 	echo " jumlah E : $jumlahE <br>";
-			// 	echo " jumlah A : $jumlahA <br>";
-			// 	echo " jumlah N : $jumlahN <br>";
-			// echo "<br><br><br>-------------------------------------<br>";
 
 			// print_r($inputTxtTBF);exit();
 
@@ -979,6 +970,7 @@ class Tes extends CI_Controller {
 			);
 			$id_peserta = $this->session->userdata('id_peserta');
 			$query= $this->M_dokumen->save_update_tes_bigfive($data, $id_peserta);
+
 			   exit();
 			if ($query) {
 				//$this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');
