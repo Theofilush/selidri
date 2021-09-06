@@ -74,9 +74,11 @@
                                                 <?php } ?> 
                                             </td>
                                             <td>
-                                               <?php if ($isiTesHolland == "sudah") {  ?>
+                                               <?php if ($isiTesHolland == "sudah" && $isiTesBigFive == "belum") {  ?>
                                                     <a href="<?php echo base_url() ?>Tes/tes_bigfive" type="button" class="btn btn-outline-primary waves-effect waves-light">Masuk</a> 
-                                               <?php } ?> 
+                                               <?php } elseif ($isiTesHolland == "sudah" && $isiTesBigFive == "sudah") {
+                                               
+                                                } ?> 
                                             </td>
                                         </tr>
                                         </tbody>

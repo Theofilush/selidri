@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Agu 2021 pada 11.38
+-- Waktu pembuatan: 06 Sep 2021 pada 10.14
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.21
 
@@ -280,6 +280,84 @@ INSERT INTO `intrepretasi` (`no`, `tipe`, `deskripsi`, `rekomendasi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `intrepretasi_bigfive`
+--
+
+CREATE TABLE `intrepretasi_bigfive` (
+  `no` int(11) NOT NULL,
+  `tipe` varchar(7) NOT NULL,
+  `rekomendasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `intrepretasi_bigfive`
+--
+
+INSERT INTO `intrepretasi_bigfive` (`no`, `tipe`, `rekomendasi`) VALUES
+(1, 'OCEA', 'Desain Komunikasi Visual, Desain Produk'),
+(2, 'OCE', 'Desain Komunikasi Visual, Desain Produk, Teknik Sipil'),
+(3, 'OC', 'Arsitektur'),
+(4, 'O', 'Desain Produk, Desain Komunikasi Visual, Arsitektur'),
+(5, 'OE', 'Desain Komunikasi Visual, Desain Produk'),
+(6, 'OA', 'Arsitektur'),
+(7, 'OEA', 'Desain Komunikasi Visual, Desain Produk'),
+(8, 'OCA', 'Arsitektur'),
+(9, 'CEA', 'Akuntansi, Manajemen, Psikologi, Komunikasi'),
+(10, 'kosong', 'Informatika, Sistem Informasi, Manajemen'),
+(11, 'CE', 'Informatika, Sistem Informasi, Teknik Sipil'),
+(12, 'C', 'Akuntansi, Manajemen, TIF, SIF'),
+(13, 'A', 'Psikologi'),
+(14, 'E', 'Komunikasi '),
+(15, 'EA', 'Komunikasi, Psikologi'),
+(16, 'CA', 'Akuntansi, Manajemen'),
+(17, 'OCEAN', 'Desain Komunikasi Visual, Desain Produk'),
+(18, 'OCEN', 'Desain Komunikasi Visual, Desain Produk, Teknik Sipil'),
+(19, 'OCN', 'Arsitektur'),
+(20, 'ON', 'Desain Produk, Desain Komunikasi Visual, Arsitektur'),
+(21, 'OEN', 'Desain Komunikasi Visual, Desain Produk'),
+(22, 'OAN', 'Arsitektur'),
+(23, 'OEAN', 'Desain Komunikasi Visual, Desain Produk'),
+(24, 'OCAN', 'Arsitektur'),
+(25, 'CEAN', 'Akuntansi, Manajemen, Psikologi, Komunikasi'),
+(26, 'N', 'Informatika, Sistem Informasi, Manajemen'),
+(27, 'CEN', 'Informatika, Sistem Informasi, Teknik Sipil'),
+(28, 'CN', 'Akuntansi, Manajemen, TIF, SIF'),
+(29, 'AN', 'Psikologi'),
+(30, 'EN', 'Komunikasi '),
+(31, 'EAN', 'Komunikasi, Psikologi'),
+(32, 'CAN', 'Akuntansi, Manajemen');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `intrepretasi_bigfive_detail`
+--
+
+CREATE TABLE `intrepretasi_bigfive_detail` (
+  `no` int(11) NOT NULL,
+  `dimensi` varchar(10) NOT NULL,
+  `deskripsi` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `intrepretasi_bigfive_detail`
+--
+
+INSERT INTO `intrepretasi_bigfive_detail` (`no`, `dimensi`, `deskripsi`) VALUES
+(1, 'O Tinggi', 'Kamu merupakan individu yang imajinatif, kreatif, menyukai variasi dan kamu juga memiliki rasa ingin tahu yang tinggi terhadap hal baru.'),
+(2, 'O Rendah', 'Kamu adalah individu yang suka merendah, kurang menyukai kreativitas dan kamu lebih senang dengan rutinitas yang biasanya dilakukan dibandingkan dengan rutinitas baru.\n\nSaran: Sebaiknya kamu menyiapkan diri untuk keluar dari zona nyaman kamu, karena pada saat di universitas, kamu akan menghadapi hal yang tidak biasa kamu lakukan.'),
+(3, 'C Tinggi', 'Kamu merupakan individu yang teliti dan bekerja keras dalam mengerjakan tanggung jawabmu, kamu juga seorang yang teratur, tepat waktu, ambisius dan gigih'),
+(4, 'C Rendah', 'Kamu merupakan individu yang kurang teliti dalam mengerjakan tanggung jawab, suka menunda pekerjaan serta memiliki jadwal yang tidak teratur.\n\nSaran: Ketika kamu mengerjakan sesuatu, sebaiknya kamu membiasakan diri untuk mengecek ulang pekerjaanmu dan mulailah membuat jadwal kegiatan harian.'),
+(5, 'E Tinggi', 'Kamu adalah individu yang penyayang, senang bergabung dengan orang lain, pembicara yang aktif, fun, memiliki banyak aktivitas dan bersemangat'),
+(6, 'E Rendah', 'Kamu adalah individu yang pendiam, lebih menyukai kesendirian, seadanya dan pasif.\n\nSaran: Sebaiknya kamu menyiapkan diri untuk memulai pembicaraan dan bersosialisasi dengan orang lain karena pada saat di universitas, kamu akan menghadapi situasi yang mengharuskan kamu untuk banyak berinteraksi dengan orang lain.'),
+(7, 'A Tinggi', 'Kamu adalah individu yang lembut, mudah percaya terhadap orang lain, murah hati, mudah setuju dengan keputusan orang lain, serta toleran dan baik hati'),
+(8, 'A Rendah', ' Kamu merupakan individu yang kritis dalam berpikir, mudah marah, dan tidak mudah percaya terhadap orang lain.\n\nSaran: Ketika kamu mendapatkan pekerjaan kelompok, sebaiknya kamu mulai percaya dengan teman sekelompokmu dan mulai berbagi pekerjaan dengannya.'),
+(9, 'N Tinggi', 'Kamu adalah seorang yang mudah cemas, temperamen, merasa mengasihani diri sendiri, emosional dan sensitif.\n\nSaran: Sebaiknya kendalikan emosi yang ada pada diri kamu dengan mulai percaya dengan dirimu sendiri dan melihat hal-hal diluar dengan positif.'),
+(10, 'N Rendah', 'Kamu adalah individu yang tenang, menguasai diri, puas terhadap pencapaian diri sendiri, nyaman, tidak emosional dan kuat');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `kode_acuan_prodi`
 --
 
@@ -448,6 +526,11 @@ CREATE TABLE `t_jawaban` (
   `E` int(5) NOT NULL,
   `A` int(5) NOT NULL,
   `N` int(5) NOT NULL,
+  `dimensi_o` varchar(10) NOT NULL,
+  `dimensi_c` varchar(10) NOT NULL,
+  `dimensi_e` varchar(10) NOT NULL,
+  `dimensi_a` varchar(10) NOT NULL,
+  `dimensi_n` varchar(10) NOT NULL,
   `rekomendasi_prodi1` varchar(350) NOT NULL,
   `rekomendasi_prodi2` varchar(350) NOT NULL,
   `rekomendasi_prodi3` varchar(350) NOT NULL
@@ -457,11 +540,8 @@ CREATE TABLE `t_jawaban` (
 -- Dumping data untuk tabel `t_jawaban`
 --
 
-INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `tanggal`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `R_holland`, `I_holland`, `A_holland`, `S_holland`, `E_holland`, `C_holland`, `O`, `C`, `E`, `A`, `N`, `rekomendasi_prodi1`, `rekomendasi_prodi2`, `rekomendasi_prodi3`) VALUES
-(1, '', '2021-07-20 12:01:54', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', ''),
-(35, '23', '2021-08-20 09:13:43', 11, 9, 9, 10, 6, 13, 10, 8, 11, 0, 10, 11, 1, 5, 11, 1, 3, 9, 83, 83, 84, 78, 66, 50, 0, 0, 0, 0, 0, 'Psikologi', '', ''),
-(36, '24', '2021-08-25 13:45:38', 10, 9, 9, 8, 6, 13, 11, 8, 11, 8, 10, 11, 8, 5, 11, 8, 3, 9, 83, 83, 84, 78, 66, 50, 0, 0, 0, 0, 0, 'Psikologi', '', ''),
-(37, '25', '2021-08-25 15:39:34', 8, 9, 9, 8, 6, 13, 6, 8, 11, 7, 10, 11, 9, 5, 11, 5, 3, 9, 83, 83, 84, 78, 66, 50, 0, 0, 0, 0, 0, 'Psikologi', '', '');
+INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `tanggal`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `R_holland`, `I_holland`, `A_holland`, `S_holland`, `E_holland`, `C_holland`, `O`, `C`, `E`, `A`, `N`, `dimensi_o`, `dimensi_c`, `dimensi_e`, `dimensi_a`, `dimensi_n`, `rekomendasi_prodi1`, `rekomendasi_prodi2`, `rekomendasi_prodi3`) VALUES
+(46, '25', '2021-08-30 06:36:46', 10, 6, 11, 9, 9, 9, 9, 2, 3, 9, 5, 8, 9, 7, 4, 11, 7, 6, 27, 27, 14, 22, 20, 24, 29, 27, 28, 36, 32, 'O Tinggi', 'C Tinggi', 'E Tinggi', 'A Tinggi', 'N Tinggi', 'Manajemen, ', 'Desain Komunikasi Visual, Desain Produk', '');
 
 -- --------------------------------------------------------
 
@@ -502,7 +582,7 @@ INSERT INTO `t_login` (`no`, `nama`, `email`, `asal_sekolah`, `no_handphone`, `p
 (9, 'Pratika Riris Putrianti', 'pratika.riris@upj.ac.id', '', '', '', '$2y$12$XqDE7SNXaI8r5xtL8tmfR.PlkguqfzUmp45IO.UXMjz1m74TAPoYO', 'kaprodi', 'belum', 'belum', '', '', '', ''),
 (10, 'Ratna Safitri', 'ratna.safitri@upj.ac.id', '', '', '', '$2y$12$kZViWmMKiKaXt39mqUk7mOmkNuvH2bk8B.by7cqLLLVVYtDEPwkh6', 'kaprodi', 'belum', 'belum', '', '', '', ''),
 (17, 'tes aja', 'syakilagha@gmail.com', 'ssssss', '8888', 'Teknik Sipil', '$2y$05$6GlyJC5/zOn7WZ4zbmM/POkNp7YXijIfceR/qmTbOEjOVXyGz2WyK', 'camaba', 'belum', 'belum', '', '', 'belum', 'belum'),
-(25, 'Theofilus Handoyo', 'realth99@gmail.com', 'ssssss', '999999999999999', 'Psikologi', '$2a$12$DEGLNXJjFrOYnx7NLjjyHOMM0gmE3XEreTLbcovLdO0unJ6UWr8hu', 'camaba', 'belum', 'belum', 'ARI', '', 'sudah', 'belum');
+(25, 'Theofilus Handoyo', 'realth99@gmail.com', 'smk yadika 3', '085219427222', 'Manajemen', '$2a$12$DEGLNXJjFrOYnx7NLjjyHOMM0gmE3XEreTLbcovLdO0unJ6UWr8hu', 'camaba', 'belum', 'belum', 'RIC', 'OCEAN', 'sudah', 'sudah');
 
 -- --------------------------------------------------------
 
@@ -852,6 +932,18 @@ ALTER TABLE `intrepretasi`
   ADD PRIMARY KEY (`no`);
 
 --
+-- Indeks untuk tabel `intrepretasi_bigfive`
+--
+ALTER TABLE `intrepretasi_bigfive`
+  ADD PRIMARY KEY (`no`);
+
+--
+-- Indeks untuk tabel `intrepretasi_bigfive_detail`
+--
+ALTER TABLE `intrepretasi_bigfive_detail`
+  ADD PRIMARY KEY (`no`);
+
+--
 -- Indeks untuk tabel `kode_acuan_prodi`
 --
 ALTER TABLE `kode_acuan_prodi`
@@ -941,6 +1033,18 @@ ALTER TABLE `intrepretasi`
   MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
+-- AUTO_INCREMENT untuk tabel `intrepretasi_bigfive`
+--
+ALTER TABLE `intrepretasi_bigfive`
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT untuk tabel `intrepretasi_bigfive_detail`
+--
+ALTER TABLE `intrepretasi_bigfive_detail`
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT untuk tabel `kode_acuan_prodi`
 --
 ALTER TABLE `kode_acuan_prodi`
@@ -968,7 +1072,7 @@ ALTER TABLE `temp_register`
 -- AUTO_INCREMENT untuk tabel `t_jawaban`
 --
 ALTER TABLE `t_jawaban`
-  MODIFY `id_jawaban` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_jawaban` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_login`

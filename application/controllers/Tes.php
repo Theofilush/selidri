@@ -903,11 +903,11 @@ class Tes extends CI_Controller {
 				
 			}
 
-			// print_r($txtProdi);
-			
-
+			$tampilRekomendasi = $this->M_dokumen->tampil_intrepretasi($id_peserta);
+			$rekomendasiHolland ="";
+			foreach ($tampilRekomendasi as $oui => $value) { $rekomendasiHolland = $value->rekomendasi; }
 			$dataRekomendasi = array(
-				'rekomendasi_prodi1' => $txtProdi,
+				'rekomendasi_prodi1' => $txtProdi.", ".$rekomendasiHolland,
 		 	);
 			$querySave_rekomendasi= $this->M_dokumen->save_update_rekomendasi1($dataRekomendasi, $id_peserta);
 
@@ -925,7 +925,8 @@ class Tes extends CI_Controller {
 	}
 
 	public function savedok_tes_bigfive(){
-		if($this->input->post('btnUpload') == "Upload"){			 
+		if($this->input->post('btnUpload') == "Upload"){
+			$id_peserta = $this->session->userdata('id_peserta');
 			$inputTxtTBF= $this->input->post(NULL, True);
 			$jumlahO = 0;
 			$jumlahC = 0;
@@ -936,43 +937,82 @@ class Tes extends CI_Controller {
 			
 			foreach ($inputTxtTBF as $key => $value) {
 				$filterInisial = str_split($key,1);
-				echo "<br>filter inisial: "; print_r($filterInisial);
-				echo "<br>";
 
-				if($filterInisial[0] == 'r'){
+				if($filterInisial[3] == 'o'){
 					$jumlahO += $value;
 				}
-				if($filterInisial[0] == 'i'){
+				if($filterInisial[3] == 'c'){
 					$jumlahC += $value;
 				}
-				if($filterInisial[0] == 'a'){
+				if($filterInisial[3] == 'e'){
 					$jumlahE += $value;
 				}
-				if($filterInisial[0] == 's'){
+				if($filterInisial[3] == 'a'){
 					$jumlahA += $value;
 				}
-				if($filterInisial[0] == 'e'){
-					$jumlahE += $value;
-				}
-				if($filterInisial[0] == 'c'){
+				if($filterInisial[3] == 'n'){
 					$jumlahN += $value;
 				}
 			}
 
-			// print_r($inputTxtTBF);exit();
-
-			$data = array(
+			$data0 = array(
 				  'O' => $jumlahO,
 				  'C' => $jumlahC,
 				  'E' => $jumlahE,
 				  'A' => $jumlahA,
 				  'N' => $jumlahN,
 			);
-			$id_peserta = $this->session->userdata('id_peserta');
-			$query= $this->M_dokumen->save_update_tes_bigfive($data, $id_peserta);
+			$query= $this->M_dokumen->save_update_tes_bigfive($data0, $id_peserta);
 
-			   exit();
-			if ($query) {
+			$total= array("O"=>$jumlahO, "C"=>$jumlahC, "E"=>$jumlahE, "A"=>$jumlahA, "N"=>$jumlahN); //menyimpan array dan mengurutkan hasil yang terbaru
+			// arsort($total);
+
+			$type_peserta = "";
+
+			foreach ($total as $row => $value) {
+				if ($value < 26) { 
+					continue; 
+				}
+				$type_peserta .= $row;
+			}
+			if ($type_peserta =="" || $type_peserta ==null) { $type_peserta = "kosong"; }
+
+			$kunciGabungan = array();
+			$dimensi = "l";
+			foreach ($total as $row => $value) {
+				if ($row == "O") {
+					if ($value > 25) { $dimensi = $row." Tinggi"; }
+					if ($value < 26) { $dimensi = $row." Rendah"; }
+					$kunciGabungan['dimensi_o'] = $dimensi;
+				}elseif ($row == "C") {
+					if ($value > 25) { $dimensi = $row." Tinggi"; }
+					if ($value < 26) { $dimensi = $row." Rendah"; }
+					$kunciGabungan['dimensi_c'] = $dimensi;
+				}elseif ($row == "E") {
+					if ($value > 25) { $dimensi = $row." Tinggi"; }
+					if ($value < 26) { $dimensi = $row." Rendah"; }
+					$kunciGabungan['dimensi_e'] = $dimensi;
+				}elseif ($row == "A") {
+					if ($value > 25) { $dimensi = $row." Tinggi"; }
+					if ($value < 26) { $dimensi = $row." Rendah"; }
+					$kunciGabungan['dimensi_a'] = $dimensi;
+				}elseif ($row == "N") {
+					if ($value > 25) { $dimensi = $row." Tinggi"; }
+					if ($value < 26) { $dimensi = $row." Rendah"; }
+					$kunciGabungan['dimensi_n'] = $dimensi;
+				}
+			}
+			$querySave_rekomendasi= $this->M_dokumen->save_update_kunciGabungan($kunciGabungan, $id_peserta);
+
+			$tampilRekomendasi = $this->M_dokumen->tampilRekomendasi($type_peserta);
+			foreach ($tampilRekomendasi as $oui => $value) { $rekomendasiBigFive = $value->rekomendasi; }
+			$this->M_dokumen->save_update_rekomendasiBigFive( array('rekomendasi_prodi2' => $rekomendasiBigFive) , $id_peserta);
+
+			// exit();
+			$queryDone_tes_bigFive = $this->M_dokumen->done_tes_bigfive( array('isi_tes_bigfive' => "sudah", 'tipe_peserta2' => $type_peserta), $id_peserta);
+
+
+			if ($queryDone_tes_bigFive) {
 				//$this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');
 				redirect(site_url('Tes/'));
 			}
@@ -990,11 +1030,22 @@ class Tes extends CI_Controller {
 		$query = $this->M_dokumen->tampil_rekomendasi($kuee->no);
 		$query2 = $this->M_dokumen->tampil_intrepretasi($kuee->no);
 
+		$queryO = $this->M_dokumen->tampil_intrepretasiO($kuee->no);
+		$queryC = $this->M_dokumen->tampil_intrepretasiC($kuee->no);
+		$queryE = $this->M_dokumen->tampil_intrepretasiE($kuee->no);
+		$queryA = $this->M_dokumen->tampil_intrepretasiA($kuee->no);
+		$queryN = $this->M_dokumen->tampil_intrepretasiN($kuee->no);
+
 		$dataHalaman = array(
 		  'title'=>"Hasil Tes",	
 		  'da' => $kue,
 		  'query' => $query,
 		  'queryIntrepretasi' => $query2,
+		  'queryo' => $queryO,
+		  'queryc' => $queryC,
+		  'querye' => $queryE,
+		  'querya' => $queryA,
+		  'queryn' => $queryN,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
 		$this->load->view('tes/v_hasil_tes');

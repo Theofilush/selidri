@@ -75,6 +75,9 @@ class Login extends CI_Controller {
 	}
 
 	public function ubah_firstpassword() {
+        if($this->session->userdata('status') != "login"){
+			redirect(site_url("login"));
+		}
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 
@@ -138,6 +141,10 @@ class Login extends CI_Controller {
 	}
 
 	public function ubah_password() {
+        if($this->session->userdata('status') != "login"){
+			redirect(site_url("login"));
+		}
+
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 

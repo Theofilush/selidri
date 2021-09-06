@@ -212,6 +212,11 @@ class M_dokumen extends CI_Model{
         return $this->db->update('t_login',$txt);
     }
 
+    function done_tes_bigfive($txt, $id_peserta){
+        $this->db->where('no',$id_peserta);
+        return $this->db->update('t_login',$txt);
+    }
+
     function save_update_tes_bigfive($data, $id_peserta){
         $this->db->where('id_peserta',$id_peserta);
         return $this->db->update($this->t_jawaban,$data);
@@ -526,6 +531,63 @@ class M_dokumen extends CI_Model{
         $this->db->where('no',$id);
         $hasil = $this->db->update("t_login",$data);
         return $hasil; 
+    }
+
+    function save_update_kunciGabungan($data, $id_peserta){
+        $this->db->where('id_peserta',$id_peserta);
+        return $this->db->update($this->t_jawaban,$data);
+    }
+
+    function tampilRekomendasi($type_peserta){
+        $this->db->where('tipe', $type_peserta);
+        $query = $this->db->get("intrepretasi_bigfive");
+        return $query->result();
+    }
+
+    function save_update_rekomendasiBigFive($data, $id_peserta){
+        $this->db->where('id_peserta',$id_peserta);
+        return $this->db->update('t_jawaban',$data);
+    }
+
+    function save_update_rekomendasiHolland($data, $id_peserta){
+        $this->db->where('id_peserta',$id_peserta);
+        return $this->db->update('t_jawaban',$data);
+    }
+
+    function tampil_intrepretasiO($id){
+        $this->db->select('*');
+        $this->db->join("intrepretasi_bigfive_detail", 'intrepretasi_bigfive_detail.dimensi = t_jawaban.dimensi_o','INNER');
+        $this->db->where('t_jawaban.id_peserta',$id);
+        $hasil = $this->db->get('t_jawaban');
+        return $hasil->result();
+    }
+    function tampil_intrepretasiC($id){
+        $this->db->select('*');
+        $this->db->join("intrepretasi_bigfive_detail", 'intrepretasi_bigfive_detail.dimensi = t_jawaban.dimensi_c','INNER');
+        $this->db->where('t_jawaban.id_peserta',$id);
+        $hasil = $this->db->get('t_jawaban');
+        return $hasil->result();
+    }
+    function tampil_intrepretasiE($id){
+        $this->db->select('*');
+        $this->db->join("intrepretasi_bigfive_detail", 'intrepretasi_bigfive_detail.dimensi = t_jawaban.dimensi_e','INNER');
+        $this->db->where('t_jawaban.id_peserta',$id);
+        $hasil = $this->db->get('t_jawaban');
+        return $hasil->result();
+    }
+    function tampil_intrepretasiA($id){
+        $this->db->select('*');
+        $this->db->join("intrepretasi_bigfive_detail", 'intrepretasi_bigfive_detail.dimensi = t_jawaban.dimensi_a','INNER');
+        $this->db->where('t_jawaban.id_peserta',$id);
+        $hasil = $this->db->get('t_jawaban');
+        return $hasil->result();
+    }
+    function tampil_intrepretasiN($id){
+        $this->db->select('*');
+        $this->db->join("intrepretasi_bigfive_detail", 'intrepretasi_bigfive_detail.dimensi = t_jawaban.dimensi_n','INNER');
+        $this->db->where('t_jawaban.id_peserta',$id);
+        $hasil = $this->db->get('t_jawaban');
+        return $hasil->result();
     }
 }
 ?>
