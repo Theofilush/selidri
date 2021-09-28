@@ -126,7 +126,6 @@ class Register extends CI_Controller {
 													</div>');
 						redirect('login','refresh');
 				}
-				print_r($cek);exit();
 
 				$data = array(
 					'email' => $_email,
