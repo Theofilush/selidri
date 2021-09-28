@@ -17,8 +17,12 @@ class Tes extends CI_Controller {
 		foreach($kue as $key){$kuee = $key;}
 		$query = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
 
+		if ($query[0]->isi_tes_holland == 'sudah' && $query[0]->isi_tes_bigfive == 'sudah') {
+			redirect(site_url('Tes/hasil_tes'));
+		}
+
 		$dataHalaman = array(
-		  'title'=>"Mulai Tes",
+		    'title'=>"Mulai Tes",
 			'da' => $kue,
 			'query' => $query,
         );
@@ -32,6 +36,15 @@ class Tes extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 
 		if ($key == "") {
+			foreach($kue as $key){$kuea = $key;}
+			$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuea->no);
+
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'belum') {
+				redirect(site_url('Tes/'));
+			}
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'sudah') {
+				redirect(site_url('Tes/hasil_tes'));
+			}
 			$dataHalaman = array(
 				'title'=>"Tes Holland",
 				'da' => $kue,
@@ -40,6 +53,15 @@ class Tes extends CI_Controller {
 			  $this->load->view('tes/v_tes_holland');
 			  $this->load->view('dashboard/v_footer');		  
 		} elseif ($key == "1") {
+			foreach($kue as $key){$kuea = $key;}
+			$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuea->no);
+
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'belum') {
+				redirect(site_url('Tes/'));
+			}
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'sudah') {
+				redirect(site_url('Tes/hasil_tes'));
+			}
 			$totalBarisR1 =  $this->M_dokumen->totalBarisR1();
 			//$soal_bagian1 =  $this->M_dokumen->tampil_soal_bagian_r1(); //menampilkan semua data
 			$batas_tengahR = floor($totalBarisR1 / 2);
@@ -72,7 +94,7 @@ class Tes extends CI_Controller {
 			$queryc1_akhir =  $this->M_dokumen->queryc1_akhir($batas_tengahC , $totalBarisC1);
 			
 			$dataHalaman = array(
-				'title'=>"Dashboard",
+				'title'=>"Tes Bagian 1",
 				'da' => $kue,
 				'soalr1_awal'=> $queryr1_awal,
 				'soalr1_akhir'=> $queryr1_akhir,
@@ -98,6 +120,15 @@ class Tes extends CI_Controller {
 			$this->load->view('tes/v_tes_holland1');
 			$this->load->view('dashboard/v_footer');
 		} elseif ($key == "2") {
+			foreach($kue as $key){$kuea = $key;}
+			$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuea->no);
+
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'belum') {
+				redirect(site_url('Tes/'));
+			}
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'sudah') {
+				redirect(site_url('Tes/hasil_tes'));
+			}
 			$soalr2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_r2(); //menampilkan semua data
 			$soali2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_i2();
 			$soala2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_a2();
@@ -105,7 +136,7 @@ class Tes extends CI_Controller {
 			$soale2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_e2();
 			$soalc2_bagian2 =  $this->M_dokumen->tampil_soal_bagian_c2();
 			$dataHalaman = array(
-				'title'=>"Dashboard",
+				'title'=>"Tes Bagian 2",
 				'da' => $kue,
 				'soalr2_bagian2' => $soalr2_bagian2,
 				'soali2_bagian2' => $soali2_bagian2,
@@ -118,6 +149,15 @@ class Tes extends CI_Controller {
 			$this->load->view('tes/v_tes_holland2');
 			$this->load->view('dashboard/v_footer');	
 		} elseif ($key == "3") {
+			foreach($kue as $key){$kuea = $key;}
+			$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuea->no);
+
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'belum') {
+				redirect(site_url('Tes/'));
+			}
+			if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'sudah') {
+				redirect(site_url('Tes/hasil_tes'));
+			}
 			$soalr3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_r3(); //menampilkan semua data
 			$soali3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_i3();
 			$soala3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_a3();
@@ -125,7 +165,7 @@ class Tes extends CI_Controller {
 			$soale3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_e3();
 			$soalc3_bagian3 =  $this->M_dokumen->tampil_soal_bagian_c3();
 			$dataHalaman = array(
-				'title'=>"Dashboard",
+				'title'=>"Tes Bagian 3",
 				'da' => $kue,
 				'soalr3_bagian3' => $soalr3_bagian3,
 				'soali3_bagian3' => $soali3_bagian3,
@@ -143,6 +183,12 @@ class Tes extends CI_Controller {
 	public function tes_bigfive($key=""){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->isi_tes_holland == 'sudah' && $querycek[0]->isi_tes_bigfive == 'sudah') {
+			redirect(site_url('Tes/hasil_tes'));
+		}
 
 		$totalBarisBigFive =  $this->M_dokumen->totalBarisBigFive();
 		//$soal_bagian1 =  $this->M_dokumen->tampil_soal_bagian_r1(); //menampilkan semua data

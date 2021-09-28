@@ -132,11 +132,7 @@
                                         <div style="text-align:center;margin: 20px;">
                                             <img src="<?php echo base_url() ?>assets/images/ocean2.png" alt="holland1" style="height:20vw;">
                                         </div>
-                                        <p class="font-14">Hello Perseners! Kenalin namaku Nouvend, seorang associate writer di Satu Persen.</p>
-                                        <p class="font-14">Kali ini, aku mau ngomongin lagi tentang OCEAN Test. Eh, apa tuh OCEAN? Buat kamu yang belum tahu apa itu OCEAN Test atau Big Five Personality Test, bisa langsung baca dulu di sini. Sama kok, aku juga yang nulis.</p>
-                                        <p class="font-14">Nah, setelah baca-baca lagi tentang OCEAN, kamu mungkin pengen tahu skormu berapa. Atau mungkin kamu udah pernah tes, terus ngeliat skornya, tapi bingung. Ini apaan sih? Masa aku orangnya ternyata gini?</p>
-                                        <p class="font-14">Dalam tes kepribadian apapun, perlu kamu tahu bahwa hasil tes tersebut gak semata-mata menjadi penentu kamu orangnya seperti apa. Kita adalah manusia yang terus berkembang dan memiliki kemungkinan untuk merubah sifat kita, walaupun kadang ada sifat yang terlalu melekat pada diri kita sendiri.</p>
-                                        <p class="font-14">Kamu harus selalu ingat untuk melihat hasil tes kepribadian tersebut sebagai tools untuk membantumu berkembang, bukan sebagai pembatas potensimu.</p>
+                                        <p class="font-14">Sekarang kita akan berkenalan dengan tes Big Five, tes ini sebagai tools kita untuk dapat berkembang dan menemukan potensi yang ada pada diri sendiri. Pada setiap tes kepribadian yang kita temukan itu tidak berarti bahwa hasil tes menjadi penentu kita sebagai orang yang seperti apa. Tentu saja kita ini memiliki kepribadian yang terus berkembang pada diri kita sendiri, sehingga kepribadian kita akan terus berubah secara dinamis mengikut umur. Ada berbagai kemungkinan kita dapat mengubah sifat kita, ada juga sifat yang melekat pada diri kita. Diperlukan tools atau alat yang dapat mengukur bagaimana sifat kita dapat mempunyai potensi lebih produktif.</p>
                                         
                                         <h3>OCEAN Test Result: What to Do</h3>
                                         <p class="font-14">Oke, back to the OCEAN. Mungkin kamu pernah mengikuti tes ini dan mendapatkan hasilnya, terus kamu bertanya-tanya. Waduh, kalau skor Openness-ku rendah berarti aku close minded? Kalau Agreeableness-ku tinggi apakah aku orangnya gak bisa bilang ‘tidak’?</p>
@@ -199,7 +195,7 @@
                                         <h6>References</h6>
                                         <p class="font-14">Judge, T. A., Higgins, C. A., Thoresen, C. J., & Barrick, M. R. (1999). THE BIG FIVE PERSONALITY TRAITS, GENERAL MENTAL ABILITY, AND CAREER SUCCESS ACROSS THE LIFE SPAN. PERSONNEL PSYCHOLOGY, 621-652.</p>
                                         <p class="font-14">Mind Tools Content Team. (n.d). The Big Five Personality Traits Model and Test. Retrieved from MindTools: https://www.mindtools.com/pages/article/newCDV_22.htm</p>
-                                        <p class="font-14">https://satupersen.net/blog/interpretasi-tes-ocean</p>
+                                        <p class="font-14">Dilansir dari https://satupersen.net/blog/interpretasi-tes-ocean</p>
 
                                     </div>
                                 </div>

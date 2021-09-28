@@ -133,8 +133,6 @@
                                             <img src="<?php echo base_url() ?>assets/images/ocean1.png" alt="holland1" style="height:20vw;">
                                         </div>
 
-                                        <p class="font-14">Hello there, Perseners! Balik lagi dengan aku, Nouvend, writer di Satu Persen.</p>
-                                        <p class="font-14">Gimana kabar kalian semua? Kuharap kalian baik-baik saja ya! Mungkin ada dari kalian yang sedang tidak baik-baik saja, I just want to tell you it’s okay to be not okay!</p>
                                         <p class="font-14">Mungkin ada yang sedang berpikir tentang apa yang akan mereka lakukan dalam hidup (I’m looking at you, Quarter Life Crisis club member!). Mungkin ada dari kalian yang masih bertanya-tanya, “Aku tuh, sebenarnya cocok ngapain, sih?” atau mungkin malah merasa kalau apa yang kamu lakukan itu kayak, gak cocok aja gitu sama diri kamu sendiri.</p>
                                         <p class="font-14">Well, aku rasa aku punya sesuatu yang mungkin bisa menjadi pencerah kalian dalam mencari jawaban tersebut! Izinkan aku memperkenalkan Big Five Personality Test (OCEAN) pada kalian. Eh, ocean? Laut? Oke, oke, daripada bingung mari kita langsung saja membahas Big Five Personality Test!</p>
                                         
@@ -159,7 +157,6 @@
                                         <p class="font-14">Lain halnya dengan OCEAN yang hanya memiliki “meteran” kepribadian terus kamu sederhananya “ngukur” kepribadianmu pake “meteran” yang sudah disediakan.</p>
                                         <p class="font-14">Kalau mau diumpamakan ya, tes OCEAN itu kayak kamu dikasih Lego tapi eceran. Kamu dapatnya satu-satu terus kamu pasang sendiri menjadi sesuatu yang sesuai dengan apa yang kamu butuhkan. Kalau MBTI, kamu beli Lego-nya udah jadi, udah jelas dia bentuknya apa.</p>
                                         <p class="font-14">OCEAN juga sempat dikritisi karena terlalu luas. Kibeom Lee dan Michael Ashton mengembangkan sebuah model baru yang bernama HEXACO. Model ini tetap mengandung aspek dari OCEAN hanya saja mereka menambahkan satu yang baru, yaitu Honesty-Humility, yang merupakan tolak ukur sejauh apa seseorang mengedepankan hal-hal tentang orang lain daripada dirinya. Mirip dengan altruisme ya.</p>
-                                        <p class="font-14">Satu Persen juga ada video pembahasan soal altruisme loh, kamu bisa menontonnya di sini.</p>
 
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/pnwPYGN_BAE?feature=oembed"></iframe>
@@ -182,7 +179,7 @@
                                         <h6>References</h6>
                                         <p class="font-14">T., E. (2020, January 10). History of the Big 5: Why This Online Psychometric Test Packs a Punch. Retrieved from retorio: https://www.retorio.com/blog/big-5-history-psychometric-test</p>
                                         <p class="font-14">Lim, A (2020, June 15). The big five personality traits. Simply Psychology. https://www.simplypsychology.org/big-five-personality.html</p>
-                                        <p class="font-14">https://www.satupersen.net/blog/big-5-personality</p>
+                                        <p class="font-14">Dilansir dari https://www.satupersen.net/blog/big-5-personality</p>
                                             
                                     </div>
                                 </div>

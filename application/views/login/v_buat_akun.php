@@ -71,7 +71,7 @@
                                 <div class="p-2">
                                     <h4 class="text-muted float-right font-18 mt-4">Buat Akun</h4>
                                     <div>
-                                        <a href="#" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
+                                        <a href="<?php echo site_url(); ?>Login" class="logo logo-admin"><img src="<?php echo base_url() ?>assets/images/logo_upj.png" height="100" alt="logo"></a>
                                     </div>
                                 </div>
                                 <div class="p-2">
@@ -141,7 +141,7 @@
         
                                         <div class="form-group text-center row m-t-20">
                                             <div class="col-12">
-                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Create an account</button>
+                                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit" name="btnSimpan" value="Simpan">Create an account</button>
                                             </div>
                                         </div>
 

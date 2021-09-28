@@ -52,11 +52,11 @@
                             <p class="text-muted mb-4">Proses pemilihan program studi biasanya didasarkan pada kemampuan minat dan bakat dari calon mahasiswa baru. Hal ini menjadi satu hal penting karena hasil dari pemilihan program studi akan berdampak pada keberlanjutan masa studi. <br>Calon mahasiswa yang benar-benar memahami kemampuan minat maupun bakatnya pada sebuah program studi akan merasa nyaman dalam menjalankan masa studinya, bahkan berpotensi untuk memperoleh hasil studi yang membanggakan.</p>
                             <h5 class="font-14 text-muted mb-4">Website atau sistem ini dapat digunakan untuk :</h5>
                             <div>
-                                <p style="margin-bottom: 0.3rem;">bagi calon mahasiswa baru :</p>
+                                <p style="margin-bottom: 0.3rem;">Bagi calon mahasiswa baru :</p>
                                 <p><i class="mdi mdi-arrow-right text-primary mr-2"></i>Acuan dalam pemilihan program studi oleh calon mahasiswa baru di Universitas Pembangunan Jaya</p>
                                 <p><i class="mdi mdi-arrow-right text-primary mr-2"></i>Membantu calon mahasiswa baru dalam menentukan pilihan program studi yang sesuai dengan kemampuan minat dan bakat</p>
 
-                                <p style="margin-bottom: 0.3rem;">bagi prodi :</p>
+                                <p style="margin-bottom: 0.3rem;">Bagi prodi :</p>
                                 <p><i class="mdi mdi-arrow-right text-primary mr-2"></i>Menggambarkan kriteria sebuah program studi yang ada di Universitas Pembangunan Jaya</p>
                                 <p><i class="mdi mdi-arrow-right text-primary mr-2"></i>Memberikan gambaran awal bagi program studi untuk potensi yang dimiliki oleh calon mahasiswa baru</p>
                             </div>

@@ -1,4 +1,4 @@
-        <div class="wrapper">
+        <div class="wrapper"><?php foreach ($queryCekSudahIsiTes as $key) { $isiTesHolland = $key->isi_tes_holland; $isiTesBigFive = $key->isi_tes_bigfive; } ?>
             <div class="container-fluid">
 
                 <div class="row">
@@ -126,10 +126,21 @@
                     <div class="col-xl-8">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="mt-0" style="line-height:2">Selamat datang, pada aplikasi tes kepribadian untuk menentukan pemilihan program studi di Universitas Pembangunan Jaya</h6>
+                                <h6 class="mt-0" style="line-height:2">Selamat datang, pada aplikasi tes minat untuk menentukan pemilihan program studi di Universitas Pembangunan Jaya</h6>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                    <p class="font-14" style="line-height:2">Aplikasi www.seleksiprodi.com merupakan aplikasi perangkat lunak yang dapat melakukan pengujian minat dan bakat peserta terhadap sebuah program studi di tingkat perguruan tinggi. Aplikasi ini bertujuan untuk mengetahui seberapa besar minat serta bakat yang dimiliki oleh peserta terhadap pilihan program studi. Sebelumnya, tentu sudah banyak aplikasi serupa bisa diperoleh secara gratis di internet, tetapi pada umumnya aplikasi yang ada hanya menguji kemampuan peserta secara bakat saja, dan pilihan program studi juga terbatas pada program studi yang sifatnya favorit.</p>
+                                    <p class="font-14" style="line-height:2">Aplikasi https://seleksi-maba.com melakukan proses pemilihan program studi yang didasarkan pada kemampuan minat dan bakat dari calon mahasiswa baru. Hal ini menjadi satu hal penting karena hasil dari pemilihan program studi akan berdampak pada keberlanjutan masa studi.
+                                    Calon mahasiswa yang benar-benar memahami kemampuan minat maupun bakatnya pada sebuah program studi akan merasa nyaman dalam menjalankan masa studinya, bahkan berpotensi untuk memperoleh hasil studi yang membanggakan.
+                                    </p>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <p style="margin-bottom: 0.3rem;">Bagi calon mahasiswa baru :</p>
+                                        <p style="margin-bottom: 5px;"><i class="mdi mdi-arrow-right text-primary mr-2"></i>Acuan dalam pemilihan program studi oleh calon mahasiswa baru di Universitas Pembangunan Jaya</p>
+                                        <p style="margin-bottom: 5px;"><i class="mdi mdi-arrow-right text-primary mr-2"></i>Membantu calon mahasiswa baru dalam menentukan pilihan program studi yang sesuai dengan kemampuan minat dan bakat</p>
+
+                                        <p style="margin-bottom: 0.3rem; margin-top:10px;">Bagi prodi :</p>
+                                        <p style="margin-bottom: 5px;"><i class="mdi mdi-arrow-right text-primary mr-2"></i>Menggambarkan kriteria sebuah program studi yang ada di Universitas Pembangunan Jaya</p>
+                                        <p style="margin-bottom: 5px;"><i class="mdi mdi-arrow-right text-primary mr-2"></i>Memberikan gambaran awal bagi program studi untuk potensi yang dimiliki oleh calon mahasiswa baru</p>
                                     </div>
                                 </div>
                             </div>
@@ -138,6 +149,32 @@
                     <div class="col-xl-4">
                         <div class="card">
                             <div class="card-body">
+                                <h4 class="mt-0 header-title mb-4">Program studi Pilihan kamu</h4>
+                                <div class="text-center">
+                                </div>
+                                <?php
+                                    foreach ($queryRekomendasi1 as $rok) {
+                                ?>
+                                <div class="row"> <!-- mt-5 -->
+                                    <div class="col-md-12">
+                                        <div class="social-source text-center mt-3">
+                                            <div class="social-source-icon mb-2">
+                                                <i class="mdi mdi-graphql h5 bg-dark text-white"></i>
+                                            </div>
+                                            <h6>
+                                                <?php echo $rok->prodi_pilihan ; ?>
+                                            </h6>
+                                            <?php if ($isiTesHolland == "belum" || $isiTesBigFive == "belum") {  ?>
+                                                <a href="<?php echo site_url() ?>Biodata/isi_biodata" class="text-primary font-14">Saya ingin mengubahnya <i class="mdi mdi-chevron-right"></i></a>
+                                            <?php }  ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                            <div class="card-body">
                                 <h4 class="mt-0 header-title mb-4">Rekomendasi Prodi</h4>
                                 <div class="text-center">
                                     <!-- <div class="social-source-icon lg-icon mb-3">
@@ -145,14 +182,27 @@
                                     </div> -->
                                     <p class="text-muted">Pengujian berdasarkan minat dan bakat direkomendasikan pada program pilihan berikut</p>
                                 </div>
+                                <?php
+                                    foreach ($queryRekomendasi2 as $rou) {
+                                ?>
                                 <div class="row"> <!-- mt-5 -->
                                     <div class="col-md-6">
                                         <div class="social-source text-center mt-3">
                                             <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-graphql h5 bg-info text-white"></i>
+                                                <i class="mdi mdi-graphql h5 bg-primary text-white"></i>
                                             </div>
-                                            <p class="font-14 text-muted mb-2">Pilihan 1</p>
-                                            <h6>Twitter</h6>
+                                            <p class="font-14 text-muted mb-2">Pilihan 1 <br><small>(Tes Holland)</small> </p>
+                                            <h6>
+                                            <?php
+                                                foreach ($queryRekomendasi1 as $roq) {
+                                            ?>
+                                            <?php echo $roq->rekomendasi ; ?>
+                                            <?php
+                                                }
+                                            ?>
+                                            </h6>
+                                            <!-- <ul class="list-unstyled mb-0">
+                                            <li>Desain Komunikasi Visual</li><li>Desain Produk</li></ul> -->
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -160,13 +210,16 @@
                                             <div class="social-source-icon mb-2">
                                                 <i class="mdi mdi-graphql h5 bg-pink text-white"></i>
                                             </div>
-                                            <p class="font-14 text-muted mb-2">Pilihan 2</p>
-                                            <h6>Instagram</h6>
-                                            
+                                            <p class="font-14 text-muted mb-2">Pilihan 2 <br><small>(Tes Big Five)</small></p>
+                                            <h6>
+                                                <?php echo ($rou->rekomendasi_prodi2 == null ? "Belum Melakukan Tes" : $rou->rekomendasi_prodi2 ) ?>
+                                            </h6>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                         

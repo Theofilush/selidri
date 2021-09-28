@@ -29,7 +29,7 @@
         <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet" type="text/css" />
     </head>
 
-
+    <?php foreach ($da as $key) { $isiTesHolland = $key->isi_tes_holland; $isiTesBigFive = $key->isi_tes_bigfive; $author = $key->author; } ?>
     <body>
         <?php foreach($da as $row){ $email= $row->email; $nama = $row->nama; } ?>
         <!-- Loader -->
@@ -71,10 +71,11 @@
                                     </div>
                                 </li>
                                 <!-- <li class="list-inline-item notification-list">
-                                    <a href="<?php echo site_url(); ?>Informasi_prodi" class="nav-link waves-effect">
+                                    <a href="?php echo site_url(); ?>Informasi_prodi" class="nav-link waves-effect">
                                         Informasi Prodi
                                     </a>
                                 </li> -->
+                                <?php if ($author == "kaprodi") {  ?>
                                 <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                                     aria-haspopup="false" aria-expanded="false">
@@ -87,6 +88,7 @@
                                         <a class="dropdown-item" href="<?php echo site_url(); ?>Pengelolaan/data_hasil">Pengelolaan Data Hasil Tes</a>
                                     </div>
                                 </li>
+                                <?php } ?>
                                 <!-- <li class="list-inline-item notification-list">
                                     <a href="#" class="nav-link waves-effect">
                                         Biodata
@@ -174,9 +176,15 @@
                                     </ul>
                                 </li>
 
+                                <?php if ($isiTesHolland == "belum" || $isiTesBigFive == "belum") {  ?>
                                 <li class="has-submenu mulai-test" style="color:#fff;">
                                     <a href="<?php echo site_url(); ?>Tes" style="color:#fff;"><span> Mulai Tes</span></a>
                                 </li>
+                                <?php } elseif ($isiTesHolland == "sudah" && $isiTesBigFive == "sudah") {  ?>
+                                <li class="has-submenu hasil-test" style="color:#fff;">
+                                    <a href="<?php echo site_url(); ?>Tes/hasil_tes" style="color:#fff;"><span> Lihat Hasil Tes</span></a>
+                                </li>
+                                <?php } ?>
 
                                 <!-- <li class="has-submenu">
                                     <a href="#"><i class="dripicons-suitcase"></i> User Interface <i class="mdi mdi-chevron-down mdi-drop"></i></a>

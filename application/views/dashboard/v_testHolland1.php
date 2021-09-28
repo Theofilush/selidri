@@ -134,39 +134,36 @@
                                             <img src="<?php echo base_url() ?>assets/images/holland1.jpg" alt="holland1" style="height:20vw;">
                                         </div>
                                         
-                                        <p class="font-14">Tulisan kali ini aku pengen ngebahas salah satu alat tes psikologi yang mungkin akan kamu dapatkan ketika mengikuti mentoring di Satu Persen.</p>
-                                        <p class="font-14">Yap! Jadi, layanan mentoring di Satu Persen ini, kamu bukan cuma mendapatkan waktu untuk konseling sama mentor aja, tapi kamu juga akan mendapatkan worksheet, tes psikologi, hingga interpretasinya, biar kamu gak salah memahami hasil dari alat tes tersebut.</p>
-                                        <p class="font-14">Nah, kali ini aku mau ngajak kalian buat mengenal salah satu alat tes, yaitu Tes RIASEC.  Mulai dari sejarahnya, tokoh pengembangnya, tujuan tes, serta bagaimana alat tes ini bisa membantu kamu mengenal diri dan menentukan karier atau pendidikan perguruan tinggi yang cocok buat diri kamu.</p>
+                                        <p class="font-14">Halo teman teman yang telah mendaftar ke seleksi-camaba.com, pada website ini kalian akan diajak berkenalan dengan salah satu tes yang dapat membantu kalian mengenal diri sendiri, maupun menentukan karir ataupun pendidikan perguruan tinggi yang cocok buat kamu. Tes yang akan kalian lakukan adalah tes RIASEC.</p>
 
                                         <h4>Apa itu Tes RIASEC?</h4>
-                                        <p class="font-14">Tes RIASEC merupakan salah satu jenis tes psikologi yang bertujuan untuk membantu kamu memperkirakan karier yang sesuai dengan diri. Nama lain dari tes ini adalah Holland Test, nama ini sesuai dengan tokoh yang mengembangkan teori dan tes ini yaitu John Holland.
-                                        <p class="font-14">Sedangkan RIASEC itu sendiri adalah kepanjangan dari Realistic, Investigative, Artistic, Social, Enterprising, dan Conventional. Enam hal ini merupakan tipe kepribadian yang dicetuskan oleh John Holland.
-                                        <p class="font-14">Pada tahun 1965, Holland menerbitkan artikel yang berjudul  "A Theory of Vocational Choice". Artikel ini menjadi artikel pertama yang membahas teori kepribadian kejuruan dan lingkungan kerja yang ditemukan oleh Holland.
-                                        <p class="font-14">Menurut Holland, setiap manusia itu memiliki paling gak satu dari enam tipe kepribadian yang dicetuskannya dan tipe kepribadian ini akan memengaruhi pemilihan karier dan lingkungan pekerjaan yang sesuai dengan dirinya.
-                                        <p class="font-14">Kecenderungan seseorang terhadap salah satu tipe kepribadian ini, menurut Holland, berasal dari kehidupan masa lalu, sejarah, dan pengalaman yang dilalui hingga akhirnya membentuk sebuah kepribadian dalam diri seseorang. Di mana kepribadian ini kemudian dimunculkan melalui ekspresi diri dalam pekerjaan.
-                                        <p class="font-14">Jadi, semakin kamu mengenali dirimu melalui Tes Holland ini, akan membantumu untuk menemukan pekerjaan apa yang paling sesuai dengan kepribadianmu.
-                                        <p class="font-14">Punya pekerjaan yang sesuai dengan kepribadian, tentu akan meningkatkan kesejahteraan atau well-being. Pekerjaan bukan jadi beban lagi buat kamu, karena kamu akan menikmati dan merasa nyaman dengan berbagai proses yang ada di pekerjaan ini.
-                                        <p class="font-14">Baca juga: Alasan Kamu Harus Memilih Pekerjaan Sesuai Passion
+                                        <p class="font-14">Tes RIASEC merupakan salah satu jenis tes psikologi yang bertujuan untuk membantu kamu memperkirakan karier yang sesuai dengan diri. Nama lain dari tes ini adalah Holland Test, nama ini sesuai dengan tokoh yang mengembangkan teori dan tes ini yaitu John Holland.</p>
+                                        <p class="font-14">Sedangkan RIASEC itu sendiri adalah kepanjangan dari Realistic, Investigative, Artistic, Social, Enterprising, dan Conventional. Enam hal ini merupakan tipe kepribadian yang dicetuskan oleh John Holland.</p>
+                                        <p class="font-14">Pada tahun 1965, Holland menerbitkan artikel yang berjudul  "A Theory of Vocational Choice". Artikel ini menjadi artikel pertama yang membahas teori kepribadian kejuruan dan lingkungan kerja yang ditemukan oleh Holland.</p>
+                                        <p class="font-14">Menurut Holland, setiap manusia itu memiliki paling gak satu dari enam tipe kepribadian yang dicetuskannya dan tipe kepribadian ini akan memengaruhi pemilihan karier dan lingkungan pekerjaan yang sesuai dengan dirinya.</p>
+                                        <p class="font-14">Kecenderungan seseorang terhadap salah satu tipe kepribadian ini, menurut Holland, berasal dari kehidupan masa lalu, sejarah, dan pengalaman yang dilalui hingga akhirnya membentuk sebuah kepribadian dalam diri seseorang. Di mana kepribadian ini kemudian dimunculkan melalui ekspresi diri dalam pekerjaan.</p>
+                                        <p class="font-14">Jadi, semakin kamu mengenali dirimu melalui Tes Holland ini, akan membantumu untuk menemukan pekerjaan apa yang paling sesuai dengan kepribadianmu.</p>
+                                        <p class="font-14">Punya pekerjaan yang sesuai dengan kepribadian, tentu akan meningkatkan kesejahteraan atau well-being. Pekerjaan bukan jadi beban lagi buat kamu, karena kamu akan menikmati dan merasa nyaman dengan berbagai proses yang ada di pekerjaan ini.</p>
 
                                         <h4>Bagaimana cara mengenal diri melalui Tes RIASEC?</h4>
-                                        <p class="font-14">Biasanya Tes RIASEC akan diberikan oleh psikolog pas kamu lagi kebingungan, passion-ku sebenarnya apa, pekerjaan yang cocok itu apa, atau kamu lagi ngerasa gak nyaman sama pekerjaan yang sekarang.
-                                        <p class="font-14">Dengan bantuan dari alat tes ini, kamu bukan cuma mendapat jawaban dari pertanyaan atau kebingungan-kebingunganmu aja, tapi kamu juga akan mengenal diri dengan lebih dalam. Kamu jadi tau, kepribadianmu ini seperti apa sih.
-                                        <p class="font-14">Tes RIASEC terdiri dari beberapa pernyataan, dengan pilihan jawaban suka atau gak suka. Tus kamu adalah memilih mana yang kamu suka dan gak suka dari suatu pernyataan. Pernyataan-pernyataan yang ada akan menggambarkan bagaimana kepribadianmu.
-                                        <p class="font-14">Untuk itu saat mengerjakannya, kamu harus memilih jawaban yang paling sesuai sama diri kamu.
-                                        <p class="font-14">Hasil dari tes ini menunjukan kecenderungan kepribadianmu dari enam tipe kepribadian Holland. Kamu akan mendapatkan dua atau tiga tipe kepribadian, namun akan ada satu kepribadian yang paling dominan, dan kepribadian lainnya akan memberikan gambaran tentang lingkungan kerja yang sesuai dengan dirimu.
+                                        <p class="font-14">Biasanya Tes RIASEC akan diberikan oleh psikolog pas kamu lagi kebingungan, passion-ku sebenarnya apa, pekerjaan yang cocok itu apa, atau kamu lagi ngerasa gak nyaman sama pekerjaan yang sekarang.</p>
+                                        <p class="font-14">Dengan bantuan dari alat tes ini, kamu bukan cuma mendapat jawaban dari pertanyaan atau kebingungan-kebingunganmu aja, tapi kamu juga akan mengenal diri dengan lebih dalam. Kamu jadi tau, kepribadianmu ini seperti apa sih.</p>
+                                        <p class="font-14">Tes RIASEC terdiri dari beberapa pernyataan, dengan pilihan jawaban suka atau gak suka. Tus kamu adalah memilih mana yang kamu suka dan gak suka dari suatu pernyataan. Pernyataan-pernyataan yang ada akan menggambarkan bagaimana kepribadianmu.</p>
+                                        <p class="font-14">Untuk itu saat mengerjakannya, kamu harus memilih jawaban yang paling sesuai sama diri kamu.</p>
+                                        <p class="font-14">Hasil dari tes ini menunjukan kecenderungan kepribadianmu dari enam tipe kepribadian Holland. Kamu akan mendapatkan dua atau tiga tipe kepribadian, namun akan ada satu kepribadian yang paling dominan, dan kepribadian lainnya akan memberikan gambaran tentang lingkungan kerja yang sesuai dengan dirimu.</p>
 
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6tW0kLy6-X4?feature=oembed"></iframe>
-                                            </div> 
-                                            <div class="m-b-30" style="text-align:center;">Tes Holland atau Tes RIASEC</div>
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6tW0kLy6-X4?feature=oembed"></iframe>
+                                        </div> 
+                                        <div class="m-b-30" style="text-align:center;">Tes Holland atau Tes RIASEC</div>
 
-                                            <p class="font-14">Kalau sampai saat ini kamu termasuk orang yang bingung banget sama passion dan pekerjaan apa yang cocok, kamu bisa menggunakan layanan dari Satu Persen, yaitu konseling atau tes gratis.</p>
-                                            <p class="font-14">Dengan mengikuti konseling, kamu bisa lebih mendapat gambaran terkait bakat terpendam dengan bantuan psikolog profesional tentunya.</p>
-                                            <p class="font-14">Selain itu, untuk hasil yang lebih akurat, kamu juga bisa mendapatkan tes gratis, salah satunya Tes RIASEC ini. Mengenal diri dan tipe pekerjaan yang cocok sama diri kamu, jadi salah satu cara menjaga kesehatan mental dirimu!</p>
+                                        <p class="font-14">Kalau sampai saat ini kamu termasuk orang yang bingung banget sama passion dan pekerjaan apa yang cocok, kamu bisa menggunakan layanan dari Satu Persen, yaitu konseling atau tes gratis.</p>
+                                        <p class="font-14">Dengan mengikuti konseling, kamu bisa lebih mendapat gambaran terkait bakat terpendam dengan bantuan psikolog profesional tentunya.</p>
+                                        <p class="font-14">Selain itu, untuk hasil yang lebih akurat, kamu juga bisa mendapatkan tes gratis, salah satunya Tes RIASEC ini. Mengenal diri dan tipe pekerjaan yang cocok sama diri kamu, jadi salah satu cara menjaga kesehatan mental dirimu!</p>
 
-                                            <h6>Reference</h6>
-                                            <p class="font-14">Holland, J. L. (1959). A theory of vocational choice. Journal of counseling psychology, 6(1), 35.<br><br></p>
-                                            <p class="font-14">https://satupersen.net/blog/tes-riasec-adalah</p>
+                                        <h6>Reference</h6>
+                                        <p class="font-14">Holland, J. L. (1959). A theory of vocational choice. Journal of counseling psychology, 6(1), 35.</p>
+                                        <p class="font-14">Dilansir dari https://satupersen.net/blog/tes-riasec-adalah</p>
                                     </div>
                                 </div>
                             </div>

@@ -3489,8 +3489,43 @@ li.mulai-test:hover span:after {
 }
 
 
-/* 
-li.mulai-test:hover {
+
+li.hasil-test {
+    display: inline-block;
+    border-radius: 100px;
+    background-color: #03c383;
+    border: none;
+    color: #fff;
+    text-align: center;
+    width: 170px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+li.hasil-test span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+li.hasil-test span:after {
+    content: '\00bb';
+    color: #FFFFFF;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+li.hasil-test:hover span {
+    padding-right: 25px;
+}
+
+li.hasil-test:hover span:after {
     opacity: 1;
     right: 0;
-} */
+}
+

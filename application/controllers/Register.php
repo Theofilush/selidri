@@ -5,7 +5,7 @@ class Register extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
-	
+		$this->load->model('m_login');	
 		// if($this->session->userdata('status') != "login"){
 		// 	redirect(site_url("login"));
 		// } 	
@@ -104,97 +104,112 @@ class Register extends CI_Controller {
 	}
 
 	public function aksi_buatakun(){
-		$_email = $this->input->post('email');
-		$_cemail = $this->input->post('cemail');
-		$_asal_sekolah = $this->input->post('asal_sekolah');
-		$_no_handphone = $this->input->post('no_handphone');
-		$_prodi_pilihan = $this->input->post('prodi_pilihan');
-		$_captcha = $this->input->post('captcha');
-		$_nama_lengkap = $this->input->post('nama_lengkap');
-		$_tempPassword = $this->randomPassword();
+		if($this->input->post('btnSimpan') == "Simpan"){
+			$_email = $this->input->post('email');
+			$_cemail = $this->input->post('cemail');
+			$_asal_sekolah = $this->input->post('asal_sekolah');
+			$_no_handphone = $this->input->post('no_handphone');
+			$_prodi_pilihan = $this->input->post('prodi_pilihan');
+			$_captcha = $this->input->post('captcha');
+			$_nama_lengkap = $this->input->post('nama_lengkap');
+			$_tempPassword = $this->randomPassword();
 
-		if ($_email == $_cemail) {
-			$data = array(
-				'email' => $_email,
-				'asal_sekolah' => $_asal_sekolah,
-				'no_handphone' => $_no_handphone,
-				'prodi_pilihan' => $_prodi_pilihan,
-				'nama' => $_nama_lengkap,
-				'password' => $_tempPassword,
-				'active' => 0
-			);
+			if ($_email == $_cemail) {
 
-			$this->M_login->add_account($data);
+				$cek = $this->m_login->cek_login2("t_login",$_email); 
+				if($cek != null ){ 
+					$this->session->set_flashdata('notification', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+														<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+														Email sudah terdaftar, silakan login, jika lupa password harap hubungi administrator.
+													</div>');
+						redirect('login','refresh');
+				}
+				print_r($cek);exit();
 
-			$query = $this->db->query('SELECT * FROM temp_register WHERE email="'.$_email.'" ORDER BY no DESC');
-			$row = $query->row();
+				$data = array(
+					'email' => $_email,
+					'asal_sekolah' => $_asal_sekolah,
+					'no_handphone' => $_no_handphone,
+					'prodi_pilihan' => $_prodi_pilihan,
+					'nama' => $_nama_lengkap,
+					'password' => $_tempPassword,
+					'active' => 0
+				);
 
-			if (isset($row)){
-				$id = $row->no;
-			}
-			$encrypted_id = md5($id);
-			
-			$config = array();
-			$config['charset'] = 'utf-8';
-			$config['useragent'] = 'Codeigniter';
-			$config['protocol']= "smtp";
-			$config['mailtype']= "html";
-			$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
-			$config['smtp_port']= "465";
-			$config['smtp_timeout']= "400";
-			$config['smtp_user']= "syakilagha@gmail.com"; // isi dengan email kamu
-			$config['smtp_pass']= "Xesobuj3"; // isi dengan password kamu
-			$config['crlf']="\r\n";
-			$config['newline']="\r\n";
-			$config['wordwrap'] = TRUE;
+				$this->M_login->add_account($data);
 
-			// //memanggil library email dan set konfigurasi untuk pengiriman email
-			$this->email->initialize($config);
+				$query = $this->db->query('SELECT * FROM temp_register WHERE email="'.$_email.'" ORDER BY no DESC');
+				$row = $query->row();
 
-			//konfigurasi pengiriman
-			$this->email->from($config['smtp_user']);
-			$this->email->to($_email);
-			$this->email->subject("Verifikasi Akun");
-			$this->email->message(
-				"Hai $_nama_lengkap, Terimakasih telah melakukan pendaftaran online.<br><br> Berikut informasi login sementara akun anda:<br>
-				<b>email : </b> $_email  <br>
-				<b>password : </b> $_tempPassword  <br><Br>
+				if (isset($row)){
+					$id = $row->no;
+				}
+				$encrypted_id = md5($id);
 				
-				Silahkan verifikasi akun anda, WAJIB dibuka <br><br>".
-				site_url("register/verifikasi/$encrypted_id/$id")
-			);
+				$config = array();
+				$config['charset'] = 'utf-8';
+				$config['useragent'] = 'Codeigniter';
+				$config['protocol']= "smtp";
+				$config['mailtype']= "html";
+				$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+				$config['smtp_port']= "465";
+				$config['smtp_timeout']= "400";
+				$config['smtp_user']= "syakilagha@gmail.com"; // isi dengan email kamu
+				$config['smtp_pass']= "Xesobuj3"; // isi dengan password kamu
+				$config['crlf']="\r\n";
+				$config['newline']="\r\n";
+				$config['wordwrap'] = TRUE;
 
-			if(md5($_captcha) == $this->session->userdata('keycode')){
-				$data['nama'] = $_nama_lengkap;
-				$data['captcha']= $_captcha;
-				$this->session->unset_userdata('keycode');
+				// //memanggil library email dan set konfigurasi untuk pengiriman email
+				$this->email->initialize($config);
 
-				//notifikasi registrasi berhasil
-				if($this->email->send()){
-					$this->session->set_flashdata('notification', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-					                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					                                    <span aria-hidden="true">&times;</span>
-					                                </button>
-					                                Email terkirim, diharapkan untuk verifikasi melalui email
-					                            </div>');
-					redirect('login','refresh'); 
+				//konfigurasi pengiriman
+				$this->email->from($config['smtp_user']);
+				$this->email->to($_email);
+				$this->email->subject("Verifikasi Akun");
+				$this->email->message(
+					"Hai $_nama_lengkap, Terimakasih telah melakukan pendaftaran online.<br><br> Berikut informasi login sementara akun anda:<br>
+					<b>email : </b> $_email  <br>
+					<b>password : </b> $_tempPassword  <br><Br>
+					
+					Silahkan verifikasi akun anda, WAJIB dibuka <br><br>".
+					site_url("register/verifikasi/$encrypted_id/$id")
+				);
+
+				if(md5($_captcha) == $this->session->userdata('keycode')){
+					$data['nama'] = $_nama_lengkap;
+					$data['captcha']= $_captcha;
+					$this->session->unset_userdata('keycode');
+
+					//notifikasi registrasi berhasil
+					if($this->email->send()){
+						$this->session->set_flashdata('notification', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+														<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+														Email terkirim, diharapkan untuk verifikasi melalui email
+													</div>');
+						redirect('login','refresh'); 
+					}
+					else {
+						$this->session->set_flashdata('notification', '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin: 0px;">
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											Registrasi berhasil, tetapi tidak dapat mengirimkan aktivasi email. Hubungi administrator!
+											</div>');
+						redirect('login','refresh');
+					}
 				}
 				else {
-					$this->session->set_flashdata('notification', '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin: 0px;">
-			                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			                                    <span aria-hidden="true">&times;</span>
-			                                </button>
-			                               Registrasi berhasil, tetapi tidak dapat mengirimkan aktivasi email. Hubungi administrator!
-			                            </div>');
-			        redirect('login','refresh');
+					redirect('Register/buat_akun/?cap_error=1','refresh');
 				}
 			}
-			else {
-				redirect('Register/buat_akun/?cap_error=1','refresh');
+			else { //jika email tidak sama
+				redirect('Register/notifikasi_error','refresh');
 			}
-		}
-		else { //jika email tidak sama
-			redirect('Register/notifikasi_error','refresh');
 		}
 	}
 

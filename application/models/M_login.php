@@ -3,10 +3,16 @@
 defined('BASEPATH') OR exit('Anda tidak boleh mengakses file ini secara langsung'); 
 class M_login extends CI_Model{	
 
-	function cek_login($table,$usn){		
+	function cek_login($table,$usn){
 		$this->db->where("email", $usn);
 		$query = $this->db->get("t_login");
 	    return $query;
+	}
+
+    function cek_login2($table,$usn){
+		$this->db->where("email", $usn);
+		$query = $this->db->get("t_login");
+	    return $query->result();
 	}
 
 	function hak_ak($usan){          

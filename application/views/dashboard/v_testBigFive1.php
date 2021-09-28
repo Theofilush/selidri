@@ -192,7 +192,7 @@
                                         <p class="font-14">Mind Tools Content Team. (n.d). The Big Five Personality Traits Model and Test. Retrieved from MindTools: https://www.mindtools.com/pages/article/newCDV_22.htm</p>
                                         <p class="font-14">Science of People. (n.d). Take Our Free Personality Quiz and See Where You Rank for the Big 5 Traits. Retrieved from Science of People.</p>
                                         <p class="font-14">Thiel, E. v. (2020, February 11). Big Five personality test traits. Retrieved from 123test: https://www.123test.com/big-five-personality-theory/</p>
-                                        <p class="font-14">https://satupersen.net/blog/tes-ocean-adalah</p>
+                                        <p class="font-14">Dilansir dari https://satupersen.net/blog/tes-ocean-adalah</p>
 
                                     </div>
                                 </div>

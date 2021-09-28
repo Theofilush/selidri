@@ -12,15 +12,21 @@ class Pengelolaan extends CI_Controller {
 	}
 
 	public function index(){
-		redirect(site_url("Pengaturan/data_hasil"));
+		redirect(site_url("Pengelolaan/data_prodi"));
     }
     
     public function data_prodi(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
-		  'title'=>"Data Prodi",		
+		  'title'=>"Data Prodi",
 		  'da' => $kue,
         );
 		$this->load->view('dashboard/v_header', $dataHalaman);
@@ -33,6 +39,12 @@ class Pengelolaan extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 		$queryTampilCamaba = $this->M_dokumen->tampil_daftar_data_camaba();
 		$queryTampilDosen = $this->M_dokumen->tampil_daftar_data_dosen();
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Data Camaba",		
@@ -48,6 +60,12 @@ class Pengelolaan extends CI_Controller {
 	public function data_camaba_tambah1(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Data Camaba",		
@@ -61,6 +79,12 @@ class Pengelolaan extends CI_Controller {
 	public function data_camaba_tambah2(){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Data Camaba",		
@@ -134,10 +158,16 @@ class Pengelolaan extends CI_Controller {
 		}
 	}
 
-	public function data_camaba_detail1($id){ // butuh pengeditannnnnnnnnnnnnnnnnnnnnnnnnnn
+	public function data_camaba_detail1($id){
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 		$queryTampilCamaba = $this->M_dokumen->tampil_data_edit_camaba($id);
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Data Camaba",		
@@ -153,6 +183,12 @@ class Pengelolaan extends CI_Controller {
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 		$queryTampilDosen = $this->M_dokumen->tampil_data_edit_dosen($id);
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Data Camaba",		
@@ -289,6 +325,12 @@ class Pengelolaan extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan);
 		$queryHolland = $this->M_dokumen->tampil_daftar_soal_holland();
 		$queryBigFive = $this->M_dokumen->tampil_daftar_soal_bigfive();
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Data Pengukuran",		
@@ -305,6 +347,12 @@ class Pengelolaan extends CI_Controller {
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 		$query = $this->M_dokumen->tampil_hasil_tes();
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Data Hasil",
@@ -320,6 +368,13 @@ class Pengelolaan extends CI_Controller {
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 		$queryHolland = $this->M_dokumen->tampil_soal_holland($id_soal);
+		
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Edit Data",
@@ -335,6 +390,12 @@ class Pengelolaan extends CI_Controller {
 		$usan = $this->session->userdata('email');
 		$kue = $this->M_login->hak_ak($usan);
 		$queryBigFive = $this->M_dokumen->tampil_soal_bigfive($id_soal);
+		foreach($kue as $key){$kuee = $key;}
+		$querycek = $this->M_dokumen->cekSudahIsiTesBigFive($kuee->no);
+
+		if ($querycek[0]->author == 'camaba') {
+			redirect(site_url('Dashboard'));
+		}
 
 		$dataHalaman = array(
 		  'title'=>"Edit Data",

@@ -130,15 +130,11 @@
                                 <h2 class="mt-0 ">Mengenal Tipe Kepribadian Holland atau RIASEC</h2>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div style="text-align:center;margin: 20px;">
+                                        <div style="text-align:center;margin: 20px 20px 0;">
                                             <img src="<?php echo base_url() ?>assets/images/holland2.jpg" alt="holland1" style="height:20vw;">
                                         </div> 
                                         <div class="m-b-30" style="text-align:center;">ilustrasi: satupersen, mengenal tipe RIASEC</div>
-                                        <p class="font-14">Hai, Perseners! Kenalin aku Nida, Associate Writer Satu Persen.</p>
-                                        <p class="font-14">Nah, di artikel sebelumnya aku ada ngebahas tentang tes psikologi yang bernama RIASEC. Perseners udah baca belum? Kalau belum, bisa baca dulu nih artikel aku di sini.</p>
-                                        <p class="font-14">Di artikel itu, aku ngebahas apa sih RIASEC Test itu? Gimana perkembangan tesnya? dan tujuan dari tesnya itu apa?</p>
-                                        <p class="font-14">Kalau kamu belum baca, aku akan bahas sedikit disini, buat ngebantu kamu mengingat atau mengetahui secara singkat tentang tes ini.</p>
-                                        <p class="font-14">Jadi, RIASEC Test merupakan tes psikologi yang dapat kamu gunakan untuk mengenal diri, serta membantu memperkirakan karier apa yang cocok untuk diri kamu. Tes ini dikembangkan berdasarkan teori kepribadian dari John Holland, seorang Psikolog di Amerika.</p>
+                                        <p class="font-14">Tes Holland atau bisa disebut RIASEC Test merupakan tes psikologi yang dapat kamu gunakan untuk mengenal diri, serta membantu memperkirakan karier apa yang cocok untuk diri kamu. Tes ini dikembangkan berdasarkan teori kepribadian dari John Holland, seorang Psikolog di Amerika.</p>
                                         <p class="font-14">Menurut Holland, setiap orang memiliki satu tipe kepribadian yang dominan, tipe kepribadiannya ini dapat memperkirakan pekerjaan apa yang cocok untuknya, serta lingkungan kerja seperti apa yang membuatnya nyaman.</p>
                                         <p class="font-14">Nah, tes ini bisa sangat membantu ketika kamu masih merasa bingung dengan passion atau karier seperti apa yang cocok buat kamu.</p>
                                         <p class="font-14">Oke, di artikel ini kita kenalan sama enam tipe kepribadian yang ada di Tes RIASEC ini yuk! Akan ada satu, dua, atau tiga kepribadian yang cenderung menggambarkan dirimu, tapi di antara ketiga tipe itu, cuma ada satu nih, yang dominan.</p>
@@ -182,11 +178,11 @@
                                         <p class="font-14">Nah, dari keenam tipe kepribadian ini, mana tipe yang paling sesuai dengan diri kamu? Setiap orang mungkin memiliki tiga tipe kepribadian yang akan memperkirakan pekerjaan dan lingkungan kerja kayak gimana yang pas untuk kamu.</p>
                                         <p class="font-14">Eits.. tapi dari pada kamu menebak-nebak apa tipe kepribadianmu dan kamu mau hasil yang lebih akurat untuk menggambarkan diri kamu, kamu bisa mengkonsultasikannya ke Psikolog Satu Persen.</p>
                                         <p class="font-14">Psikolog akan membantu menyesuaikan potensi yang kamu miliki dengan tipe kepribadian, serta karier seperti apa yang cocok untuk kamu.</p>
-                                        <p class="font-14">Terima kasih sudah membaca artikel ini, jangan lupa untuk membaca artikel mengenai RIASEC Test lainnya. Aku Nida, thank you!</p>
+                                        <p class="font-14">Terima kasih sudah membaca artikel ini, jangan lupa untuk membaca artikel mengenai RIASEC Test lainnya.</p>
 
                                         <h6>Reference</h6>
-                                        <p class="font-14">Holland, J. L. (1959). A theory of vocational choice. Journal of counseling psychology, 6(1), 35.<br><br></p>
-                                        <p class="font-14">https://satupersen.net/blog/mengenal-tipe-kepribadian-riasec</p>
+                                        <p class="font-14">Holland, J. L. (1959). A theory of vocational choice. Journal of counseling psychology, 6(1), 35.</p>
+                                        <p class="font-14">Dilansir dari https://satupersen.net/blog/mengenal-tipe-kepribadian-riasec</p>
                                     </div>
                                 </div>
                             </div>

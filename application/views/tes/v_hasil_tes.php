@@ -27,7 +27,8 @@
                                     <?php
                                         foreach ($queryIntrepretasi as $roq) {
                                     ?>
-                                    <p><?php echo $roq->rekomendasi ; ?>:</p>
+                                    <!-- <p>?php echo $roq->rekomendasi ; ?></p> -->
+                                    <?php echo ( $roq->rekomendasi == null ? "Belum Melakukan Tes" : $roq->rekomendasi ) ?>
                                     <?php
                                         }
                                     ?>
@@ -132,6 +133,7 @@
                                                     foreach ($queryIntrepretasi as $rot) {
                                                 ?>
                                                 <div class="pt-3">
+                                                <h6>Keterangan:</h6>
                                                     <p><?php echo $rot->deskripsi ; ?>:</p>
                                                 </div>
                                                 <?php
@@ -170,11 +172,14 @@
                                                 </table>
                                                 <div class="pt-3">
                                                     <a href="<?php echo base_url() ?>Dashboard/tes_big_five1" target="_blank" class="btn btn-success btn-block">Ayok Cek Arti Istilah OCEAN</a>
-                                                </div> 
+                                                </div>
+                                                <div class="pt-3">
+                                                    <h6>Keterangan:</h6> 
+                                                </div>
                                                 <?php
                                                     foreach ($queryo as $rot) {
                                                 ?>
-                                                <div class="pt-3">
+                                                <div class="">
                                                     <p><?php echo $rot->dimensi ; ?> - <?php echo $rot->deskripsi ; ?></p>
                                                 </div>
                                                 <?php

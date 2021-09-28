@@ -1,46 +1,78 @@
-<div class="col-xl-4">
+<?php foreach ($queryCekSudahIsiTes as $key) { $isiTesHolland = $key->isi_tes_holland; $isiTesBigFive = $key->isi_tes_bigfive; } ?>
+                    <div class="col-xl-4">
                         <div class="card">
+                            <div class="card-body">
+                                <h4 class="mt-0 header-title mb-4">Program studi Pilihan kamu</h4>
+                                <div class="text-center">
+                                </div>
+                                <?php
+                                    foreach ($queryRekomendasi1 as $rok) {
+                                ?>
+                                <div class="row"> <!-- mt-5 -->
+                                    <div class="col-md-12">
+                                        <div class="social-source text-center mt-3">
+                                            <div class="social-source-icon mb-2">
+                                                <i class="mdi mdi-graphql h5 bg-dark text-white"></i>
+                                            </div>
+                                            <h6>
+                                                <?php echo $rok->prodi_pilihan ; ?>
+                                            </h6>
+                                            <?php if ($isiTesHolland == "belum" || $isiTesBigFive == "belum") {  ?>
+                                                <a href="<?php echo site_url() ?>Biodata/isi_biodata" class="text-primary font-14">Saya ingin mengubahnya <i class="mdi mdi-chevron-right"></i></a>
+                                            <?php }  ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                                    }
+                                ?>
+                            </div>
                             <div class="card-body">
                                 <h4 class="mt-0 header-title mb-4">Rekomendasi Prodi</h4>
                                 <div class="text-center">
-                                    <div class="social-source-icon lg-icon mb-3">
+                                    <!-- <div class="social-source-icon lg-icon mb-3">
                                         <i class="mdi mdi-facebook h2 bg-primary text-white"></i>
-                                    </div>
-                                    <h5 class="font-16"><a href="#" class="text-dark">Facebook - <span class="text-muted">125 sales</span> </a></h5>
-                                    <p class="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis tincidunt.</p>
-                                    <a href="#" class="text-primary font-14">Learn more <i class="mdi mdi-chevron-right"></i></a>
+                                    </div> -->
+                                    <p class="text-muted">Pengujian berdasarkan minat dan bakat direkomendasikan pada program pilihan berikut</p>
                                 </div>
-                                <div class="row mt-5">
-                                    <div class="col-md-4">
+                                <?php
+                                    foreach ($queryRekomendasi2 as $rou) {
+                                ?>
+                                <div class="row"> <!-- mt-5 -->
+                                    <div class="col-md-6">
                                         <div class="social-source text-center mt-3">
                                             <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-facebook h5 bg-primary text-white"></i>
+                                                <i class="mdi mdi-graphql h5 bg-primary text-white"></i>
                                             </div>
-                                            <p class="font-14 text-muted mb-2">125 sales</p>
-                                            <h6>Facebook</h6>
+                                            <p class="font-14 text-muted mb-2">Pilihan 1 <br><small>(Tes Holland)</small> </p>
+                                            <h6>
+                                            <?php
+                                                foreach ($queryRekomendasi1 as $roq) {
+                                            ?>
+                                            <?php echo $roq->rekomendasi ; ?>
+                                            <?php
+                                                }
+                                            ?>
+                                            </h6>
+                                            <!-- <ul class="list-unstyled mb-0">
+                                            <li>Desain Komunikasi Visual</li><li>Desain Produk</li></ul> -->
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="social-source text-center mt-3">
                                             <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-twitter h5 bg-info text-white"></i>
+                                                <i class="mdi mdi-graphql h5 bg-pink text-white"></i>
                                             </div>
-                                            <p class="font-14 text-muted mb-2">112 sales</p>
-                                            <h6>Twitter</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="social-source text-center mt-3">
-                                            <div class="social-source-icon mb-2">
-                                                <i class="mdi mdi-instagram h5 bg-pink text-white"></i>
-                                            </div>
-                                            <p class="font-14 text-muted mb-2">104 sales</p>
-                                            <h6>Instagram</h6>
-                                            
+                                            <p class="font-14 text-muted mb-2">Pilihan 2 <br><small>(Tes Big Five)</small></p>
+                                            <h6>
+                                                <?php echo ($rou->rekomendasi_prodi2 == null ? "Belum Melakukan Tes" : $rou->rekomendasi_prodi2 ) ?>
+                                            </h6>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                         
