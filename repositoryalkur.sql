@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Sep 2021 pada 10.14
+-- Waktu pembuatan: 28 Sep 2021 pada 10.58
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.21
 
@@ -103,7 +103,7 @@ CREATE TABLE `data_diri` (
 
 INSERT INTO `data_diri` (`id_datadiri`, `id_camaba`, `id_dataakademik`, `id_datasekolah`, `id_datapilprod`, `nik`, `nama_lengkap`, `email_bio`, `tempat_lahir`, `tanggal_lahir`, `no_telp`, `nama_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nama_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `file_aktalahir`, `file_nilairaport`) VALUES
 (3, 56, 0, 0, 0, '87', '', '', '', '0000-00-00', '', '', '', 0, '', '', 0, '', ''),
-(5, 17, 16, 16, 16, '1234', 'Theofilus Handoyo', 'realth99@gmail.com', '', '2021-08-04', NULL, '', '', 0, '', NULL, 0, '', ''),
+(5, 25, 16, 16, 16, '1234', 'Theofilus Handoyo', 'realth99@gmail.com', '', '2021-08-04', NULL, '', '', 0, '', NULL, 0, '', ''),
 (6, 1, 1, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -310,7 +310,7 @@ INSERT INTO `intrepretasi_bigfive` (`no`, `tipe`, `rekomendasi`) VALUES
 (14, 'E', 'Komunikasi '),
 (15, 'EA', 'Komunikasi, Psikologi'),
 (16, 'CA', 'Akuntansi, Manajemen'),
-(17, 'OCEAN', 'Desain Komunikasi Visual, Desain Produk'),
+(17, 'OCEAN', 'Desain Komunikasi Visual, <br>Desain Produk'),
 (18, 'OCEN', 'Desain Komunikasi Visual, Desain Produk, Teknik Sipil'),
 (19, 'OCN', 'Arsitektur'),
 (20, 'ON', 'Desain Produk, Desain Komunikasi Visual, Arsitektur'),
@@ -541,7 +541,7 @@ CREATE TABLE `t_jawaban` (
 --
 
 INSERT INTO `t_jawaban` (`id_jawaban`, `id_peserta`, `tanggal`, `r1`, `r2`, `r3`, `i1`, `i2`, `i3`, `a1`, `a2`, `a3`, `s1`, `s2`, `s3`, `e1`, `e2`, `e3`, `c1`, `c2`, `c3`, `R_holland`, `I_holland`, `A_holland`, `S_holland`, `E_holland`, `C_holland`, `O`, `C`, `E`, `A`, `N`, `dimensi_o`, `dimensi_c`, `dimensi_e`, `dimensi_a`, `dimensi_n`, `rekomendasi_prodi1`, `rekomendasi_prodi2`, `rekomendasi_prodi3`) VALUES
-(46, '25', '2021-08-30 06:36:46', 10, 6, 11, 9, 9, 9, 9, 2, 3, 9, 5, 8, 9, 7, 4, 11, 7, 6, 27, 27, 14, 22, 20, 24, 29, 27, 28, 36, 32, 'O Tinggi', 'C Tinggi', 'E Tinggi', 'A Tinggi', 'N Tinggi', 'Manajemen, ', 'Desain Komunikasi Visual, Desain Produk', '');
+(46, '25', '2021-08-30 06:36:46', 10, 6, 11, 9, 9, 9, 9, 2, 3, 9, 5, 8, 9, 7, 4, 11, 7, 6, 27, 27, 14, 22, 20, 24, 29, 27, 28, 36, 32, 'O Tinggi', 'C Tinggi', 'E Tinggi', 'A Tinggi', 'N Tinggi', 'Manajemen', 'Desain Komunikasi Visual<br>\nDesain Produk', '');
 
 -- --------------------------------------------------------
 
