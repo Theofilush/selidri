@@ -93,7 +93,8 @@ class Register extends CI_Controller {
 			"id_datasekolah" =>$id,
 			"id_datapilprod" =>$id,
 		);
-		$this->M_login->insert_TLogin($data,$datal);
+		$this->M_login->insert_TLogin($data);
+		$this->M_login->insert_TLogin2($datal);
 
 		$this->M_login->delete_tempRegister($id);
 

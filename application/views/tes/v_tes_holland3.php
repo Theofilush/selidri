@@ -151,7 +151,7 @@
                                         <div>
                                             <div class="icheck-clouds">
                                                 <input type="radio" id="sa3<?php echo $no; ?>" name="s3<?php echo $no; ?>" value="1" required>
-                                                <label for="sa3<?php echo $no; ?>"> SUka
+                                                <label for="sa3<?php echo $no; ?>"> Suka
                                                 </label>
                                             </div>
                                             <div class="icheck-clouds">
